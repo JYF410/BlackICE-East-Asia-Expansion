@@ -1,0 +1,376 @@
+﻿intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_usa
+  names = {
+    "战略情报局"  #美国# #Office of Strategic Services
+  }
+  default = {
+    tag = USA
+  }
+  available = {
+    original_tag = USA
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_uk
+  names = {
+    "军情六处"  #英国#
+    "秘密情报局"
+  }
+  default = {
+    tag = ENG
+  }
+  available = {
+    original_tag = ENG
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_sov
+  names = {
+    "内务人民委员部"  #苏联#
+  }
+  default = {
+    tag = SOV
+  }
+  available = {
+    original_tag = SOV
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_fra
+  names = {
+    "国家安全总局"  #法国# # Direction Générale de la Sûreté Nationale
+  }
+  default = {
+    tag = FRA
+  }
+  available = {
+    original_tag = FRA
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_ger
+  names = {
+    "阿勃维尔"  #德国# # Abwehr
+  }
+  default = {
+    tag = GER
+  }
+  available = {
+    original_tag = GER
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_jap
+  names = {
+    "陆军总参谋部第二局"  #日本# # G-2 Department
+    "第三局"  # Section 3
+  }
+  default = {
+    tag = JAP
+  }
+  available = {
+    original_tag = JAP
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_ita
+  names = {
+    "秘密军事情报局"  #意大利# # Servizio Informazioni Militari
+  }
+  default = {
+    tag = ITA
+  }
+  available = {
+    original_tag = ITA
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_swe
+  names = {
+    "C-办公室"  #瑞典# # C-byrån
+  }
+  default = {
+    tag = SWE
+  }
+  available = {
+    original_tag = SWE
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_nor
+  names = {
+    "E-情报局"  # E-tjenesten
+  }
+  default = {
+    tag = NOR
+  }
+  available = {
+    original_tag = NOR
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_bel
+  names = {
+    "情报与安全总局"
+    "国家安全局"
+  }
+  default = {
+    tag = BEL
+  }
+  available = {
+    original_tag = BEL
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_hol
+  names = {
+    "情报局"  #荷兰# # Bureau Inlichtingen
+  }
+  default = {
+    tag = HOL
+  }
+  available = {
+    original_tag = HOL
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_rom
+  names = {
+    "特别情报局"  #罗马尼亚# # Serviciul Special de Informatii
+  }
+  default = {
+    tag = ROM
+  }
+  available = {
+    original_tag = ROM
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_prc
+  names = {
+    "中央军事委员会情报部"  #中共# # Intelligence Department Central Military Commission
+  }
+  default = {
+    tag = PRC
+  }
+  available = {
+    original_tag = PRC
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_chi
+  names = {
+    "国民政府军事委员会调查统计局"  #中华民国# # BIS
+  }
+  default = {
+    tag = CHI
+  }
+  available = {
+    original_tag = CHI
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_yug
+  names = {
+    "总参谋部二局"  #南斯拉夫# # Другу дирекцију Главног ђенералштаба
+  }
+  default = {
+    tag = YUG
+  }
+  available = {
+    original_tag = YUG
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_spr
+  names = {
+    "SIM"  #西属摩洛哥#
+  }
+  default = {
+    tag = SPR
+  }
+  available = {
+    original_tag = SPR
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_spa
+  names = {
+    "最高参谋部第三情报局"  #西班牙# # Tercera Sección de Información del Alto Estado Mayor
+  }
+  default = {
+    tag = SPA
+  }
+  available = {
+    original_tag = SPA
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_pol
+  names = {
+    "总参谋部二局"  #波兰# # Oddział II Sztabu Generalnego Wojska Polskiego
+  }
+  default = {
+    tag = POL
+  }
+  available = {
+    original_tag = POL
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_man
+  names = {
+    "保安局"  #伪满# # ほあんきょく
+  }
+  default = {
+    tag = MAN
+  }
+  available = {
+    original_tag = MAN
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_por
+  names = {
+    "国家情报与安全警察"  #葡萄牙# # Polícia de Vigilância e de Defesa do Estado
+  }
+  default = {
+    tag = POR
+  }
+  available = {
+    original_tag = POR
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_fin
+  names = {
+    "军事情报部门"  #芬兰# # Intelligence Division，PE TIEDOS
+  }
+  default = {
+    tag = FIN
+  }
+  available = {
+    original_tag = FIN
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_generic_1
+  names = {
+    "中央参谋部二局"  #捷克斯洛伐克# # Druhé oddělení hlavního štábu
+  }
+  default = {
+    tag = CZE
+  }
+  available = {
+    original_tag = CZE
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_generic_1
+  names = {
+    "总参谋部二局"  #匈牙利# # Vezérkari Főnökség 2
+  }
+  default = {
+    tag = HUN
+  }
+  available = {
+    original_tag = HUN
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_generic_1
+  names = {
+    "秘密情报局"  #罗马尼亚# # Serviciul Secret de Informaţii
+  }
+  default = {
+    tag = ROM
+  }
+  available = {
+    original_tag = ROM
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_generic_2
+  names = {
+    "劳动党对外联络部"  #朝鲜#
+  }
+  default = {
+    tag = KOR
+  }
+  available = {
+    original_tag = KOR
+  }
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_generic_1
+  names = {
+    "鲁克"  # Rooke
+  }
+  default = {}
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_generic_2
+  names = {
+    "高塔"  # Tower
+  }
+  available = {}
+  default = {}
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_generic_3
+  names = {
+    "蛇"  # Snake
+  }
+  available = {}
+  default = {}
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_generic_4
+  names = {
+    "雄鹿"  # Stag
+  }
+  available = {}
+  default = {}
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_generic_5
+  names = {
+    "金狮"  # Golden Lion
+  }
+  available = {}
+  default = {}
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_generic_6
+  names = {
+    "箭"  # Arrow
+  }
+  available = {}
+  default = {}
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_generic_7
+  names = {
+    "狮头"  # Lion Head
+  }
+  available = {}
+  default = {}
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_generic_8
+  names = {
+    "金鹰"  # Golden Eagle
+  }
+  available = {}
+  default = {}
+}
+intelligence_agency = {
+  picture = GFX_intelligence_agency_logo_generic_9
+  names = {
+    "锤头与镰刀"  # Hammer and Sickle
+  }
+  available = {
+    has_government = communism
+  }
+  default = {}
+}

@@ -1,0 +1,32 @@
+SpriteTypes = {
+
+	SpriteType = {
+		name = "GFX_relation_close_cooperation"
+		texturefile = "gfx/interface/goals/goal_generic_improve_relation.dds"
+	}
+	SpriteType = {
+		name = "GFX_relation_ROM_foreign_built_army"
+		texturefile = "gfx/interface/goals/focus_generic_tank_assembly.dds"
+	}
+	SpriteType = {
+		name = "GFX_relation_ROM_license_german_equipment"
+		texturefile = "gfx/interface/goals/focus_generic_german_trade.dds"
+	}
+	SpriteType = {
+		name = "GFX_relation_ROM_foreign_motor_company"
+		texturefile = "gfx/interface/goals/focus_generic_road_investment.dds"
+	}
+	SpriteType = {
+		name = "GFX_relation_YUG_western_license"
+		texturefile = "gfx/interface/goals/focus_generic_monetary_union.dds"
+	}
+	SpriteType = {
+		name = "GFX_relation_free_license"
+		texturefile = "gfx/interface/goals/goal_generic_improve_relation.dds"
+	}
+	SpriteType = {
+		name = "GFX_relation_license_air_equipment"
+		texturefile = "gfx/interface/goals/focus_generic_air_partners.dds"
+	}
+	
+}

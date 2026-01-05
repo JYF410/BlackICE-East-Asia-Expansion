@@ -1,0 +1,360 @@
+ideas = {
+
+	country = {
+		GER_enigma_1 = {
+			name = GER_enigma_code_1
+			picture = generic_spy_intel
+			allowed = {
+				always = no
+			}
+			modifier = {
+				encryption = 0.5
+			}
+		}
+		GER_enigma_2 = {
+			name = GER_enigma_code_2
+			picture = generic_spy_intel
+			allowed = {
+				always = no
+			}
+			modifier = {
+				encryption = 1
+			}
+			equipment_bonus = {
+				submarine = {
+					sub_visibility = -0.01 instant = yes
+				}
+			}
+
+		}
+		GER_enigma_3 = {
+			name = GER_enigma_code_3
+			picture = generic_spy_intel
+			allowed = {
+				always = no
+			}
+			modifier = {
+				encryption = 1.5
+			}
+			equipment_bonus = {
+				submarine = {
+					sub_visibility = -0.02 instant = yes
+				}
+			}
+		}
+		GER_enigma_4 = {
+			name = GER_enigma_code_4
+			picture = generic_spy_intel
+			allowed = {
+				always = no
+			}
+			modifier = {
+				encryption = 2
+			}
+			equipment_bonus = {
+				submarine = {
+					sub_visibility = -0.03 instant = yes
+				}
+			}
+		}
+		GER_enigma_5 = {
+			name = GER_enigma_code_5
+			picture = generic_spy_intel
+			allowed = {
+				always = no
+			}
+			modifier = {
+				encryption = 2.5
+			}
+			equipment_bonus = {
+				submarine = {
+					sub_visibility = -0.04 instant = yes
+				}
+			}
+		}
+		GER_enigma_6 = {
+			name = GER_enigma_code_6
+			picture = generic_spy_intel
+			allowed = {
+				always = no
+			}
+			modifier = {
+				encryption = 3
+			}
+			equipment_bonus = {
+				submarine = {
+					sub_visibility = -0.05 instant = yes
+				}
+			}
+		}
+		GER_enigma_1_lar = {
+			name = GER_enigma_code_1
+			picture = generic_spy_intel
+			allowed = {
+				always = no
+			}
+			modifier = {
+				crypto_strength = 1
+			}
+		}
+		GER_enigma_2_lar = {
+			name = GER_enigma_code_2
+			picture = generic_spy_intel
+			allowed = {
+				always = no
+			}
+			modifier = {
+				crypto_strength = 2
+			}
+			equipment_bonus = {
+				submarine = {
+					sub_visibility = -0.01 instant = yes
+				}
+			}
+		}
+		GER_enigma_3_lar = {
+			name = GER_enigma_code_3
+			picture = generic_spy_intel
+			allowed = {
+				always = no
+			}
+			modifier = {
+				crypto_strength = 3
+			}
+			equipment_bonus = {
+				submarine = {
+					sub_visibility = -0.02 instant = yes
+				}
+			}
+		}
+		GER_enigma_4_lar = {
+			name = GER_enigma_code_4
+			picture = generic_spy_intel
+			allowed = {
+				always = no
+			}
+			modifier = {
+				crypto_strength = 4
+			}
+			equipment_bonus = {
+				submarine = {
+					sub_visibility = -0.03 instant = yes
+				}
+			}
+		}
+		GER_enigma_5_lar = {
+			name = GER_enigma_code_5
+			picture = generic_spy_intel
+			allowed = {
+				always = no
+			}
+			modifier = {
+				crypto_strength = 5
+			}
+			equipment_bonus = {
+				submarine = {
+					sub_visibility = -0.04 instant = yes
+				}
+			}
+		}
+		GER_enigma_6_lar = {
+			name = GER_enigma_code_6
+			picture = generic_spy_intel
+			allowed = {
+				always = no
+			}
+			modifier = {
+				crypto_strength = 6
+			}
+			equipment_bonus = {
+				submarine = {
+					sub_visibility = -0.05 instant = yes
+				}
+			}
+		}
+		Bletchley_Park = {
+			allowed = {
+				always = no
+			}
+			
+			picture = generic_spy_coup
+			
+			research_bonus = {
+				computing_tech = 0.10
+				decryption_tech = 0.10
+			}
+			modifier = {
+				decryption = 1
+			}
+			
+			removal_cost = -1
+		}
+		Bletchley_Park_lar = {
+			allowed = {
+				always = no
+			}
+			
+			name = Bletchley_Park
+			picture = generic_spy_coup
+			
+			research_bonus = {
+				computing_tech = 0.10
+				decryption_tech = 0.10
+			}
+			modifier = {
+				decryption_power_factor = 0.1
+			}
+			
+			removal_cost = -1
+		}
+		changing_enigma_codes_lar = {
+		
+			allowed = {
+				always = no
+			}
+			
+			picture = generic_spy_coup
+			modifier = {
+				crypto_strength = 2
+			}
+			removal_cost = -1
+		}
+		changing_enigma_codes = {
+		
+			allowed = {
+				always = no
+			}
+			
+			picture = generic_spy_coup
+			modifier = {
+				encryption = 2
+			}
+			removal_cost = -1
+		}
+		enigma_m4 = {
+		
+			allowed = {
+				always = no
+			}
+			
+			picture = generic_spy_coup
+			modifier = {
+				convoy_raiding_efficiency_factor = 0.1
+				navy_submarine_attack_factor = 0.1
+				sub_retreat_speed = 0.1
+			}
+			removal_cost = -1
+		}
+		
+		steel_imports = {
+			picture = VIC_rule_economy
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				country_resource_steel = 4 
+			}
+			removal_cost = -1			
+		}
+		oil_imports = {
+			picture = VIC_rule_economy
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				country_resource_oil = 4 
+			}
+			removal_cost = -1			
+		}
+		aluminium_imports = {
+			picture = VIC_rule_economy
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				country_resource_aluminium = 4
+			}
+			removal_cost = -1			
+		}	
+		rubber_imports = {
+			picture = VIC_rule_economy
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				country_resource_rubber = 4 
+			}
+			removal_cost = -1			
+		}
+		tungsten_imports = {
+			picture = VIC_rule_economy
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				country_resource_tungsten = 4 
+			}
+			removal_cost = -1			
+		}
+		chromium_imports = {
+			picture = VIC_rule_economy
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				country_resource_chromium = 4 
+			}
+			removal_cost = -1			
+		}
+		coal_imports = {
+			picture = VIC_rule_economy
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				country_resource_coal = 4 
+			}
+			removal_cost = -1			
+		}
+		bauxite_imports = {
+			picture = VIC_rule_economy
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				country_resource_bauxite = 4 
+			}
+			removal_cost = -1			
+		}
+		iron_imports = {
+			picture = VIC_rule_economy
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				country_resource_iron = 4 
+			}
+			removal_cost = -1			
+		}
+		food_imports = {
+			picture = VIC_rule_economy
+			allowed = {
+				always = no
+			}
+			
+			modifier = {
+				country_resource_iron = 4 
+			}
+			removal_cost = -1			
+		}
+	}
+}

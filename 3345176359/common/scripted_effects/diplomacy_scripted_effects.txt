@@ -1,0 +1,53 @@
+update_diplomacy_start = {
+	if = {
+		limit = {
+			is_chinese_nations/TAG = yes
+			NOT = { is_subject_of = JAP }
+			NOT = { tag = SIK }
+		}
+		set_rule = {
+			desc = is_warlord
+			can_access_market = yes
+		}
+		if = {
+			limit = {
+				NOT = { tag = CHI }
+			}
+			add_relation_rule_override = {
+				target = CHI
+				usage_desc = is_warlord
+				can_access_market = yes
+			}
+			CHI = {
+				meta_effect = {
+					text = {
+						add_relation_rule_override = {
+							target = [X]
+							usage_desc = is_warlord
+							can_access_market = yes
+						}
+					}
+					X = "[Prev.GetTag]"
+				}
+			}
+		}
+	}
+			
+	if = {
+		limit = {
+			OR = {
+				tag = ENG 
+				is_subject_of = ENG
+				tag = FRA
+				tag = USA
+				is_subject_of = FRA
+			}
+		}
+		add_relation_rule_override = {
+			target = SOV
+			usage_desc = bolshevik_threat
+			can_access_market = no
+		}		
+	}
+		
+}

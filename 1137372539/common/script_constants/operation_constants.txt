@@ -1,0 +1,84 @@
+
+operation = {
+	schema = {
+        any_key = yes
+        data = {
+            {
+                any_key = yes
+                data = int
+            }
+        }
+    }
+	operation_steal_tech_civilian = {
+		bonus = 0.25
+		ahead_of_time = 0.25
+		uses = 2
+	}
+	operation_sabotage_fuel = {
+		damage = 0.5
+		repair = -0.25
+	}
+	operation_sabotage_infra = {
+		damage = 2
+		repair = -0.25
+	}
+	operation_sabotage_oil = {
+		damage = 0.25
+		repair = -0.25
+		oil_output = -0.25
+	}
+	operation_collaboration_government = {
+		base = 0.05
+		ideology = 0.1
+		ideology_weight = 5
+	}
+	
+	operation_steal_tech_army = {
+		bonus = 0.25
+		ahead_of_time = 0.25
+		uses = 2
+	}
+	operation_target_army_leader = {
+		days_hurt = 70
+		critical_days = 0.5
+	}
+	operation_target_attache = {
+		days_hurt = 120
+	}
+	operation_fortification_plans = {
+		fort_reduction = -0.5
+		spread = -0.25
+	}
+	
+	operation_steal_tech_airforce = {
+		bonus = 0.25
+		ahead_of_time = 0.25
+		uses = 2
+	}
+	operation_coordinated_strike = {
+		uses = 12
+	}
+	operation_sabotage_radar = {
+		damage = 1.5
+		repair = -0.33
+	}
+	
+	operation_steal_tech_navy = {
+		bonus = 0.25
+		ahead_of_time = 0.25
+		uses = 2
+	}
+	operation_sabotage_port = {
+		damage = 2
+		repair = -0.25
+	}
+	
+	operation_strengthen_resistance = {
+		resistance_target = 0.1
+		resistance_growth = 0.25
+	}
+	operation_strengthen_society = {
+		compliance_gain = -0.3
+		compliance_growth = -0.1
+	}
+}

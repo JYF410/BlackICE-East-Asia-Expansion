@@ -1,0 +1,298 @@
+#
+# ai角色
+#
+# infantry
+# assault_infantry
+# garrison    #驻军这个角色的优先级最低，ai用它来驻军国家。由于PDX错误，ai无法升级此角色的模板
+# light_infantry
+# heavy_infantry
+# cavalry
+# motorized
+# light_armor
+# light_armor_alt
+# medium_armor
+# medium_armor_alt
+# heavy_armor
+# heavy_armor_alt
+# marines
+# mountaineers
+# militia
+#
+# ai角色模板名称
+#
+# "Infantry Division"
+# "Assault Infantry Division"
+# "Garrison Division"
+# "Light Infantry Division"
+# "Heavy Infantry Division"
+# "Cavalry Division"
+# "Motorized Division"
+# "Light Armor Division"
+# "Light Armor Division (alt)"
+# "Medium Armor Division"
+# "Medium Armor Division (alt)"
+# "Heavy Armor Division"
+# "Heavy Armor Division (alt)"
+# "Marines Division"
+# "Mountaineers Division"
+# "Militia Division"
+#
+##########################################################################################
+#
+# ai模板
+#
+# 1。将启动模板更改为ai模板
+#
+#你可以使用脚本效果，像这样让ai改变开始单位模板为ai模板
+#这是必要的，因为ai通常一开始就有巨大的赤字，而且开始的模板通常与游戏非常脱节，所以ai无法正确识别它们
+#
+# ai_templates_startup/<TAG> = {  #此效果将在ai第一次加载ai模板时运行
+# country_lock_all_division_template = yes  #所有模板都需要锁定add_units_to_division_template才能工作，它们在此效果后再次解锁
+#
+# add_units_to_division_template = {
+# template_name = "Infantry Division"  #目标起始模板，并添加一个单位来标记它们
+# support = {ai_infantry = 1}  #ai_<role>为ai角色添加单位。
+#} #确保ai有这个角色的模板，当ai模板第一次运行时解锁
+#
+# add_units_to_division_template = {
+# template_name = “领土划分”
+# support = {ai_garrison = 1} #the = 1表示支持单元x的位置，如果第二行已满（非常不可能），那么ai_<role> = 0应该用于第一行
+#}
+#
+# ai_templates_change_starting_units = yes #将标记的模板更改为ai模板
+#
+#清除模板——你应该只在测试的时候做，或者如果你100%确定没有其他OOB会引用这些模板；如果其他oob加载这些模板的单位，ai很可能无法改变它们，所以应该调整单位刷出以与ai模板一起刷出
+#
+# delete_unit_template_and_units = {division_template = “步兵师”解散= yes}
+# delete_unit_template_and_units = {division_template = “领土划分”解散= yes}
+#
+#}
+#
+#
+# 2。Ai模板脚本效果定义和参数
+#
+# 1。为国家添加ai_logic/TAG脚本效果
+# 2。添加ai_<role>_templates/TAG脚本效果，包含以下内容
+#
+# ai_<role>_templates/<TAG> = {
+# ai_<role>_templates = yes #这个效果在开始和结束时都很重要！！
+#      	
+#      	if = {
+#      		limit = {
+#      			NOT = { has_country_flag = ai_<role>_template } #第一个模板需要检查标志NOT存在
+#      			
+#      			if = { limit = { check_variable = { ai_template_skip = 1 } } template_bypass = yes }
+#      			else = {
+#      				#CONDITIONS #这些是ai接收模板需要的真实触发器
+
+#      				always = yes #如果你想让ai通过ai_templates_startup/<TAG>更改角色的起始模板，那么应该立即解锁角色的第一个模板
+#      			}
+#      		}
+#      		set_temp_variable = { ai_has_added_template = 1 }
+#      		set_country_flag = ai_<role>_template
+#      		
+#      		division_template = {
+#      			name = "<role title>"
+#      			priority = @<ROLE>_PRIO
+#      			
+#      			regiments = {
+#      				infantry = { x = 0 y = 0 }
+#       			infantry = { x = 0 y = 1 }
+#      				
+#      				infantry = { x = 1 y = 0 }
+#      				infantry = { x = 1 y = 1 }
+#      			}
+#      			support = {
+#      				DIV_HQ = { x = 0 y = 0 }
+#      				engineer = { x = 0 y = 1 }
+#      			}
+#      		}
+#      		
+#      	}
+#
+#		### 制作ai研究技术来解锁模板所需的单位
+#
+#      	else_if = {
+#      		limit = {
+#      			has_country_flag = { flag = ai_<role>_template value = 1 } #每个else_if都需要检查前一个值
+#      			
+#      			if = { limit = { check_variable = { ai_template_skip = 1 } } template_bypass = yes }
+#      			else = {
+#      			#CONDITIONS
+#      			#这些触发器适用于所有单位。如果AI没有所需的技术，它将积极尝试研究它
+#					ai_has_signal_company = yes #当下一个模板中有潜在的未研究单位时，应该总是使用这些触发器
+#      				ai_has_anti_air = yes		#它给AI的研究提供了很多指导
+#      				ai_has_anti_tank = yes		
+#
+#				#需要注意的一点是，在这个例子中，如果ai缺少所有3个单元，它只会尝试研究signal_company
+#				#由于signal_company触发是假的，游戏甚至不会检查ai_has_anti_air和ai_has_anti_tank
+#				#一旦有了signal就研究防空，一旦有了signal就研究反坦克
+#      				
+#      			}
+#      		}
+#      		set_temp_variable = { ai_has_added_template = 1 }
+#      		modify_country_flag = { flag = ai_<role>_template value = 1 } #increase flag by 1
+#		
+#			
+#      		division_template = {
+#      			name = "<role title>"
+#      			priority = @<ROLE>_PRIO
+#      			
+#      			regiments = {
+#      				infantry = { x = 0 y = 0 }
+#       			infantry = { x = 0 y = 1 }
+#      				
+#      				infantry = { x = 1 y = 0 }
+#      				infantry = { x = 1 y = 1 }
+#      			}
+#      			support = {
+#      				DIV_HQ = { x = 0 y = 0 }
+#      				engineer = { x = 0 y = 1 }
+#      				signal_company = { x = 0 y = 2 }
+#      				anti_air = { x = 0 y = 3 }
+#      				anti_tank = { x = 0 y = 4 }
+#      			}
+#      		}
+#		}
+#
+#		###### 使ai在研究后动态地向模板添加单元
+#
+#      	else_if = {
+#      		limit = {
+#      			has_country_flag = { flag = ai_<role>_template value = 2 } #每个else_if都需要检查前一个值
+#      			
+#      			if = { limit = { check_variable = { ai_template_skip = 1 } } template_bypass = yes }
+#      			else = {
+#      				#CONDITIONS
+#      				
+#      			#对于这个模板，我们使用了一个新机制，即一旦单元被解锁就会添加到模板中
+#				#这是很有用的，所以ai不必在能够使用已经解锁的单位之前研究一些技术
+#      				
+#					OR = { #因为AI不需要在这个模板中拥有所有的单位，所以这里的触发器使用了OR触发器；从技术上讲，这根本不需要，但让AI提前意识到研究需求是有好处的
+#						ai_has_artillery_brigade = yes 
+#      					ai_has_combat_engineer = yes
+#      					ai_has_field_hospital = yes		
+#					}
+#
+#      			}
+#      		}
+#      		set_temp_variable = { ai_has_added_template = 1 }
+#      		modify_country_flag = { flag = ai_<role>_template value = 1 } #increase flag by 1
+#		
+#
+#			# 在这些数组中添加单位，让游戏在解锁后将其添加到模板中
+#			# 这也会让ai尝试着去研究解锁这些单位的技术（同时），所以ai_has_<unit>触发器并不一定是必要的
+#			# 这些数组中的单元不应该添加到下面列出的模板中！			
+#
+#			add_to_temp_array = { either_support = token:field_hospital } #add support units to either_support. 
+#			add_to_temp_array = { either_support = token:combat_engineer } #make sure the FIRST SUPPORT (x=0) COLUMN always has enough space
+#			
+#			
+#			# 对于团单位，x位置也需要定义。
+#			# 一个单位只能通过这些阵列添加一次到模板中，例如它不能添加3个炮兵旅
+#			
+#			add_to_temp_array = { either_regiment = token:artillery_brigade }
+#			add_to_temp_array = { either_regiment_x = 2 }
+#
+#
+#      		division_template = {
+#      			name = "<role title>"
+#      			priority = @<ROLE>_PRIO
+#      			
+#      			regiments = {
+#      				infantry = { x = 0 y = 0 }
+#       			infantry = { x = 0 y = 1 }
+#      				
+#      				infantry = { x = 1 y = 0 }
+#      				infantry = { x = 1 y = 1 }
+#
+#      				#artillery_brigade = { x = 2 y = 0 } #added via either_regiment once available
+#      			}
+#      			support = {
+#      				DIV_HQ = { x = 0 y = 0 }
+#      				engineer = { x = 0 y = 1 }
+#      				#field_hospital = { x = 0 y = 2 } #added via either_support
+#      				#combat_engineer = { x = 0 y = 3 } #added via either_support
+#
+#      				signal_company = { x = 1 y = 0 } #moved to 2nd column to make space for either_support units
+#      				anti_air = { x = 1 y = 1 }
+#      				anti_tank = { x = 1 y = 2 }
+#      			}
+#      		}
+#		}
+#
+#		###### 检查之前的模板是否完整，并使用过时的ai模板进行ai力量升级
+#
+#      	else_if = {
+#      		limit = {
+#      			has_country_flag = { flag = ai_<role>_template value = 3 } #every else_if needs to check for the previous value
+#      			
+#      			if = { limit = { check_variable = { ai_template_skip = 1 } } template_bypass = yes }
+#      			else = {
+#      				#CONDITIONS
+#      				
+#      				#the previous template used the either_support / either_regiment mechanic
+#					
+#					template_is_complete = yes #this trigger checks if the previous template is complete
+#      				
+#
+#      			}
+#      		}
+#      		set_temp_variable = { ai_has_added_template = 1 }
+#      		modify_country_flag = { flag = ai_<role>_template value = 1 } #increase flag by 1
+#		
+#
+#			# 这个效果通过在第二个支持栏中添加一个单位来标记当前角色的模板
+#			# 一般来说，这应该只在游戏早期/和平时使用，并且只在必要时使用。它是性能密集型的
+#			# 如果ai接收了大量外部模板并且名称混乱，这种效果也会变得不可靠
+#			# 例如“步兵师2 3”不会被这个效果选中，它只能为一个角色检查10个模板
+#
+#			template_tag_current_role = yes #仅在与放置在division_template之后的template_force_upgrade一起使用此效果
+#
+#
+#
+#      		division_template = {
+#      			name = "<role title>"
+#      			priority = @<ROLE>_PRIO
+#      			
+#      			regiments = {
+#      				infantry = { x = 0 y = 0 }
+#       			infantry = { x = 0 y = 1 }
+#       			infantry = { x = 0 y = 2 }
+#      				
+#      				infantry = { x = 1 y = 0 }
+#      				infantry = { x = 1 y = 1 }
+#      				infantry = { x = 1 y = 2 }
+#
+#      				artillery_brigade = { x = 2 y = 0 }
+#      			}
+#      			support = {
+#      				DIV_HQ = { x = 0 y = 0 }
+#      				engineer = { x = 0 y = 1 }
+#      				field_hospital = { x = 0 y = 2 }
+#      				combat_engineer = { x = 0 y = 3 }
+#
+#      				signal_company = { x = 1 y = 0 }
+#      				anti_air = { x = 1 y = 1 }
+#      				anti_tank = { x = 1 y = 2 }
+#      			}
+#      		}
+#
+#			
+#			template_force_upgrade = yes #将template_tag_current_role中的所有标记模板更改为此处未锁定的模板
+#	
+#		}
+#
+#   	ai_<role>_templates = yes #这种效果在开始和结束时都很重要！！
+#	}
+#
+#
+# 
+# 3. 打印common/ai_templates/的代码
+#
+#			#在游戏中进入你添加的国家，输入“human_ai”。按下部署选项卡按钮下方的齿轮图标
+#			#在ui中选择一个角色并使用“Print”按钮使游戏将ai_templates代码打印到logs/game.txt中
+#			#printing需要为国家指定ai_country_logic，并为模板指定脚本效果
+#			#如果模板没有正确命名，它将无法工作。开始和结束处的ai_<role>_templates = yes效果也需要用于打印
+#
+#			#不要手动操作！！这只是人为错误的又一个来源，相信我，我是根据经验说的

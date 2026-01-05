@@ -1,0 +1,755 @@
+ai_update_country_logic = {
+	if = {
+		limit = {
+			OR = { #enter countries here when they have ai_templates/TAG defined
+				has_country_flag = ai_country_logic
+				tag = CAN
+				tag = EGY
+				tag = ENG
+				tag = FRA
+				tag = GER
+				tag = ITA
+				tag = RAJ
+				tag = NEP
+				tag = SOV
+				tag = TUR
+				tag = USA
+				tag = AST
+				tag = CHI
+				tag = JAP
+				tag = YUG
+				tag = ROM
+				tag = BUL
+				tag = FIN
+				tag = RGR
+				tag = VIC
+				tag = HUN
+				tag = GRE
+				tag = NZL
+				tag = AFG
+				tag = PRC
+				tag = GXC
+				tag = SDC
+				tag = MAN
+				tag = DEN
+				tag = CZE
+				tag = SLO
+				tag = CRO
+				tag = ALB
+				tag = ETH
+				tag = IRQ
+				tag = SWI
+				tag = HOL
+				tag = BEL
+				tag = BRA
+				tag = MEX
+				tag = IRE
+				tag = LIT
+				tag = LAT
+				tag = EST
+				tag = POL
+				tag = POR
+				tag = SWE
+				tag = NOR
+				tag = POR
+				tag = SAF
+				tag = PER
+				tag = MON
+				tag = ARG
+				tag = KOR  #新增
+				tag = LUU  #新增
+				tag = PAK  #新增
+				tag = TRK  #新增
+				tag = SIB  #新增
+				tag = LAO  #新增
+				tag = CAM  #新增
+				tag = BAN  #新增
+			}
+		}
+		set_country_flag = ai_country_logic
+		meta_effect = {
+			text = {
+				d_ai_logic/[TAG] = yes
+			}
+			TAG = "[Root.GetTag]"
+		}
+		
+	}
+	else_if = {
+		limit = {
+			original_tag = SPR
+		}
+		d_ai_logic/SPR = yes
+	}
+	else_if = {
+		limit = {
+			OR = {
+				tag = BMP
+				tag = LEB
+				tag = SYR
+				tag = SAU
+				tag = OMA
+				tag = YEM
+				tag = TAN
+				tag = FRI
+			}
+		}
+		
+		d_ai_logic/militias = yes
+		
+	}
+	else_if = {
+		limit = {
+			OR = {
+				tag = JOR
+				tag = TUN
+			}
+		}
+		
+		d_ai_logic/middle_east = yes
+		
+	}
+	else_if = {
+		limit = {
+			OR = {
+				tag = INS
+				tag = MAL
+				original_tag = BUR
+			}
+		}
+		
+		d_ai_logic/asian_colonies = yes
+		
+	}
+	else_if = {
+		limit = {
+			OR = {
+				original_tag = PHI
+				tag = SIA
+			}
+		}
+		
+		d_ai_logic/asia = yes
+		
+	}
+	else_if = {
+		limit = {
+			OR = {
+				tag = SHX
+				tag = ECR
+				tag = YUN
+				tag = YUT
+				tag = XIA
+			}
+		}
+		
+		d_ai_logic/warlords = yes
+		
+	}
+	else_if = {
+		limit = {
+			OR = {
+				tag = EHA
+				tag = SKC
+			}
+		}
+		
+		d_ai_logic/warlords_heavy = yes
+		
+	}
+	else_if = {
+		limit = {
+			OR = {
+				tag = ZXL
+				tag = MEN
+			}
+		}
+		
+		d_ai_logic/warlords_developed = yes
+		
+	}
+	else_if = {
+		limit = {
+			OR = {
+				tag = XSM
+				original_tag = SIK
+			}
+		}
+		
+		d_ai_logic/warlords_cavalry = yes
+		
+	}
+	else_if = {
+		limit = {
+			OR = {
+				tag = PGR
+				tag = SCC
+			}
+		}
+		
+		d_ai_logic/warlords_cavalry_heavy = yes
+		
+	}
+	
+	if = { #minors starting air production
+		limit = {
+			check_variable = { ai_template_skip = 0 }
+			check_variable = { ai_fighter_target_buffer = 0 } #no air production preset has been loaded
+			OR = {
+				has_country_flag = ai_start_air_production
+				ai_start_air_production = yes
+			}
+		}
+		
+		if = {
+			limit = {
+				NOT = { has_country_flag = ai_start_air_production }
+			}
+			log = "[Root.GetTag] | [GetYear] [GetMonth] | START AIR PRODUCTION" 
+			set_country_flag = ai_start_air_production
+		}
+		
+		ai_generic_air_production = yes
+	}
+	
+}
+
+##韩国##
+d_ai_logic/KOR = {  
+	#set_temp_variable = { ai_template_skip = 1 }
+	if = {
+		limit = {
+			check_variable = { ai_ignore_templates = 0 }
+		}
+		ai_militia_templates/KOR = yes
+		ai_infantry_templates/KOR = yes
+		ai_light_armor_templates/KOR = yes
+	}
+	if = {
+		limit = {
+			check_variable = { ai_ignore_deployment = 0 }
+		}
+		############################## 建立部队策略 #############################
+		### 只有当AI拥有角色模板或模板变量时（_ai_TEMPLATES_scripted_effects.txt），策略功能才会在游戏内生效 ###
+		# disable_build  #禁用建立
+		# production_ratio  #生产权重
+		set_temp_variable = { BASE@role_infantry 				= 5  } 
+		set_temp_variable = { BASE@role_light_infantry 			= 0  }
+		set_temp_variable = { BASE@role_heavy_infantry 			= 0  }
+		set_temp_variable = { BASE@role_militia		 			= 10 }
+		set_temp_variable = { BASE@role_garrison 				= 0  }
+		set_temp_variable = { BASE@role_cavalry 				= 0  }
+		set_temp_variable = { BASE@role_motorized 				= 0  }
+		set_temp_variable = { BASE@role_light_armor 			= 1  }
+		set_temp_variable = { BASE@role_light_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_medium_armor 			= 0  }
+		set_temp_variable = { BASE@role_medium_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_heavy_armor 			= 0  }
+		set_temp_variable = { BASE@role_heavy_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_marines 				= 0  }
+		set_temp_variable = { BASE@role_mountaineers 			= 0  }
+		if = {
+			limit = {
+				is_in_faction_with = CHI
+				is_in_faction_with = JAP
+			}
+			add_to_temp_variable = {
+				BASE@role_infantry = 20
+				BASE@role_light_armor = 5
+			}
+		}
+	}
+	if = {
+		limit = {
+			#check_variable = { ai_ignore_naval_production = 0 }
+		}
+		### SHIPS ###########################
+		ai_naval_BC/KOR = yes
+		ai_naval_CA/KOR = yes
+		ai_naval_CL/KOR = yes
+		ai_naval_DD/KOR = yes
+		ai_naval_SS/KOR = yes
+		ai_switch_escort_to_destroyer = yes
+		set_temp_variable = { ai_target_convoys                    = 100 }
+		set_temp_variable = { RATIO@naval_capital_bc                 = 1 }
+		set_temp_variable = { RATIO@naval_cruiser_heavy              = 2 }
+		set_temp_variable = { RATIO@naval_cruiser_light              = 4 }
+		set_temp_variable = { RATIO@naval_screen                    = 10 }
+		set_temp_variable = { RATIO@naval_submarine                 = 20 }
+		#战列巡洋舰生产队列
+		if = {
+			limit = { num_of_naval_factories > 12 } #船厂总数要求
+			set_temp_variable = { RATIO@naval_capital_bc             = 1 } #RATIO@生产数调整
+			set_temp_variable = { min_dockyard@nrm_ship_hull_capital < 4 } #min_dockyard@至少分配X个造船厂数量
+		}
+		#重型巡洋舰生产队列
+		if = {
+			limit = { num_of_naval_factories > 10 } #船厂总数要求
+			set_temp_variable = { RATIO@naval_cruiser_heavy          = 2 } #RATIO@生产数调整
+			set_temp_variable = { min_dockyard@naval_cruiser_heavy   < 3 } #min_dockyard@至少分配X个造船厂数量
+		}
+		#轻型巡洋舰生产队列
+		if = {
+			limit = { num_of_naval_factories > 8 } #船厂总数要求
+			set_temp_variable = { RATIO@naval_cruiser_light          = 4 } #RATIO@生产数调整
+			set_temp_variable = { min_dockyard@naval_cruiser_light   < 5 } #min_dockyard@至少分配X个造船厂数量
+		}
+		#驱逐舰生产队列
+		if = {
+			limit = { num_of_naval_factories > 6 } #船厂总数要求
+			set_temp_variable = { RATIO@naval_screen                = 10 } #RATIO@生产数调整
+			set_temp_variable = { min_dockyard@naval_screen          < 3 } #min_dockyard@至少分配X个造船厂数量
+		}
+		#潜艇生产队列
+		if = {
+			limit = { num_of_naval_factories > 4 } #船厂总数要求
+			set_temp_variable = { RATIO@naval_submarine             = 20 } #RATIO@生产数调整
+			set_temp_variable = { min_dockyard@naval_submarine       < 5 } #min_dockyard@至少分配X个造船厂数量
+		}
+		ai_update_ship_production = yes
+	}
+	ai_templates_on_end_effect = yes
+}
+
+##琉球##
+d_ai_logic/LUU = {  
+	#set_temp_variable = { ai_template_skip = 1 }
+	if = {
+		limit = {
+			check_variable = { ai_ignore_templates = 0 }
+		}
+		ai_militia_templates/LUU = yes 
+	}
+	if = {
+		limit = {
+			check_variable = { ai_ignore_deployment = 0 }
+		}
+		set_temp_variable = { BASE@role_infantry 				= 0  } 
+		set_temp_variable = { BASE@role_light_infantry 			= 0  }
+		set_temp_variable = { BASE@role_heavy_infantry 			= 0  }
+		set_temp_variable = { BASE@role_militia		 			= 2  }
+		set_temp_variable = { BASE@role_garrison 				= 0  }
+		set_temp_variable = { BASE@role_cavalry 				= 0  }
+		set_temp_variable = { BASE@role_motorized 				= 0  }
+		set_temp_variable = { BASE@role_light_armor 			= 0  }
+		set_temp_variable = { BASE@role_light_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_medium_armor 			= 0  }
+		set_temp_variable = { BASE@role_medium_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_heavy_armor 			= 0  }
+		set_temp_variable = { BASE@role_heavy_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_marines 				= 0  }
+		set_temp_variable = { BASE@role_mountaineers 			= 0  }
+		if = {
+			limit = {
+				is_in_faction_with = CHI
+				is_in_faction_with = JAP
+			}
+			add_to_temp_variable = {
+				BASE@role_infantry = 5
+			}
+		}
+	}
+	if = {
+		limit = {
+			#check_variable = { ai_ignore_naval_production = 0 }
+		}
+		ai_naval_CL/LUU = yes
+		ai_naval_DD/LUU = yes
+		ai_naval_SS/LUU = yes
+		ai_switch_escort_to_destroyer = yes
+		set_temp_variable = { ai_target_convoys                    = 100 }
+		set_temp_variable = { RATIO@naval_cruiser_light              = 2 }
+		set_temp_variable = { RATIO@naval_screen                    = 10 }
+		set_temp_variable = { RATIO@naval_submarine                 = 20 }
+		#轻型巡洋舰生产队列
+		if = {
+			limit = { num_of_naval_factories > 8 } #船厂总数要求
+			set_temp_variable = { RATIO@naval_cruiser_light          = 4 } #RATIO@生产数调整
+			set_temp_variable = { min_dockyard@naval_cruiser_light   < 5 } #min_dockyard@至少分配X个造船厂数量
+		}
+		#驱逐舰生产队列
+		if = {
+			limit = { num_of_naval_factories > 6 } #船厂总数要求
+			set_temp_variable = { RATIO@naval_screen                = 10 } #RATIO@生产数调整
+			set_temp_variable = { min_dockyard@naval_screen          < 3 } #min_dockyard@至少分配X个造船厂数量
+		}
+		#潜艇生产队列
+		if = {
+			limit = { num_of_naval_factories > 4 } #船厂总数要求
+			set_temp_variable = { RATIO@naval_submarine             = 20 } #RATIO@生产数调整
+			set_temp_variable = { min_dockyard@naval_submarine       < 5 } #min_dockyard@至少分配X个造船厂数量
+		}
+		ai_update_ship_production = yes
+	}
+	ai_templates_on_end_effect = yes
+}
+
+##巴基斯坦##
+d_ai_logic/PAK = {  
+	#set_temp_variable = { ai_template_skip = 1 }
+	if = {
+		limit = {
+			check_variable = { ai_ignore_templates = 0 }
+		}
+		ai_militia_templates/PAK = yes
+		ai_infantry_templates/PAK = yes
+		ai_light_armor_templates/PAK = yes
+	}
+	if = {
+		limit = {
+			check_variable = { ai_ignore_deployment = 0 }
+		}
+		############################## 建立部队策略 #############################
+		### 只有当AI拥有角色模板或模板变量时（_ai_TEMPLATES_scripted_effects.txt），策略功能才会在游戏内生效 ###
+		# disable_build  #禁用建立
+		# production_ratio  #生产权重
+		set_temp_variable = { BASE@role_infantry 				= 5  } 
+		set_temp_variable = { BASE@role_light_infantry 			= 0  }
+		set_temp_variable = { BASE@role_heavy_infantry 			= 0  }
+		set_temp_variable = { BASE@role_militia		 			= 10 }
+		set_temp_variable = { BASE@role_garrison 				= 0  }
+		set_temp_variable = { BASE@role_cavalry 				= 0  }
+		set_temp_variable = { BASE@role_motorized 				= 0  }
+		set_temp_variable = { BASE@role_light_armor 			= 2  }
+		set_temp_variable = { BASE@role_light_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_medium_armor 			= 0  }
+		set_temp_variable = { BASE@role_medium_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_heavy_armor 			= 0  }
+		set_temp_variable = { BASE@role_heavy_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_marines 				= 0  }
+		set_temp_variable = { BASE@role_mountaineers 			= 0  }
+		if = {
+			limit = {
+				is_in_faction_with = CHI
+			}
+			add_to_temp_variable = {
+				BASE@role_infantry = 20
+				BASE@role_light_armor = 5
+			}
+		}
+	}
+	if = {
+		limit = {
+			#check_variable = { ai_ignore_naval_production = 0 }
+		}
+		ai_naval_CL/PAK = yes
+		ai_naval_DD/PAK = yes
+		ai_naval_SS/PAK = yes
+		ai_switch_escort_to_destroyer = yes
+		set_temp_variable = { ai_target_convoys                    = 100 }
+		set_temp_variable = { RATIO@naval_cruiser_light              = 2 }
+		set_temp_variable = { RATIO@naval_screen                    = 10 }
+		set_temp_variable = { RATIO@naval_submarine                 = 20 }
+		#轻型巡洋舰生产队列
+		if = {
+			limit = { num_of_naval_factories > 8 } #船厂总数要求
+			set_temp_variable = { RATIO@naval_cruiser_light          = 4 } #RATIO@生产数调整
+			set_temp_variable = { min_dockyard@naval_cruiser_light   < 5 } #min_dockyard@至少分配X个造船厂数量
+		}
+		#驱逐舰生产队列
+		if = {
+			limit = { num_of_naval_factories > 6 } #船厂总数要求
+			set_temp_variable = { RATIO@naval_screen                = 10 } #RATIO@生产数调整
+			set_temp_variable = { min_dockyard@naval_screen          < 3 } #min_dockyard@至少分配X个造船厂数量
+		}
+		#潜艇生产队列
+		if = {
+			limit = { num_of_naval_factories > 4 } #船厂总数要求
+			set_temp_variable = { RATIO@naval_submarine             = 20 } #RATIO@生产数调整
+			set_temp_variable = { min_dockyard@naval_submarine       < 5 } #min_dockyard@至少分配X个造船厂数量
+		}
+		ai_update_ship_production = yes
+	}
+	ai_templates_on_end_effect = yes
+}
+
+##突厥斯坦##
+d_ai_logic/TRK = {  
+	#set_temp_variable = { ai_template_skip = 1 }
+	if = {
+		limit = {
+			check_variable = { ai_ignore_templates = 0 }
+		}
+		ai_militia_templates/TRK = yes
+		ai_infantry_templates/TRK = yes
+		ai_light_armor_templates/TRK = yes
+	}
+	if = {
+		limit = {
+			check_variable = { ai_ignore_deployment = 0 }
+		}
+		############################## 建立部队策略 #############################
+		### 只有当AI拥有角色模板或模板变量时（_ai_TEMPLATES_scripted_effects.txt），策略功能才会在游戏内生效 ###
+		# disable_build  #禁用建立
+		# production_ratio  #生产权重
+		set_temp_variable = { BASE@role_infantry 				= 5  } 
+		set_temp_variable = { BASE@role_light_infantry 			= 0  }
+		set_temp_variable = { BASE@role_heavy_infantry 			= 0  }
+		set_temp_variable = { BASE@role_militia		 			= 10 }
+		set_temp_variable = { BASE@role_garrison 				= 0  }
+		set_temp_variable = { BASE@role_cavalry 				= 0  }
+		set_temp_variable = { BASE@role_motorized 				= 0  }
+		set_temp_variable = { BASE@role_light_armor 			= 1  }
+		set_temp_variable = { BASE@role_light_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_medium_armor 			= 0  }
+		set_temp_variable = { BASE@role_medium_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_heavy_armor 			= 0  }
+		set_temp_variable = { BASE@role_heavy_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_marines 				= 0  }
+		set_temp_variable = { BASE@role_mountaineers 			= 0  }
+		if = {
+			limit = {
+				is_in_faction_with = CHI
+			}
+			add_to_temp_variable = {
+				BASE@role_infantry = 20
+				BASE@role_light_armor = 10
+			}
+		}
+	}
+	ai_templates_on_end_effect = yes
+}
+
+##西伯利亚##
+d_ai_logic/SIB = {  
+	#set_temp_variable = { ai_template_skip = 1 }
+	if = {
+		limit = {
+			check_variable = { ai_ignore_templates = 0 }
+		}
+		ai_militia_templates/SIB = yes 
+	}
+	if = {
+		limit = {
+			check_variable = { ai_ignore_deployment = 0 }
+		}
+		############################## 建立部队策略 #############################
+		### 只有当AI拥有角色模板或模板变量时（_ai_TEMPLATES_scripted_effects.txt），策略功能才会在游戏内生效 ###
+		# disable_build  #禁用建立
+		# production_ratio  #生产权重
+		set_temp_variable = { BASE@role_infantry 				= 0  } 
+		set_temp_variable = { BASE@role_light_infantry 			= 0  }
+		set_temp_variable = { BASE@role_heavy_infantry 			= 0  }
+		set_temp_variable = { BASE@role_militia		 			= 5  }
+		set_temp_variable = { BASE@role_garrison 				= 0  }
+		set_temp_variable = { BASE@role_cavalry 				= 0  }
+		set_temp_variable = { BASE@role_motorized 				= 0  }
+		set_temp_variable = { BASE@role_light_armor 			= 0  }
+		set_temp_variable = { BASE@role_light_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_medium_armor 			= 0  }
+		set_temp_variable = { BASE@role_medium_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_heavy_armor 			= 0  }
+		set_temp_variable = { BASE@role_heavy_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_marines 				= 0  }
+		set_temp_variable = { BASE@role_mountaineers 			= 0  }
+		if = {
+			limit = {
+				is_in_faction_with = CHI
+				is_in_faction_with = JAP
+			}
+			add_to_temp_variable = {
+				BASE@role_militia = 10
+			}
+		}
+	}
+	if = {
+		limit = {
+			#check_variable = { ai_ignore_naval_production = 0 }
+		}
+		ai_naval_DD/SIB = yes
+		ai_naval_SS/SIB = yes
+		ai_switch_escort_to_destroyer = yes
+		set_temp_variable = { ai_target_convoys                    = 100 }
+		set_temp_variable = { RATIO@naval_screen                    = 10 }
+		set_temp_variable = { RATIO@naval_submarine                 = 20 }
+		#驱逐舰生产队列
+		if = {
+			limit = { num_of_naval_factories > 6 } #船厂总数要求
+			set_temp_variable = { RATIO@naval_screen                = 10 } #RATIO@生产数调整
+			set_temp_variable = { min_dockyard@naval_screen          < 3 } #min_dockyard@至少分配X个造船厂数量
+		}
+		#潜艇生产队列
+		if = {
+			limit = { num_of_naval_factories > 4 } #船厂总数要求
+			set_temp_variable = { RATIO@naval_submarine             = 20 } #RATIO@生产数调整
+			set_temp_variable = { min_dockyard@naval_submarine       < 5 } #min_dockyard@至少分配X个造船厂数量
+		}
+		ai_update_ship_production = yes
+	}
+	ai_templates_on_end_effect = yes
+}
+
+##老挝##
+d_ai_logic/LAO = {  
+	#set_temp_variable = { ai_template_skip = 1 }
+	if = {
+		limit = {
+			check_variable = { ai_ignore_templates = 0 }
+		}
+		ai_militia_templates/LAO = yes 
+	}
+	if = {
+		limit = {
+			check_variable = { ai_ignore_deployment = 0 }
+		}
+		set_temp_variable = { BASE@role_infantry 				= 1  } 
+		set_temp_variable = { BASE@role_light_infantry 			= 0  }
+		set_temp_variable = { BASE@role_heavy_infantry 			= 0  }
+		set_temp_variable = { BASE@role_militia		 			= 3  }
+		set_temp_variable = { BASE@role_garrison 				= 0  }
+		set_temp_variable = { BASE@role_cavalry 				= 0  }
+		set_temp_variable = { BASE@role_motorized 				= 0  }
+		set_temp_variable = { BASE@role_light_armor 			= 0  }
+		set_temp_variable = { BASE@role_light_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_medium_armor 			= 0  }
+		set_temp_variable = { BASE@role_medium_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_heavy_armor 			= 0  }
+		set_temp_variable = { BASE@role_heavy_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_marines 				= 0  }
+		set_temp_variable = { BASE@role_mountaineers 			= 0  }
+		if = {
+			limit = {
+				is_in_faction_with = CHI
+				is_in_faction_with = JAP
+			}
+			add_to_temp_variable = {
+				BASE@role_infantry = 5
+				BASE@role_infantry = 10
+			}
+		}
+	}
+	ai_templates_on_end_effect = yes
+}
+
+##柬埔寨##
+d_ai_logic/CAM = {  
+	#set_temp_variable = { ai_template_skip = 1 }
+	if = {
+		limit = {
+			check_variable = { ai_ignore_templates = 0 }
+		}
+		ai_militia_templates/CAM = yes 
+	}
+	if = {
+		limit = {
+			check_variable = { ai_ignore_deployment = 0 }
+		}
+		set_temp_variable = { BASE@role_infantry 				= 2  } 
+		set_temp_variable = { BASE@role_light_infantry 			= 0  }
+		set_temp_variable = { BASE@role_heavy_infantry 			= 0  }
+		set_temp_variable = { BASE@role_militia		 			= 5  }
+		set_temp_variable = { BASE@role_garrison 				= 0  }
+		set_temp_variable = { BASE@role_cavalry 				= 0  }
+		set_temp_variable = { BASE@role_motorized 				= 0  }
+		set_temp_variable = { BASE@role_light_armor 			= 0  }
+		set_temp_variable = { BASE@role_light_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_medium_armor 			= 0  }
+		set_temp_variable = { BASE@role_medium_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_heavy_armor 			= 0  }
+		set_temp_variable = { BASE@role_heavy_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_marines 				= 0  }
+		set_temp_variable = { BASE@role_mountaineers 			= 0  }
+		if = {
+			limit = {
+				is_in_faction_with = CHI
+				is_in_faction_with = JAP
+			}
+			add_to_temp_variable = {
+				BASE@role_infantry = 5
+				BASE@role_infantry = 15
+			}
+		}
+	}
+	if = {
+		limit = {
+			#check_variable = { ai_ignore_naval_production = 0 }
+		}
+		ai_naval_DD/CAM = yes
+		ai_naval_SS/CAM = yes
+		ai_switch_escort_to_destroyer = yes
+		set_temp_variable = { ai_target_convoys                    = 100 }
+		set_temp_variable = { RATIO@naval_screen                    = 10 }
+		set_temp_variable = { RATIO@naval_submarine                 = 20 }
+		#驱逐舰生产队列
+		if = {
+			limit = { num_of_naval_factories > 6 } #船厂总数要求
+			set_temp_variable = { RATIO@naval_screen                = 10 } #RATIO@生产数调整
+			set_temp_variable = { min_dockyard@naval_screen          < 3 } #min_dockyard@至少分配X个造船厂数量
+		}
+		#潜艇生产队列
+		if = {
+			limit = { num_of_naval_factories > 4 } #船厂总数要求
+			set_temp_variable = { RATIO@naval_submarine             = 20 } #RATIO@生产数调整
+			set_temp_variable = { min_dockyard@naval_submarine       < 5 } #min_dockyard@至少分配X个造船厂数量
+		}
+		ai_update_ship_production = yes
+	}
+	ai_templates_on_end_effect = yes
+}
+
+##孟加拉##
+d_ai_logic/BAN = {  
+	#set_temp_variable = { ai_template_skip = 1 }
+	if = {
+		limit = {
+			check_variable = { ai_ignore_templates = 0 }
+		}
+		ai_militia_templates/BAN = yes 
+	}
+	if = {
+		limit = {
+			check_variable = { ai_ignore_deployment = 0 }
+		}
+		set_temp_variable = { BASE@role_infantry 				= 1  } 
+		set_temp_variable = { BASE@role_light_infantry 			= 0  }
+		set_temp_variable = { BASE@role_heavy_infantry 			= 0  }
+		set_temp_variable = { BASE@role_militia		 			= 3  }
+		set_temp_variable = { BASE@role_garrison 				= 0  }
+		set_temp_variable = { BASE@role_cavalry 				= 0  }
+		set_temp_variable = { BASE@role_motorized 				= 0  }
+		set_temp_variable = { BASE@role_light_armor 			= 0  }
+		set_temp_variable = { BASE@role_light_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_medium_armor 			= 0  }
+		set_temp_variable = { BASE@role_medium_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_heavy_armor 			= 0  }
+		set_temp_variable = { BASE@role_heavy_armor_alt 		= 0  }
+		set_temp_variable = { BASE@role_marines 				= 0  }
+		set_temp_variable = { BASE@role_mountaineers 			= 0  }
+		if = {
+			limit = {
+				is_in_faction_with = CHI
+				is_in_faction_with = JAP
+				is_in_faction_with = RAJ
+			}
+			add_to_temp_variable = {
+				BASE@role_infantry = 3
+				BASE@role_infantry = 9
+			}
+		}
+	}
+	if = {
+		limit = {
+			#check_variable = { ai_ignore_naval_production = 0 }
+		}
+		ai_naval_DD/BAN = yes
+		ai_naval_SS/BAN = yes
+		ai_switch_escort_to_destroyer = yes
+		set_temp_variable = { ai_target_convoys                    = 100 }
+		set_temp_variable = { RATIO@naval_screen                    = 10 }
+		set_temp_variable = { RATIO@naval_submarine                 = 20 }
+		#驱逐舰生产队列
+		if = {
+			limit = { num_of_naval_factories > 6 } #船厂总数要求
+			set_temp_variable = { RATIO@naval_screen                = 10 } #RATIO@生产数调整
+			set_temp_variable = { min_dockyard@naval_screen          < 3 } #min_dockyard@至少分配X个造船厂数量
+		}
+		#潜艇生产队列
+		if = {
+			limit = { num_of_naval_factories > 4 } #船厂总数要求
+			set_temp_variable = { RATIO@naval_submarine             = 20 } #RATIO@生产数调整
+			set_temp_variable = { min_dockyard@naval_submarine       < 5 } #min_dockyard@至少分配X个造船厂数量
+		}
+		ai_update_ship_production = yes
+	}
+	ai_templates_on_end_effect = yes
+}

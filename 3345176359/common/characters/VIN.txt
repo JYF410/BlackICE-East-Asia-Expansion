@@ -1,0 +1,70 @@
+characters={
+	VIN_phan_boi_chau={
+		name = VIN_phan_boi_chau
+		portraits={
+			civilian={
+				large="gfx/leaders/Asia/Portrait_Asia_Generic_warlord2.dds"
+			}	
+		}
+		country_leader={
+			desc=""
+			ideology=fascism_ideology
+			expire="1953.3.1"
+			id=-1
+			traits={}
+		}
+	}
+	VIN_ho_chi_minh={
+		name = VIN_ho_chi_minh
+		portraits={
+			civilian={
+				large="gfx/leaders/Asia/Portrait_Asia_Generic_communism.dds"
+			}	
+		}
+		country_leader={
+			desc=""
+			ideology=marxism
+			expire="1953.3.1"
+			id=-1
+			traits={}
+		}
+	}
+	VIN_ngo_dinh_diem={
+		name = VIN_ngo_dinh_diem
+		portraits={
+			civilian={
+				large="gfx/leaders/Asia/Portrait_Asia_Generic_2.dds"
+			}	
+		}
+		country_leader={
+			desc=""
+			ideology=social_conservatism
+			expire="1953.3.1"
+			id=-1
+			traits={}
+		}
+	}
+	VIN_nguyen_tuong_tam={
+		name = VIN_nguyen_tuong_tam
+		portraits={
+			civilian={
+				large="gfx/leaders/Asia/Portrait_Asia_Generic_3.dds"
+			}	
+		}
+		country_leader={
+			desc=""
+			ideology=moderatism
+			expire="1953.3.1"
+			id=-1
+			traits={}
+		}
+	}
+	VIN_bao_dai={
+		name = VIN_bao_dai
+		portraits={
+			civilian={
+				large="gfx/leaders/VIN/Portrait_VIN_Bao_Dai.dds"
+			}
+		}
+	}
+}

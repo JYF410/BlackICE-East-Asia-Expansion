@@ -1,0 +1,107 @@
+﻿capital = 562
+
+oob = ""
+
+set_convoys = 5
+if = {
+	limit = {
+		not = { has_dlc = "Man the Guns" }
+	}
+	set_technology = {
+		generic_naval_tech = 1
+		generic_naval = 1
+		early_destroyer = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_technology = {
+		early_ship_hull_light = 1
+		early_ship_hull_submarine = 1
+		early_fire_control_system = 1
+		basic_torpedo = 1
+		early_engine = 1
+	}
+}
+set_technology = {  #初始科技
+    ############# infantry ###############
+	tech_infantry_uniforms = 1
+	infantry_weapons = 1
+	tech_Garrison = 1
+	tech_Headquarters = 1
+	################## support ##################
+	tech_recon = 1
+	tech_support = 1
+	subtech_recon_cav_1 = 1
+	infantry_at = 1 #uhm ok, weird flex
+	handheld_at_equipment_infantry_group_tech = 1
+	handheld_at_equipment_mobile_group_tech = 1
+	handheld_at_equipment_special_forces_group_tech = 1
+	semi_motorised_infantry = 1
+	motorised_infantry = 1
+	################## aircraft ##############
+	generic_fighter = 1
+	generic_bomber = 1
+	generic_strategic_bomber = 1
+	early_CAS = 1
+	################# ships ################
+	generic_naval_tech = 1
+	generic_naval = 1
+	############### WW1 doctrines ############
+	ww1_infantry = 1
+	infantry_charge = 1
+	complex_trench_systems = 1
+	ww1_artillery = 1
+	foot_runners = 1
+	mobile_doctrines = 1
+	cavalry_charges = 1
+	cavalry_dismounting = 1
+	ww1_battlefield_support = 1
+	############### WW2 doctrines ############
+	mass_assault = 1
+}
+add_ideas = { 	#初始民族精神
+	export_focus
+	tax_low
+	tariffs_average
+	
+	civilian_economy
+	press_regulated
+	key_industries
+	labor_none
+	fdi_allowed
+	
+	cons_volunteer
+	foreign_volunteers
+	mob_reserve
+	train_none
+	age_19
+
+	edu_minimal
+	officer_train_none
+	security_minor_restrictions
+	foreign_isolationism
+	neutrality_idea
+	subsistence_diet
+}
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	neutrality = 40
+	communism = 30
+	fascism = 10
+	socialism = 20
+}
+############################################################
+recruit_character = SIB_Alexei_Grishin  #阿列克谢·格里申-阿尔马佐夫
+recruit_character = SIB_Vadim_Podbelsky  #瓦迪姆·尼古拉耶维奇
+recruit_character = SIB_Mikhaylovich_Semyonov  #格里戈里·米哈伊洛维奇·谢苗诺夫
+recruit_character = SIB_Nikolai_Avksentyev  #尼古拉·阿夫克森季耶夫
+recruit_character = SIB_Aleksandr_Vasilyevich_Kolchak  #亚历山大·瓦西里耶维奇·高尔察克
+### EOF ###

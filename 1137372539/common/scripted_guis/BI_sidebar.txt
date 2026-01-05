@@ -1,0 +1,298 @@
+scripted_gui = {
+	BI_sidebar = {
+		context_type = player_context
+		
+		#parent_scripted_gui = BI_sidebar_frame
+		parent_window_token = top_bar 
+		window_name = "BI_sidebar_container"
+		
+		visible = { 
+			has_country_flag = sidebar 
+		} 
+		
+		dynamic_lists = {
+			sidebar_background = {
+				array = sidebar_bg
+				change_scope = yes
+				entry_container = "sidebar_background_container"
+			}
+			sidebar_list = {
+				array = sidebar_list
+				change_scope = yes
+				entry_container = "sidebar_entry_container"
+			}
+			sidebar_info_list = {
+				array = sidebar_info_list
+				change_scope = yes
+				value = sidebar_v
+				index = sidebar_i
+				entry_container = "sidebar_info_entry_container"
+			}
+			topbar_menu = { 
+				array = sidebar_menu@var:sidebar_i
+				value = topbar_menu_v
+				index = topbar_menu_i
+				change_scope = yes
+				entry_container = "topbar_menu_container"
+			}  
+		}
+		
+		properties = {
+			icon = {
+				image = GFX_idea_[?icon.GetTokenKey]
+			}
+			bottom = {
+				y = bottom_y
+			}
+			open_option = {
+				y = open_option_y
+			}
+			
+			info_bg = {
+				y = info_bg_y
+			}
+			info_icon = {
+				image = "GFX_[?sidebar_v.GetTokenKey]"
+				y = info_icon_y
+			}
+			sidebar_info_text = {
+				y = info_text_y
+			}
+			background_button_highlight = {
+				y = info_bg_y
+			}
+			
+			topbar_menu_icon = {        
+				image = "GFX_[?topbar_menu_v.GetTokenKey]"
+			}
+			list = {
+				frame = list_frame
+			}
+		}
+		
+		dirty = ui_sidebar_update
+
+		triggers = {
+			hide_click_enabled = {
+				
+				set_temp_variable = { num_bg = sidebar_info_list^num }
+				add_to_temp_variable = { num_bg = 0.5 }
+				multiply_temp_variable = { num_bg = 0.5 }
+				round_temp_variable = num_bg
+				add_to_temp_variable = { num_bg = sidebar_list^num }
+				
+				resize_temp_array = { sidebar_bg = num_bg }
+				
+				
+				set_temp_variable = { bottom_y = num_bg }
+				if = {
+					limit = {
+						check_variable = { bottom_y = 0 }
+					}
+					set_temp_variable = { bottom_y = 55 }
+				}
+				else = {
+					multiply_temp_variable = { bottom_y = 70 }
+					add_to_temp_variable = { bottom_y = 61 }
+				}
+		
+				set_temp_variable = { info_bg_y = sidebar_list^num }
+				multiply_temp_variable = { info_bg_y = 70 }
+				add_to_temp_variable = { info_bg_y = 22 }
+				set_temp_variable = { info_icon_y = info_bg_y }
+				add_to_temp_variable = { info_icon_y = -12 }
+				
+				set_temp_variable = { open_option_y = bottom_y }
+				add_to_temp_variable = { open_option_y = 20 }
+				set_temp_variable = { info_text_y = info_icon_y }
+				add_to_temp_variable = { info_text_y = 1 }
+			}
+			
+			icon_click_enabled = {
+				sidebar_trigger = yes
+			}
+			
+			
+			list_click_enabled = {
+				if = {
+					limit = {
+						OR = {
+							is_in_array = { side_subcategory = topbar_menu_v }
+							check_variable = { side_subcategory_selected = topbar_menu_v }
+						}
+					}
+					set_temp_variable = { list_frame = 2 }
+				}
+				else = {
+					set_temp_variable = { list_frame = 1 }
+				}
+			}
+			topbar_menu_expand_icon_visible = {
+				OR = {
+					check_variable = { topbar_menu_v = token:topbar_menu_fuel }
+					check_variable = { topbar_menu_v = token:topbar_menu_food }
+					check_variable = { topbar_menu_v = token:topbar_menu_refineries }
+					check_variable = { topbar_menu_v = token:topbar_menu_assemblies }
+					check_variable = { topbar_menu_v = token:topbar_menu_resource_total }
+					check_variable = { topbar_menu_v = token:topbar_menu_resource_produced }
+					check_variable = { topbar_menu_v = token:topbar_menu_resource_imported }
+					check_variable = { topbar_menu_v = token:topbar_menu_resource_exported }
+					check_variable = { topbar_menu_v = token:topbar_menu_resource_consumed }
+				}
+			}
+			
+			list_visible = {
+				check_variable = { topbar_menu_v > 0 }
+			}
+			topbar_menu_icon_visible = {
+				check_variable = { topbar_menu_v > 0 }
+			}
+		
+			#select_target_click_enabled = {
+				#OR = {
+				#	has_state_flag = { flag = selected_topbar_info value = 32 }
+				#	has_state_flag = { flag = selected_topbar_info value = 34 }
+				#}
+			#}
+			background_button_highlight_visible = {
+				has_variable = selected_sidebar
+				check_variable = { selected_sidebar = sidebar_i }
+			}
+			topbar_menu_header_visible = {
+				has_variable = selected_sidebar
+				check_variable = { selected_sidebar = sidebar_i }
+			}
+			topbar_menu_background_visible = {
+				has_variable = selected_sidebar
+				check_variable = { selected_sidebar = sidebar_i }
+			}
+			options_exit_button_visible = {
+	 			has_variable = selected_sidebar
+				check_variable = { selected_sidebar = sidebar_i }
+			}
+			#select_target_visible = {
+			#	always = no
+			#	has_variable = selected_sidebar
+			#	check_variable = { selected_sidebar = sidebar_i }
+			#}
+			topbar_menu_header_text_visible = {
+	 			has_variable = selected_sidebar
+				check_variable = { selected_sidebar = sidebar_i }
+			}
+			shift_info_visible = {
+	 			has_variable = selected_sidebar
+				check_variable = { selected_sidebar = sidebar_i }
+			}
+		}
+		
+		effects = {
+			open_option_click = { 
+				add_to_array = { sidebar_info_list = token:topbar_empty }
+				add_to_variable = { ui_sidebar_update = 1 }
+			} 
+			
+			icon_click = {
+				sidebar_effect = yes
+			}
+			
+			hide_click = {
+				clr_country_flag = sidebar
+				add_to_variable = { ui_sidebar_update = 1 }
+				add_to_variable = { ui_topbar_update = 1 }
+			}
+			
+			info_bg_click = {
+				
+				meta_effect = {
+					text = {
+						custom_effect_tooltip = "[X]_tt"
+					}
+					X = "[?sidebar_v.GetTokenKey]"
+				}
+				
+				set_temp_variable = { evaluate_token = sidebar_v }
+				sidebar_entry_tooltip = yes
+				
+				for_each_loop = { 
+					array = sidebar_info_list
+					
+					clear_array = ROOT.sidebar_menu@var:i
+				}
+				if = {
+					limit = {
+						OR = {
+							NOT = { check_variable = { selected_sidebar = sidebar_i } }
+							NOT = { has_variable = selected_sidebar }
+						} 
+					}  
+					#log = "Not identical [?selected_sidebar] and  [?sidebar_i]"     
+					set_variable = { selected_sidebar = sidebar_i }  
+					
+					clear_variable = side_subcategory_selected
+					
+					set_temp_variable = { is_sidebar = 1 }
+					update_topbar_menu = yes
+				}
+				else = {
+					#log = "identical [?selected_sidebar] and  [?sidebar_i], CLEAR"
+					
+					clear_variable = side_subcategory_selected
+					clear_variable = selected_sidebar
+					clear_array = side_subcategory
+					
+					for_each_loop = { 
+						array = sidebar_info_list
+						
+						clear_array = sidebar_menu@var:i
+					}
+				}
+				add_to_variable = { ui_sidebar_update = 1 }
+			}
+			info_bg_right_click = {
+				remove_from_array = { sidebar_info_list = sidebar_v }
+				add_to_variable = { ui_sidebar_update = 1 }
+			}
+			
+			options_exit_button_click = {
+				clear_variable = side_subcategory_selected
+				clear_variable = selected_sidebar
+				clear_array = side_subcategory
+				
+				for_each_loop = { 
+					array = sidebar_info_list
+					
+					clear_array = sidebar_menu@var:i
+				}
+				add_to_variable = { ui_sidebar_update = 1 }
+			}
+			list_click = {  
+				set_temp_variable = { is_sidebar = 1 }
+				topbar_assign_information = yes
+				add_to_variable = { ui_sidebar_update = 1 }
+			}
+			list_shift_click = {
+				set_temp_variable = { is_sidebar = 1 }
+				set_variable = { shift_click = 1 }
+				topbar_assign_information = yes
+				clear_variable = shift_click
+				add_to_variable = { ui_sidebar_update = 1 }
+			}
+			topbar_icon_click = {
+				meta_effect = {
+					text = {
+						custom_effect_tooltip = "[X]_tt"
+					}
+					X = "[?topbar.GetTokenKey]"
+				}
+			}
+			topbar_menu_icon_click = { 
+				meta_effect = {
+					text = {
+						custom_effect_tooltip = "[X]_tt"
+					}
+					X = "[?topbar_menu_v.GetTokenKey]"
+				}
+			}
+        }
+	}
+}

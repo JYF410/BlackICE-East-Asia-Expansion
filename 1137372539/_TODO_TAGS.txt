@@ -1,0 +1,17 @@
+#
+# #TODO_MIO - stuff ported from vanilla that needs to be adjusted for BICE still regarding MIOs
+#
+# #TODO_SCIENTIST - scientists ported from vanilla, potentially ahistorical paths; feasibility / propability of these needs to be checked
+#
+# #TODO_MINOR_TANKS - effects / bonuses related to old tank system that need review once minor tanks are done
+#
+# #TODO_SHIP_FLICKER - ship models which have flickering white squares, even on DX9
+#
+# test
+#
+#
+#
+#
+#
+#
+#

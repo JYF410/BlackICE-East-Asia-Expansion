@@ -1,0 +1,553 @@
+ai_naval_startup = { #此效果仅在启动时触发一次，作用范围限定为GEN（自其为第一个国家）
+	
+	KOR = {
+		if = {
+			limit = { is_ai = yes }
+			add_to_array = { ai_ship_roles = token:naval_capital_bc }
+			add_to_array = { ai_ship_roles = token:naval_cruiser_heavy }
+			add_to_array = { ai_ship_roles = token:naval_cruiser_light }
+			add_to_array = { ai_ship_roles = token:naval_screen }
+			add_to_array = { ai_ship_roles = token:naval_submarine }		
+		}
+	}
+
+	LUU = {
+		if = {
+			limit = { is_ai = yes }
+			add_to_array = { ai_ship_roles = token:naval_screen }
+			add_to_array = { ai_ship_roles = token:naval_submarine }		
+		}
+	}
+
+	PAK = {
+		if = {
+			limit = { is_ai = yes }
+			add_to_array = { ai_ship_roles = token:naval_cruiser_light }
+			add_to_array = { ai_ship_roles = token:naval_screen }
+			add_to_array = { ai_ship_roles = token:naval_submarine }	
+		}
+	}
+
+	BAN = {
+		if = {
+			limit = { is_ai = yes }
+			add_to_array = { ai_ship_roles = token:naval_screen }
+			add_to_array = { ai_ship_roles = token:naval_submarine }		
+		}
+	}
+
+	SIB = {
+		if = {
+			limit = { is_ai = yes }
+			add_to_array = { ai_ship_roles = token:naval_screen }
+			add_to_array = { ai_ship_roles = token:naval_submarine }		
+		}
+	}
+
+	CAM = {
+		if = {
+			limit = { is_ai = yes }
+			add_to_array = { ai_ship_roles = token:naval_screen }
+			add_to_array = { ai_ship_roles = token:naval_submarine }		
+		}
+	}
+
+}
+
+ai_naval_BC/KOR = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_BC_1936 }
+			date > 1936.1.1
+		}
+		HSD_GEN_BC_1936_button_effect = yes
+		set_country_flag = HSD_GEN_BC_1936
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_BC_1940 }
+			date > 1940.1.1
+		}
+		HSD_GEN_BC_1943_button_effect = yes
+		set_country_flag = HSD_GEN_BC_1940
+	}
+}	
+ai_naval_CA/KOR = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_CA_1936 }
+			date > 1936.1.1
+		}
+		HSD_GEN_CA_1936_button_effect = yes
+		set_country_flag = HSD_GEN_CA_1936
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_CA_1940 }
+			date > 1940.1.1
+		}
+		HSD_GEN_CA_1943_button_effect = yes
+		set_country_flag = HSD_GEN_CA_1940
+	}
+}	
+ai_naval_CL/KOR = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_CL_1936 }
+			date > 1936.1.1
+		}
+		HSD_GEN_CL_1940_button_effect = yes
+		set_country_flag = HSD_GEN_CL_1936
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_CL_1940 }
+			date > 1940.1.1
+		}
+		HSD_GEN_CL_1943_button_effect = yes
+		set_country_flag = HSD_GEN_CL_1940
+	}
+}
+ai_naval_DD/KOR = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_DD_1940 }
+			date > 1940.1.1
+		}
+
+		HSD_GEN_DD_1940_button_effect = yes
+		set_country_flag = HSD_GEN_DD_1940
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_DD_1943 }
+			date > 1943.1.1
+		}
+
+		HSD_GEN_DD_1943_button_effect = yes
+		set_country_flag = HSD_GEN_DD_1943
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_DD_1946 }
+			date > 1946.1.1
+		}
+
+		HSD_GEN_DD_1946_button_effect = yes
+		set_country_flag = HSD_GEN_DD_1946
+	}
+}
+ai_naval_SS/KOR = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1936 }
+			date > 1936.1.1
+		}
+
+		HSD_GEN_SS_1936_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1936
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1941 }
+			date > 1941.1.1
+		}
+
+		HSD_GEN_SS_1941_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1941
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1944 }
+			date > 1944.1.1
+		}
+
+		HSD_GEN_SS_1944_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1944
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1946 }
+			date > 1946.1.1
+		}
+
+		HSD_GEN_SS_1946_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1946
+	}
+}
+
+ai_naval_CL/LUU = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_CL_1936 }
+			date > 1936.1.1
+		}
+		HSD_GEN_CL_1940_button_effect = yes
+		set_country_flag = HSD_GEN_CL_1936
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_CL_1940 }
+			date > 1940.1.1
+		}
+		HSD_GEN_CL_1943_button_effect = yes
+		set_country_flag = HSD_GEN_CL_1940
+	}
+}
+ai_naval_DD/LUU = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_DD_1940 }
+			date > 1940.1.1
+		}
+
+		HSD_GEN_DD_1940_button_effect = yes
+		set_country_flag = HSD_GEN_DD_1940
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_DD_1943 }
+			date > 1943.1.1
+		}
+
+		HSD_GEN_DD_1943_button_effect = yes
+		set_country_flag = HSD_GEN_DD_1943
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_DD_1946 }
+			date > 1946.1.1
+		}
+
+		HSD_GEN_DD_1946_button_effect = yes
+		set_country_flag = HSD_GEN_DD_1946
+	}
+}
+ai_naval_SS/LUU = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1936 }
+			date > 1936.1.1
+		}
+
+		HSD_GEN_SS_1936_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1936
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1941 }
+			date > 1941.1.1
+		}
+
+		HSD_GEN_SS_1941_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1941
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1944 }
+			date > 1944.1.1
+		}
+
+		HSD_GEN_SS_1944_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1944
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1946 }
+			date > 1946.1.1
+		}
+
+		HSD_GEN_SS_1946_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1946
+	}
+}
+
+ai_naval_CL/PAK = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_CL_1936 }
+			date > 1936.1.1
+		}
+		HSD_GEN_CL_1940_button_effect = yes
+		set_country_flag = HSD_GEN_CL_1936
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_CL_1940 }
+			date > 1940.1.1
+		}
+		HSD_GEN_CL_1943_button_effect = yes
+		set_country_flag = HSD_GEN_CL_1940
+	}
+}
+ai_naval_DD/PAK = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_DD_1940 }
+			date > 1940.1.1
+		}
+
+		HSD_GEN_DD_1940_button_effect = yes
+		set_country_flag = HSD_GEN_DD_1940
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_DD_1943 }
+			date > 1943.1.1
+		}
+
+		HSD_GEN_DD_1943_button_effect = yes
+		set_country_flag = HSD_GEN_DD_1943
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_DD_1946 }
+			date > 1946.1.1
+		}
+
+		HSD_GEN_DD_1946_button_effect = yes
+		set_country_flag = HSD_GEN_DD_1946
+	}
+}
+ai_naval_SS/PAK = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1936 }
+			date > 1936.1.1
+		}
+
+		HSD_GEN_SS_1936_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1936
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1941 }
+			date > 1941.1.1
+		}
+
+		HSD_GEN_SS_1941_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1941
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1944 }
+			date > 1944.1.1
+		}
+
+		HSD_GEN_SS_1944_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1944
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1946 }
+			date > 1946.1.1
+		}
+
+		HSD_GEN_SS_1946_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1946
+	}
+}
+
+ai_naval_DD/SIB = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_DD_1940 }
+			date > 1940.1.1
+		}
+
+		HSD_GEN_DD_1940_button_effect = yes
+		set_country_flag = HSD_GEN_DD_1940
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_DD_1943 }
+			date > 1943.1.1
+		}
+
+		HSD_GEN_DD_1943_button_effect = yes
+		set_country_flag = HSD_GEN_DD_1943
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_DD_1946 }
+			date > 1946.1.1
+		}
+
+		HSD_GEN_DD_1946_button_effect = yes
+		set_country_flag = HSD_GEN_DD_1946
+	}
+}
+ai_naval_SS/SIB = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1936 }
+			date > 1936.1.1
+		}
+
+		HSD_GEN_SS_1936_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1936
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1941 }
+			date > 1941.1.1
+		}
+
+		HSD_GEN_SS_1941_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1941
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1944 }
+			date > 1944.1.1
+		}
+
+		HSD_GEN_SS_1944_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1944
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1946 }
+			date > 1946.1.1
+		}
+
+		HSD_GEN_SS_1946_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1946
+	}
+}
+
+ai_naval_DD/CAM = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_DD_1940 }
+			date > 1940.1.1
+		}
+
+		HSD_GEN_DD_1940_button_effect = yes
+		set_country_flag = HSD_GEN_DD_1940
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_DD_1943 }
+			date > 1943.1.1
+		}
+
+		HSD_GEN_DD_1943_button_effect = yes
+		set_country_flag = HSD_GEN_DD_1943
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_DD_1946 }
+			date > 1946.1.1
+		}
+
+		HSD_GEN_DD_1946_button_effect = yes
+		set_country_flag = HSD_GEN_DD_1946
+	}
+}
+ai_naval_SS/CAM = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1936 }
+			date > 1936.1.1
+		}
+
+		HSD_GEN_SS_1936_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1936
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1941 }
+			date > 1941.1.1
+		}
+
+		HSD_GEN_SS_1941_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1941
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1944 }
+			date > 1944.1.1
+		}
+
+		HSD_GEN_SS_1944_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1944
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1946 }
+			date > 1946.1.1
+		}
+
+		HSD_GEN_SS_1946_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1946
+	}
+}
+
+ai_naval_DD/BAN = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_DD_1940 }
+			date > 1940.1.1
+		}
+
+		HSD_GEN_DD_1940_button_effect = yes
+		set_country_flag = HSD_GEN_DD_1940
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_DD_1943 }
+			date > 1943.1.1
+		}
+
+		HSD_GEN_DD_1943_button_effect = yes
+		set_country_flag = HSD_GEN_DD_1943
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_DD_1946 }
+			date > 1946.1.1
+		}
+
+		HSD_GEN_DD_1946_button_effect = yes
+		set_country_flag = HSD_GEN_DD_1946
+	}
+}
+ai_naval_SS/PAK = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1936 }
+			date > 1936.1.1
+		}
+
+		HSD_GEN_SS_1936_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1936
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1941 }
+			date > 1941.1.1
+		}
+
+		HSD_GEN_SS_1941_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1941
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1944 }
+			date > 1944.1.1
+		}
+
+		HSD_GEN_SS_1944_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1944
+	}
+	else_if = {
+		limit = {
+			NOT = { has_country_flag = HSD_GEN_SS_1946 }
+			date > 1946.1.1
+		}
+
+		HSD_GEN_SS_1946_button_effect = yes
+		set_country_flag = HSD_GEN_SS_1946
+	}
+}

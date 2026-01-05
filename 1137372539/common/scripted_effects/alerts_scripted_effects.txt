@@ -1,0 +1,327 @@
+
+d_alert_test = {
+	log = "alert test"
+	clear_array = alerts
+	clear_array = alerts_sender
+	
+	for_each_loop = {
+		array = global.diplomatic_favours
+		
+		meta_effect = {
+			text = {
+				add_to_array = { alerts = token:alert_[X] }
+			}
+			X = "[?v.GetTokenKey]"
+		}
+		add_to_array = { alerts_sender = global.countries^i }
+	}
+	
+	add_to_variable = { ui_topbar_update = 1 }
+}
+
+alert_diplo_trade_bonus = {
+	custom_effect_tooltip = alert_favour_request_desc
+	
+	set_temp_variable = { favour_value = token:diplo_trade_bonus }
+	if = {
+		limit = {
+			check_variable = { shift_click = 0 }
+		}
+		add_to_array = { notification = token:diplo_trade_bonus }
+		add_to_array = { notification_sender = alerts_sender^i }
+		add_to_array = { notification_target = ROOT }
+			
+		remove_from_array = { array = alerts_sender index = alert_index }
+		remove_from_array = { alerts = alert_value }
+	}
+	
+	add_to_variable = { ui_topbar_update = 1 }
+}
+alert_diplo_law_bonus = {
+	custom_effect_tooltip = alert_favour_request_desc
+	
+	set_temp_variable = { favour_value = token:diplo_law_bonus }
+	if = {
+		limit = {
+			check_variable = { shift_click = 0 }
+		}
+		add_to_array = { notification = token:diplo_law_bonus }
+		add_to_array = { notification_sender = alerts_sender^i }
+		add_to_array = { notification_target = ROOT }
+			
+		remove_from_array = { array = alerts_sender index = alert_index }
+		remove_from_array = { alerts = alert_value }
+	}
+	
+	add_to_variable = { ui_topbar_update = 1 }
+}
+alert_diplo_command_bonus = {
+	custom_effect_tooltip = alert_favour_request_desc
+	
+	set_temp_variable = { favour_value = token:diplo_command_bonus }
+	if = {
+		limit = {
+			check_variable = { shift_click = 0 }
+		}
+		add_to_array = { notification = token:diplo_command_bonus }
+		add_to_array = { notification_sender = alerts_sender^i }
+		add_to_array = { notification_target = ROOT }
+			
+		remove_from_array = { array = alerts_sender index = alert_index }
+		remove_from_array = { alerts = alert_value }
+	}
+	
+	add_to_variable = { ui_topbar_update = 1 }
+}
+alert_diplo_production_bonus = {
+	custom_effect_tooltip = alert_favour_request_desc
+	
+	set_temp_variable = { favour_value = token:diplo_production_bonus }
+	if = {
+		limit = {
+			check_variable = { shift_click = 0 }
+		}
+		add_to_array = { notification = token:diplo_production_bonus }
+		add_to_array = { notification_sender = alerts_sender^i }
+		add_to_array = { notification_target = ROOT }
+			
+		remove_from_array = { array = alerts_sender index = alert_index }
+		remove_from_array = { alerts = alert_value }
+	}
+	
+	add_to_variable = { ui_topbar_update = 1 }
+}
+alert_diplo_resource_bonus = {
+	custom_effect_tooltip = alert_favour_request_desc
+	
+	set_temp_variable = { favour_value = token:diplo_resource_bonus }
+	if = {
+		limit = {
+			check_variable = { shift_click = 0 }
+		}
+		add_to_array = { notification = token:diplo_resource_bonus }
+		add_to_array = { notification_sender = alerts_sender^i }
+		add_to_array = { notification_target = ROOT }
+			
+		remove_from_array = { array = alerts_sender index = alert_index }
+		remove_from_array = { alerts = alert_value }
+	}
+	
+	add_to_variable = { ui_topbar_update = 1 }
+}
+alert_diplo_experience_bonus = {
+	custom_effect_tooltip = alert_favour_request_desc
+	
+	set_temp_variable = { favour_value = token:diplo_experience_bonus }
+	if = {
+		limit = {
+			check_variable = { shift_click = 0 }
+		}
+		add_to_array = { notification = token:diplo_experience_bonus }
+		add_to_array = { notification_sender = alerts_sender^i }
+		add_to_array = { notification_target = ROOT }
+			
+		remove_from_array = { array = alerts_sender index = alert_index }
+		remove_from_array = { alerts = alert_value }
+	}
+	
+	add_to_variable = { ui_topbar_update = 1 }
+}
+alert_diplo_license_bonus = {
+	custom_effect_tooltip = alert_favour_request_desc
+	
+	set_temp_variable = { favour_value = token:diplo_license_bonus }
+	if = {
+		limit = {
+			check_variable = { shift_click = 0 }
+		}
+		add_to_array = { notification = token:diplo_license_bonus }
+		add_to_array = { notification_sender = alerts_sender^i }
+		add_to_array = { notification_target = ROOT }
+			
+		remove_from_array = { array = alerts_sender index = alert_index }
+		remove_from_array = { alerts = alert_value }
+	}
+	
+	add_to_variable = { ui_topbar_update = 1 }
+}
+alert_diplo_intelligence_bonus = {
+	custom_effect_tooltip = alert_favour_request_desc
+	
+	set_temp_variable = { favour_value = token:diplo_intelligence_bonus }
+	if = {
+		limit = {
+			check_variable = { shift_click = 0 }
+		}
+		add_to_array = { notification = token:diplo_intelligence_bonus }
+		add_to_array = { notification_sender = alerts_sender^i }
+		add_to_array = { notification_target = ROOT }
+			
+		remove_from_array = { array = alerts_sender index = alert_index }
+		remove_from_array = { alerts = alert_value }
+	}
+	
+	add_to_variable = { ui_topbar_update = 1 }
+}
+alert_diplo_research_bonus = {
+	custom_effect_tooltip = alert_favour_request_desc
+	
+	set_temp_variable = { favour_value = token:diplo_research_bonus }
+	if = {
+		limit = {
+			check_variable = { shift_click = 0 }
+		}
+		add_to_array = { notification = token:diplo_research_bonus }
+		add_to_array = { notification_sender = alerts_sender^i }
+		add_to_array = { notification_target = ROOT }
+			
+		remove_from_array = { array = alerts_sender index = alert_index }
+		remove_from_array = { alerts = alert_value }
+	}
+
+	
+	add_to_variable = { ui_topbar_update = 1 }
+}
+alert_diplo_naval_bonus = {
+	custom_effect_tooltip = alert_favour_request_desc
+	
+	set_temp_variable = { favour_value = token:diplo_naval_bonus }
+	if = {
+		limit = {
+			check_variable = { shift_click = 0 }
+		}
+		add_to_array = { notification = token:diplo_naval_bonus }
+		add_to_array = { notification_sender = alerts_sender^i }
+		add_to_array = { notification_target = ROOT }
+			
+		remove_from_array = { array = alerts_sender index = alert_index }
+		remove_from_array = { alerts = alert_value }
+	}
+
+	
+	add_to_variable = { ui_topbar_update = 1 }
+}
+
+alert_food_deficit = {
+	custom_effect_tooltip = LACK_OF_FOOD_DELAYED
+	custom_effect_tooltip = alert_food_deficit_desc
+	ui_lack_of_food = yes
+}
+alert_fuel_deficit = {
+	custom_effect_tooltip = LACK_OF_FUEL_DELAYED
+	custom_effect_tooltip = alert_fuel_deficit_desc
+	ui_lack_of_fuel = yes
+}
+alert_energy_lack_capacity = {
+	custom_effect_tooltip = alert_energy_lack_capacity_desc
+	
+	set_temp_variable = { t = constant:energy.gain.plant }
+	
+	set_temp_variable = { factor = modifier@energy_production_factor }
+	add_to_temp_variable = { factor = 1 }
+	multiply_temp_variable = { t = factor }
+	
+	set_temp_variable = { need = energy_cost }
+	subtract_from_temp_variable = { need = max_energy_production }
+	
+	divide_temp_variable = { need = t }
+	add_to_temp_variable = { need = 0.5 }
+	round_temp_variable = need
+	clamp_temp_variable = { var = need min = 1 }
+	
+	custom_effect_tooltip = alert_energy_lack_capacity_need
+	
+	custom_effect_tooltip = alert_energy_lack_capacity_penalties
+	
+	if = {
+		limit = {
+			NOT = { check_variable = { lack_of_energy@energy_civilian = 0 } }
+		}
+		custom_effect_tooltip = alert_energy_lack_civilian
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { lack_of_energy@energy_military = 0 } }
+		}
+		custom_effect_tooltip = alert_energy_lack_military
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { lack_of_energy@energy_naval = 0 } }
+		}
+		custom_effect_tooltip = alert_energy_lack_naval
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { lack_of_energy@energy_conversion = 0 } }
+		}
+		custom_effect_tooltip = alert_energy_lack_refinery
+	}
+}
+
+alert_energy_lack_resource = {
+	custom_effect_tooltip = alert_energy_lack_resource_desc
+	if = {
+		limit = {
+			check_variable = { energy_input@coal < energy_input_real@coal }
+		}
+		custom_effect_tooltip = alert_energy_lack_resource_coal
+	}
+	if = {
+		limit = {
+			fuel_ratio < 0.05
+			check_variable = { energy_input@fuel > 0 }
+		}
+		set_temp_variable = { req = energy_input@fuel }
+		multiply_temp_variable = { req = 24 }
+		custom_effect_tooltip = alert_energy_lack_resource_fuel
+	}
+	custom_effect_tooltip = alert_energy_lack_capacity_penalties
+	
+	if = {
+		limit = {
+			NOT = { check_variable = { lack_of_energy@energy_civilian = 0 } }
+		}
+		custom_effect_tooltip = alert_energy_lack_civilian
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { lack_of_energy@energy_military = 0 } }
+		}
+		custom_effect_tooltip = alert_energy_lack_military
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { lack_of_energy@energy_naval = 0 } }
+		}
+		custom_effect_tooltip = alert_energy_lack_naval
+	}
+	if = {
+		limit = {
+			NOT = { check_variable = { lack_of_energy@energy_conversion = 0 } }
+		}
+		custom_effect_tooltip = alert_energy_lack_refinery
+	}
+}
+
+alert_special_forces_limit = {
+	set_temp_variable = { special_forces_ratio = modifier@special_forces_cap }
+	
+	if = {
+		limit = {
+			has_idea = sof_disabled 
+		}
+		add_to_temp_variable = { special_forces_ratio = 10 }
+	}
+	else = {
+		add_to_temp_variable = { special_forces_ratio = -10 }
+	}
+
+	set_temp_variable = { special_forces_cap = army_strength }
+	multiply_temp_variable = { special_forces_cap = special_forces_ratio }
+	clamp_temp_variable = { var = special_forces_cap min = modifier@special_forces_min }
+	round_temp_variable = special_forces_cap
+
+	custom_effect_tooltip = SPECIAL_FORCES_TT_TEXT_ONLY
+	ui_list_special_battalions = yes
+}

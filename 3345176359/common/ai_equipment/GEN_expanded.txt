@@ -1,0 +1,361 @@
+asia_naval_capital_bc = {
+	category = naval
+	blocked_for = {
+		ENG
+		GER
+		FRA
+		ITA
+		JAP
+		USA
+		CAN
+	}
+	available_for = {
+		KOR  #新增
+		LUU  #新增
+		PAK  #新增
+		SIB  #新增
+		CAM  #新增
+		BAN  #新增
+	}
+	roles = {
+		naval_capital_bc
+	}
+	priority = {
+		factor = 1
+	}
+	generic_naval_capital_bc = {
+		role_icon_index = 88
+		priority = {
+			factor = 1
+		}
+		target_variant = {
+			type = nrm_ship_hull_capital_1
+			match_value = 1000.0
+		}
+	}
+	GEN_BC_1936 = {
+		priority = {
+			factor = 2
+		}
+		role_icon_index = 88
+		enable = { 
+			has_country_flag = HSD_GEN_BC_1936
+		}
+		target_variant = {
+			match_value = 1000.0
+			type = nrm_ship_hull_capital_1
+			modules = {
+				fixed_ship_hullform_slot = nrm_ship_hullform_capital_1
+				fixed_ship_engine_slot = nrm_capital_engine_S1_065
+				fixed_ship_armor_layout_slot = nrm_armour_layout_BB_2
+				fixed_ship_armor_slot = nrm_capital_armour_13_1
+				fixed_ship_subdivision_slot = nrm_subdivision_2
+				fixed_ship_damagecontrol_slot = nrm_damagecontrol_2
+				fixed_ship_range_slot = nrm_range_capital_2h
+				fixed_ship_radar_slot = empty
+				fixed_ship_fire_control_system_slot = nrm_fire_control_4
+				fixed_ship_fire_control_system_aa_slot = empty
+				fixed_ship_battery_slot = nrm_capital_battery_15_1_2x4
+				fixed_ship_secondary_slot = nrm_capital_secondary_SB_6_1_x12
+				fixed_ship_tertiary_slot = nrm_capital_tertiary_HA_4_1_x04
+				custom_slot_1 = empty
+				custom_slot_2 = nrm_support_capital_FP_1
+				custom_slot_3 = nrm_support_capital_AA_1
+				custom_slot_4 = nrm_support_capital_HAA_2
+				custom_slot_5 = empty
+				custom_slot_6 = empty
+			}
+		}
+	}
+}
+
+asia_naval_cruiser_heavy = {
+	category = naval
+	blocked_for = {
+		ENG
+		GER
+		FRA
+		ITA
+		JAP
+		USA
+		CAN
+	}
+	available_for = {
+		KOR  #新增
+		LUU  #新增
+		PAK  #新增
+		SIB  #新增
+		CAM  #新增
+		BAN  #新增
+	}
+	roles = {
+		naval_cruiser_heavy
+	}
+	priority = {
+		factor = 7
+	}
+	generic_naval_cruiser_heavy = {
+		role_icon_index = 41
+		priority = {
+			factor = 1
+		}
+		target_variant = {
+			type = nrm_ship_hull_cruiser_1
+			match_value = 1000.0
+
+		}
+	}
+	GEN_CA_1936 = {
+		priority = {
+			factor = 2
+		}
+		role_icon_index = 50
+		enable = { 
+			has_country_flag = HSD_GEN_CA_1936
+		}
+		target_variant = {
+			match_value = 1000.0
+			type = nrm_ship_hull_cruiser_1
+			modules = {
+				fixed_ship_hullform_slot = nrm_ship_hullform_cruiser_1
+				fixed_ship_engine_slot = nrm_cruiser_engine_S1_080
+				fixed_ship_armor_layout_slot = nrm_armour_layout_2
+				fixed_ship_armor_slot = nrm_cruiser_armour_02h_1
+				fixed_ship_subdivision_slot = nrm_subdivision_2
+				fixed_ship_damagecontrol_slot = nrm_damagecontrol_2
+				fixed_ship_range_slot = nrm_range_cruiser_2
+				fixed_ship_radar_slot = empty
+				fixed_ship_fire_control_system_slot = nrm_fire_control_3
+				fixed_ship_fire_control_system_aa_slot = empty
+				fixed_ship_battery_slot = nrm_cruiser_battery_6_1_x08
+				fixed_ship_tertiary_slot = nrm_cruiser_tertiary_HA_4_1_x04
+				custom_slot_1 = empty
+				custom_slot_2 = empty
+				custom_slot_3 = nrm_support_cruiser_TRP_21_1_x06
+				custom_slot_4 = nrm_support_cruiser_TRP_21_1_x06
+				custom_slot_5 = nrm_support_cruiser_AA_1
+				custom_slot_6 = empty
+			}
+		}
+	}
+}
+
+asia_naval_cruiser_light = {
+	category = naval
+	blocked_for = {
+		ENG
+		GER
+		FRA
+		ITA
+		JAP
+		USA
+		CAN
+	}
+	available_for = {
+		KOR  #新增
+		LUU  #新增
+		PAK  #新增
+		SIB  #新增
+		CAM  #新增
+		BAN  #新增
+	}
+	roles = {
+		naval_cruiser_light
+	}
+	priority = {
+		factor = 8
+	}
+	generic_naval_cruiser_light = {
+		role_icon_index = 41
+		priority = {
+			factor = 8
+		}
+		target_variant = {
+			type = nrm_ship_hull_cruiser_1
+			match_value = 1
+
+		}
+	}
+	GEN_CL_1936 = {
+		priority = {
+			factor = 2
+		}
+		role_icon_index = 39
+		enable = { 
+			has_country_flag = HSD_GEN_CL_1936
+		}
+		target_variant = {
+			match_value = 1000.0 
+			type = nrm_ship_hull_cruiser_1
+			modules = {
+				fixed_ship_hullform_slot = nrm_ship_hullform_cruiser_1
+				fixed_ship_engine_slot = nrm_cruiser_engine_S1_055
+				fixed_ship_armor_layout_slot = nrm_armour_layout_1
+				fixed_ship_armor_slot = nrm_cruiser_armour_03_1
+				fixed_ship_subdivision_slot = nrm_subdivision_1
+				fixed_ship_damagecontrol_slot = nrm_damagecontrol_1
+				fixed_ship_range_slot = nrm_range_cruiser_1
+				fixed_ship_radar_slot = empty
+				fixed_ship_fire_control_system_slot = nrm_fire_control_3
+				fixed_ship_fire_control_system_aa_slot = empty
+				fixed_ship_battery_slot = nrm_cruiser_battery_5_1_x15
+				fixed_ship_tertiary_slot = nrm_cruiser_tertiary_none
+				custom_slot_1 = nrm_support_cruiser_ML_1
+				custom_slot_2 = nrm_support_cruiser_FP_1
+				custom_slot_3 = nrm_support_cruiser_TRP_21_1_x06
+				custom_slot_4 = nrm_support_cruiser_TRP_21_1_x06
+				custom_slot_5 = nrm_support_cruiser_AA_1
+				custom_slot_6 = empty
+			}
+		}
+	}
+}
+
+asia_naval_destroyers = {
+	category = naval
+	blocked_for = {
+		ENG
+		GER
+		FRA
+		ITA
+		JAP
+		USA
+		CAN
+	}
+	available_for = {
+		KOR  #新增
+		LUU  #新增
+		PAK  #新增
+		SIB  #新增
+		CAM  #新增
+		BAN  #新增
+	}
+	roles = {
+		naval_screen
+	}
+	priority = {
+		factor = 9
+	}
+	#驱逐舰(早期)
+	naval_asia_destroyer_1 = {
+		priority = {
+			factor = 9
+			modifier = { 
+				#has_tech = early_ship_hull_light #要求解锁科技：驱逐舰船体(早期)
+			}
+		}
+		role_icon_index = 39
+		target_variant = {
+			match_value = 1000.0
+			type = nrm_ship_hull_destroyer_1
+			modules = {
+				fixed_ship_hullform_slot = nrm_ship_hullform_destroyer_1 #船体外形
+				fixed_ship_engine_slot = nrm_destroyer_engine_S1_010 #发动机
+				fixed_ship_sonar_slot = empty #声纳
+				fixed_ship_battery_slot = nrm_destroyer_battery_3_1_x3 #主炮
+				fixed_ship_subdivision_slot = nrm_subdivision_1 #水密隔舱
+				fixed_ship_damagecontrol_slot = nrm_damagecontrol_1 #损害管制
+				fixed_ship_range_slot = nrm_range_destroyer_2 #巡航距离
+				fixed_ship_radar_slot = empty #雷达
+				fixed_ship_fire_control_system_slot = nrm_fire_control_3 #火控系统
+				fixed_ship_fire_control_system_aa_slot = empty #防空火控系统
+				custom_slot_1 = empty #附加设备
+				custom_slot_2 = empty #附加设备
+				custom_slot_3 = nrm_support_destroyer_TRP_21_C_1_x2 #附加设备
+				custom_slot_4 = nrm_support_destroyer_TRP_21_C_1_x2 #附加设备
+				custom_slot_5 = empty #附加设备
+				custom_slot_6 = empty #附加设备
+			}
+		}
+	}
+	#驱逐舰(改良)
+	#naval_asia_destroyer_2
+}
+
+asia_naval_submarine = {
+	category = naval
+	blocked_for = {
+		ENG
+		GER
+		FRA
+		ITA
+		JAP
+		USA
+		CAN
+	}
+	available_for = {
+		KOR  #新增
+		LUU  #新增
+		PAK  #新增
+		SIB  #新增
+		CAM  #新增
+		BAN  #新增
+	}
+	roles = {
+		naval_submarine
+	}
+	priority = {
+		factor = 10
+	}
+	#潜艇(早期)
+	naval_asia_submarine_1 = {
+		priority = {
+			factor = 10
+			modifier = {
+				#has_tech = early_ship_hull_submarine #要求解锁科技：潜艇船体(早期)
+			}
+		}
+		role_icon_index = 122
+		target_variant = {
+			match_value = 1000.0  #一个额外的权重，表示如果匹配成功，该设计的价值有多大
+			type = nrm_ship_hull_submarine_1
+			modules = {
+				fixed_ship_sub_hull_slot = nrm_submarine_hull_1 #船体设计
+				fixed_ship_engine_slot = nrm_submarine_engine_D0_010 #引擎
+				fixed_ship_sonar_slot = empty #声纳
+				fixed_ship_noise_slot = nrm_submarine_noise_0 #隐蔽性
+				fixed_ship_subdivision_slot = nrm_subdivision_1 #分舱
+				fixed_ship_damagecontrol_slot = nrm_damagecontrol_1 #灭火
+				fixed_ship_range_slot = nrm_range_submarine_1 #航程
+				fixed_ship_radar_slot = empty #雷达
+				fixed_ship_battery_slot = nrm_submarine_deckgun_3 #甲板炮
+				fixed_ship_anti_air_slot = empty #防空炮
+				fixed_ship_torpedo_slot = nrm_submarine_TRP_18_1_x2 #鱼雷槽位1
+				fixed_ship_torpedo_2_slot = nrm_submarine_TRP_18_1_x2 #鱼雷槽位2
+				custom_slot_1 = empty #附加槽位1
+				custom_slot_2 = empty #附加槽位2
+			}
+		}
+	}
+	#潜艇(改良)
+	naval_asia_submarine_2 = {
+		priority = {
+			factor = 1000
+			modifier = {
+				#has_tech = basic_ship_hull_submarine #要求解锁科技：潜艇船体(改良)
+				#has_tech = early_sub_diesel #要求解锁科技：潜艇引擎
+			}
+		}
+		role_icon_index = 6
+		target_variant = {
+			match_value = 1000.0  #一个额外的权重，表示如果匹配成功，该设计的价值有多大
+			type = nrm_ship_hull_submarine_2
+			modules = {
+				fixed_ship_sub_hull_slot = nrm_submarine_hull_2 #船体设计
+				fixed_ship_engine_slot = nrm_submarine_engine_D1_050 #引擎
+				fixed_ship_sonar_slot = empty #声纳
+				fixed_ship_noise_slot = nrm_submarine_noise_0 #隐蔽性
+				fixed_ship_subdivision_slot = nrm_subdivision_2 #分舱
+				fixed_ship_damagecontrol_slot = nrm_damagecontrol_2 #灭火
+				fixed_ship_range_slot = nrm_range_submarine_2 #航程
+				fixed_ship_radar_slot = empty #雷达
+				fixed_ship_battery_slot = nrm_submarine_deckgun_4 #甲板炮
+				fixed_ship_anti_air_slot = empty #防空炮
+				fixed_ship_torpedo_slot = nrm_submarine_TRP_18_1_x6 #鱼雷槽位1
+				fixed_ship_torpedo_2_slot = nrm_submarine_TRP_18_1_x6 #鱼雷槽位2
+				custom_slot_1 = empty #附加槽位1
+				custom_slot_2 = empty #附加槽位2
+			}
+		}
+	}
+}

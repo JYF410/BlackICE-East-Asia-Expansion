@@ -1,0 +1,47 @@
+characters={
+	LAO_Sisavang_Vatthana={  #西萨旺·瓦达纳
+		name = LAO_Sisavang_Vatthana
+		portraits={
+			civilian={
+				large="gfx/leaders/LAO/Portrait_LAO_Sisavang_Vatthana.dds"
+			}	
+		}
+		country_leader={
+			desc=""
+			ideology=absolutism
+			expire="1978.5.13"
+			id=-1
+			traits={ royalist_reformer }
+		}
+	}
+	LAO_Souvanna_Phouma={  #梭发那·富马亲王
+		name = LAO_Souvanna_Phouma
+		portraits={
+			civilian={
+				large="gfx/leaders/LAO/Portrait_LAO_Souvanna_Phouma.dds"
+			}	
+		}
+		country_leader={
+			desc=""
+			ideology=despotism
+			expire="1984.1.10"
+			id=-1
+			traits={ dealbroker }
+		}
+	}
+	LAO_Prince_Souphanouvong={  #苏发努冯亲王
+		name = LAO_Prince_Souphanouvong
+		portraits={
+			civilian={
+				large="gfx/leaders/LAO/Portrait_LAO_Prince_Souphanouvong.dds"
+			}	
+		}
+		country_leader={
+			desc=""
+			ideology=marxism
+			expire="1995.1.9"
+			id=-1
+			traits={ communist_revolutionary }
+		}
+	}
+}

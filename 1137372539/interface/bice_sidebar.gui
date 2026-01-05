@@ -1,0 +1,260 @@
+guiTypes = {
+	
+	containerWindowType = {
+		name = "BI_sidebar_container"
+		show_position = { x = 0 y = 160 }
+		hide_position = { x = -60 y = 160 }
+		size = { width = 80 height = 80% }
+		show_animation_type = decelerated
+		hide_animation_type = decelerated
+		animation_time = 500
+			
+		containerWindowType = {
+			name = "BI_sidebar_container_entry"
+			position = { x = 0 y = 0 }
+			size = { width = 80 height = 372 }
+			moveable = yes
+			clipping = no
+			
+			iconType = {  
+				name = "Background"		
+				spriteType ="GFX_sidebar"
+			}  
+			buttonType ={
+				name ="hide"  
+				position = { x = 24 y = 20 }
+				spriteType = "GFX_production_line_arrow_left"
+				orientation = "UPPER_LEFT"    
+				pdx_tooltip = hide_sidebar
+				#shortcut = "ESCAPE"    
+				oversound = ui_menu_over
+			}
+			containerWindowType = {
+				name = "sidebar_background_container"
+				position = {x = 0 y = 40 }
+				
+				# this grid will be dynamically populated
+				gridboxtype = {
+					name = "sidebar_background"
+					position = { x = 0 y = 20 }
+					size = { width = 80 height = 110 }
+					slotsize = { width = 80 height = 70 } #if width or height is 1, it will use slot element's dimension
+					max_slots_horizontal = 1
+					add_horizontal = no
+				}
+			}
+			containerWindowType = {
+				name = "sidebar_entry_container"
+				position = {x = 0 y = 40 }
+				
+				# this grid will be dynamically populated
+				gridboxtype = {
+					name = "sidebar_list"
+					position = { x = 0 y = 20 }
+					size = { width = 80 height = 110 }
+					slotsize = { width = 80 height = 70 } #if width or height is 1, it will use slot element's dimension
+					max_slots_horizontal = 1
+					add_horizontal = no
+				}
+			}
+			containerWindowType = {
+				name = "sidebar_info_entry_container"
+				position = {x = 0 y = 40 }
+				
+				# this grid will be dynamically populated
+				gridboxtype = {
+					name = "sidebar_info_list"
+					position = { x = 0 y = 20 }
+					size = { width = 80 height = 110 }
+					slotsize = { width = 80 height = 35 } #if width or height is 1, it will use slot element's dimension
+					max_slots_horizontal = 1
+					add_horizontal = no
+				}
+			}
+		
+			iconType = {  
+				name = "bottom"		
+				spriteType ="GFX_sidebar_entry"
+				position = { x = 0 y = 320 }
+			}  
+			buttonType ={
+				name ="open_option"  
+				position = { x = 25 y = 320 }
+				spriteType = "GFX_NV_btn_add"
+				orientation = "UPPER_LEFT"    
+				pdx_tooltip = SIDEBAR_ADD_TOOLTIP
+				oversound = ui_menu_over
+			}
+			
+		}
+	}	  
+	containerWindowType = {  
+		name = "topbar_menu_container"  
+		position = { x = 0 y = 0}	  
+		size = { width = 1000 height = 700 }  
+		
+		buttonType ={ 
+			name ="list" 
+			spriteType = "GFX_mapmode_configure_bg"   
+			#scale = 0.75
+			position = { x = 0 y = 30 } 
+			pdx_tooltip = "TOPBAR_LIST_MENU_TOOLTIP"
+			pdx_tooltip_delayed = "TOPBAR_LIST_MENU_TOOLTIP_DELAYED"
+			scale = 1.25
+		}
+		instantTextBoxType = {  
+			name ="list_text"   
+			position = { x=35 y = 33 }  
+			font = "hoi_18mbs" 
+			text = "[?topbar_menu_v.GetTokenLocalizedKey]"  
+			format = left
+			maxWidth = 180 
+			maxHeight = 20
+			fixedsize = yes
+			alwaystransparent = yes
+		}	
+		
+		iconType ={    
+			name ="topbar_menu_icon"
+			spriteType = "GFX_transparent_40_18"
+			position = { x = 3 y = 32 } 
+			alwaystransparent = yes
+		}  
+		iconType ={    
+			name ="topbar_menu_expand_icon"
+			spriteType = "GFX_expand_button"
+			position = { x = 192 y = 33 } 
+			alwaystransparent = yes
+		}  
+		
+	}
+
+	containerWindowType = {
+		name = "sidebar_background_container"
+		position = {x = 0 y = 0 }
+	
+		iconType = {  
+			name = "extension"		
+			spriteType ="GFX_sidebar_middle"
+		} 
+	}
+	containerWindowType = {
+		name = "sidebar_entry_container"
+		position = {x = 0 y = 0 }
+	
+		iconType ={
+			name ="icon"   
+			position = { x = 40 y = 45 } 
+			spriteType = "GFX_idea_tiny_air_force"
+			pdx_tooltip = sidebar_tooltip 
+			centerposition = yes
+		}
+	}
+	containerWindowType = {
+		name = "sidebar_info_entry_container"
+		position = {x = 0 y = 0 }
+	
+		buttonType ={
+			name ="info_bg"   
+			position = { x = 40 y = 25 } 
+			spriteType = "GFX_generic_box_smallest"
+			pdx_tooltip = SIDEBAR_ENTRY_TOOLTIP 
+			pdx_tooltip_delayed = TOPBAR_ENTRY_DELAYED_TOOLTIP
+			centerposition = yes
+		} 
+		iconType ={    
+			name ="background_button_highlight"
+			spriteType = "GFX_selected_topbar_slot"
+			position = { x = 28 y = -6 }
+			orientation = "UPPER_LEFT" 
+			alwaystransparent = yes 
+			centerposition = yes
+		}   
+		iconType ={
+			name ="info_icon"   
+			position = { x = 5 y = 25 } 
+			spriteType = "GFX_command_power"
+			alwaystransparent = yes 
+		}	
+		instantTextBoxType = {   
+			name ="sidebar_info_text" 
+			position = { x=3 y = 1 } 
+			font = "hoi_18mbs"
+			text = "[GetSelectedSidebarInfoText]" 
+			#text = "TOPBAR_INFO_TEXT"  
+			format = right
+			maxWidth = 70 
+			maxHeight = 24 
+			fixedsize = yes 
+			alwaystransparent = yes  
+		}	
+		containerWindowType = {
+			name = "topbar_menu_container"
+			position = {x = 100 y = 35 }
+			size = {width = 367 height = 460 } 
+			Orientation = upper_left
+			#background = { 
+			#	name = "background_box"
+			#	quadTextureSprite = "GFX_topbar_menu_bg"
+			#}
+			#verticalScrollbar = "right_vertical_slider"
+			
+			iconType ={ 
+				name ="topbar_menu_background" 
+				position = { x = -10 y = 3 }  
+				spriteType = "GFX_topbar_menu_bg" 
+				alwaystransparent = yes
+			}
+			instantTextBoxType = {  
+				name ="topbar_menu_header_text"  
+				position = { x=15 y = 2 } 
+				font = "hoi_36header" 
+				text = "Sidebar Options"  
+				format = left
+				maxWidth = 365 
+				maxHeight = 24 
+				alwaystransparent = yes
+			}
+			instantTextBoxType = {  
+				name ="shift_info"  
+				position = { x=15 y = 48 } 
+				font = "hoi_18mbs" 
+				text = "SIDEBAR_LIST_MENU_SHIFT_TOOLTIP"  
+				format = left
+				maxWidth = 365 
+				maxHeight = 24 
+				alwaystransparent = yes
+			}
+			
+			buttonType ={ 
+				name ="options_exit_button"
+				position = { x = 611 y = 6 } 
+				spriteType = "GFX_closebutton"   
+				pdx_tooltip = CLOSE
+				shortcut = "ESCAPE"
+				oversound = ui_menu_over
+			}
+			buttonType ={ 
+				name ="select_target"
+				position = { x = 70 y = 48 } 
+				spriteType = "GFX_EAI_sort_button"   
+				buttonFont = "hoi_20bs"
+				buttonText = "SELECT TARGET"
+				oversound = ui_menu_over
+				frame = 2
+				hide = yes
+			}
+		
+			# this grid will be dynamically populated
+			gridboxtype = {
+				name = "topbar_menu"
+				position = { x = 20 y = 48}
+				size = { width = 173 height = 23 }
+				slotsize = { width = 216 height = 28 } #if width or height is 1, it will use slot element's dimension
+				
+				max_slots_vertical = 50
+				max_slots_horizontal = 3
+			}
+		}
+	}
+}

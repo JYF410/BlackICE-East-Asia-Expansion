@@ -1,0 +1,64 @@
+﻿capital = 430
+
+oob = "BAN_1936"
+
+set_convoys = 3
+
+# Starting tech
+set_technology = {
+	#BICE_sub_balance = 1
+	building_tech = 1
+	tech_infantry_uniforms = 1
+	infantry_weapons = 1
+	tech_Headquarters = 1
+	tech_recon = 1
+	tech_support = 1
+	jungle_equipment = 1
+	ww1_infantry = 1
+	infantry_charge = 1
+	small_unit_raids = 1
+	foot_runners = 1
+	mobile_doctrines = 1
+	guerilla_warfare = 1
+	generic_fighter = 1
+	generic_bomber = 1
+	generic_strategic_bomber = 1
+}
+add_ideas = { 	
+	export_focus
+	tax_low
+	tariffs_average
+	
+	civilian_economy
+	press_regulated
+	key_industries
+	labor_none
+	fdi_allowed
+	
+	cons_volunteer
+	foreign_volunteers
+	mob_reserve
+	train_none
+	age_19
+
+	edu_minimal
+	officer_train_none
+	security_minor_restrictions
+	foreign_isolationism
+	neutrality_idea
+	subsistence_diet
+}
+set_politics = {
+	ruling_party = socialism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	socialism = 90
+	neutrality = 10
+}
+##### Country Leaders #####
+recruit_character = BAN_Sheikh_Mujibur_Rahman  #谢赫·穆吉布·拉赫曼
+recruit_character = BAN_Agha_Muhammad_Yahya_Khan  #阿迦·穆罕默德·叶海亚·汗
+### EOF ###

@@ -1,0 +1,98 @@
+# All our BICE modifiers here
+# Important: If you want these modifiers to be displayed in the diplomacy tab, next to diplomatic actions
+# go to ideas/zzz_token_base, and add a token inside there (see close_cooperation for reference in that file)
+# then, go to scripted_triggers/diplomacy_scripte_triggers and add your new modifier inside display_relation_modifiers
+
+# GFX for these is GFX_relation_<modifier>
+# Example: GFX_relation_close_cooperation
+
+close_cooperation = {
+	valid_relation_trigger = {
+		FROM = {
+			NOT = { has_war_with = ROOT }
+		}
+	}
+	#license_purchase_cost = 0.25
+	license_production_speed = 0.1
+	ai_license_acceptance = 5
+}
+
+ROM_foreign_built_army = {
+	valid_relation_trigger = {
+		FROM = {
+			NOT = { has_war_with = ROOT }
+		}
+	}
+
+	license_purchase_cost = 0 #base cost reduction
+	ai_license_acceptance = 60 #more to AI acceptance value.
+	license_production_speed = 0.25 #speed  increase for being a license
+	license_tech_difference_speed = 0.25 #less cost increase for each tech level between the license and own tech level 
+}
+
+ROM_license_german_equipment = {
+	valid_relation_trigger = {
+		FROM = {
+			NOT = { has_war_with = ROOT }
+		}
+	}
+
+	license_purchase_cost = 0 #base cost reduction
+	ai_license_acceptance = 20 #more to AI acceptance value.
+	license_production_speed = 0.25 #speed  increase for being a license
+	license_tech_difference_speed = 0.25 #less cost increase for each tech level between the license and own tech level 
+}
+
+license_air_equipment = {
+	valid_relation_trigger = {
+		FROM = {
+			NOT = { has_war_with = ROOT }
+		}
+	}
+    license_air_purchase_cost = 0.5
+	ai_license_acceptance = 20 #more to AI acceptance value.
+	license_production_speed = 0.1 #speed  increase for being a license
+	license_tech_difference_speed = 0.2 #less cost increase for each tech level between the license and own tech level 
+}
+
+ROM_foreign_motor_company = {
+	valid_relation_trigger = {
+		FROM = {
+			NOT = { has_war_with = ROOT }
+		}
+	}
+
+	license_purchase_cost = 0 #base cost reduction
+	ai_license_acceptance = 20 #more to AI acceptance value.
+	license_production_speed = 0.1 #speed  increase for being a license
+	license_tech_difference_speed = 0.1 #less cost increase for each tech level between the license and own tech level 
+}
+
+YUG_western_license = {
+	valid_relation_trigger = {
+		FROM = {
+			NOT = { has_war_with = ROOT }
+		}
+	}
+	ai_license_acceptance = 20 #more to AI acceptance value.
+
+}
+
+free_license = {
+	valid_relation_trigger = {
+		FROM = {
+			NOT = { has_war_with = ROOT }
+		}
+	}
+	license_purchase_cost = -1 #no base cost
+}
+
+diplo_trade_bonus = {
+	trade_cost_for_target_factor = -0.30
+}
+
+diplo_license_bonus = {
+	license_production_speed = 0.15
+}
+
+### EOF ###

@@ -1,0 +1,335 @@
+################################################################################################################
+#################################################### PAK #######################################################
+################################################################################################################
+ai_militia_templates/PAK = {
+	ai_militia_templates = yes
+	clear_temp_array = num_valid_templates
+	add_to_temp_array = { num_valid_templates = 1 }
+	if = {
+		limit = {
+			NOT = { has_country_flag = ai_militia_template }
+			if = { limit = { check_variable = { ai_template_skip = 1 } } template_bypass = yes }
+			else = {
+				has_war = no
+			}
+		}
+		set_temp_variable = { ai_has_added_template = 1 }
+		set_country_flag = { flag = ai_militia_template value = 1 }
+		division_template = {
+			name = "Militia Division"	
+			priority = @MILITIA_PRIO
+			regiments = {
+				militia = { x = 0 y = 0 }
+				militia = { x = 0 y = 1 }
+				militia = { x = 0 y = 2 }
+
+				militia = { x = 1 y = 0 }
+				militia = { x = 1 y = 1 }
+				militia = { x = 1 y = 2 }
+			}
+			support = {
+				DIV_HQ = { x = 0 y = 0 }
+				recon = { x = 0 y = 1 }
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_country_flag = { flag = ai_militia_template value = 2 }
+			if = { limit = { check_variable = { ai_template_skip = 1 } } template_bypass = yes }
+			else = {
+				ai_has_engineer = yes  #必须先解锁工兵连科技
+			}
+		}
+		set_temp_variable = { ai_has_added_template = 1 }
+		set_country_flag = { flag = ai_militia_template value = 3 }
+		division_template = {
+			name = "Militia Division"	
+			priority = @MILITIA_PRIO
+			regiments = {
+				militia = { x = 0 y = 0 }
+				militia = { x = 0 y = 1 }
+				militia = { x = 0 y = 2 }
+				militia = { x = 0 y = 3 }
+
+				militia = { x = 1 y = 0 }
+				militia = { x = 1 y = 1 }
+				militia = { x = 1 y = 2 }
+
+				militia = { x = 2 y = 0 }
+				militia = { x = 2 y = 1 }
+				militia = { x = 2 y = 2 }
+
+				mountain_artillery_brigade = { x = 3 y = 0 }
+				mountain_artillery_brigade = { x = 3 y = 1 }
+			}
+			support = {
+				DIV_HQ = { x = 0 y = 0 }
+				recon = { x = 0 y = 1 }
+				engineer  = { x = 0 y = 2 }
+			}
+		}
+	}
+	ai_militia_templates = yes
+}
+ai_infantry_templates/PAK = {
+	ai_infantry_templates = yes
+	clear_temp_array = num_valid_templates
+	add_to_temp_array = { num_valid_templates = 1 }
+	if = {  #一阶步兵师
+		limit = {
+			NOT = { has_country_flag = ai_infantry_template }
+			if = { limit = { check_variable = { ai_template_skip = 1 } } template_bypass = yes }
+		}
+		set_temp_variable = { ai_has_added_template = 1 }
+		set_country_flag = { flag = ai_infantry_template value = 1 }
+		division_template = {
+			name = "Infantry Division"	
+			priority = @INFANTRY_PRIO
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				
+				infantry = { x = 2 y = 0 }
+				infantry = { x = 2 y = 1 }
+				
+				mountain_artillery_brigade = { x = 3 y = 0 }
+				mountain_artillery_brigade = { x = 3 y = 1 }
+			}
+			support = {
+				DIV_HQ = { x = 0 y = 0 }
+				recon = { x = 0 y = 1 }
+
+				anti_air = { x = 1 y = 0 }
+			}
+		}
+	}
+	else_if = {  #二阶步兵师
+		limit = {
+			has_country_flag = { flag = ai_infantry_template value = 1 }
+			if = { limit = { check_variable = { ai_template_skip = 1 } } template_bypass = yes }
+			else = {
+				ai_has_engineer = yes  #必须先解锁工兵连科技
+			}
+		}
+		set_temp_variable = { ai_has_added_template = 1 }
+		modify_country_flag = { flag = ai_infantry_template value = 2 }	
+		division_template = {
+			name = "Infantry Division"	
+			priority = @INFANTRY_PRIO
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+				
+				infantry = { x = 2 y = 0 }
+				infantry = { x = 2 y = 1 }
+				infantry = { x = 2 y = 2 }
+				
+				artillery_brigade_med = { x = 3 y = 0 }
+				mountain_artillery_brigade = { x = 3 y = 1 }
+				mountain_artillery_brigade = { x = 3 y = 2 }
+			}
+			support = {
+				DIV_HQ = { x = 0 y = 0 }
+				recon_cav = { x = 0 y = 1 }
+				engineer = { x = 0 y = 2 }
+				field_hospital_cav = { x = 0 y = 3 }
+
+				artillery_heavy = { x = 1 y = 0 }
+				anti_air = { x = 1 y = 1 }
+			}
+		}
+	}
+	else_if = {  #三阶步兵师
+		limit = {
+			has_country_flag = { flag = ai_infantry_template value = 2 }
+			if = { limit = { check_variable = { ai_template_skip = 1 } } template_bypass = yes }
+			else = {
+				ai_has_signal_company = yes
+				ai_has_combat_engineer = yes
+			}
+		}
+		set_temp_variable = { ai_has_added_template = 1 }
+		set_country_flag = { flag = ai_infantry_template value = 3 }
+		division_template = {
+			name = "Infantry Division"	
+			priority = @INFANTRY_PRIO
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 0 y = 3 }
+				
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+
+				infantry = { x = 2 y = 0 }
+				infantry = { x = 2 y = 1 }
+				infantry = { x = 2 y = 2 }
+				
+				artillery_brigade_med = { x = 2 y = 0 }
+				artillery_brigade_med = { x = 2 y = 1 }
+				mountain_artillery_brigade = { x = 2 y = 2 }
+				mountain_artillery_brigade = { x = 2 y = 3 }
+			}
+			support = {
+				DIV_HQ_car = { x = 0 y = 0 }
+				recon_ac = { x = 0 y = 1 }
+				engineer_mot = { x = 0 y = 2 }
+				field_hospital = { x = 0 y = 3 }
+
+				combat_engineer_mot = { x = 1 y = 0 }
+				signal_company_mot = { x = 1 y = 1 }
+				artillery_heavy_mot = { x = 1 y = 2 }
+				anti_air_car = { x = 1 y = 3 }
+			}
+		}
+	}
+	ai_heavy_infantry_templates = yes
+}
+ai_light_armor_templates/PAK = {
+	ai_light_armor_templates = yes
+	clear_temp_array = num_valid_templates
+	add_to_temp_array = { num_valid_templates = 1 }
+	if = {  #半摩托化坦克师
+		limit = {
+			if = { limit = { check_variable = { ai_template_skip = 1 } } template_bypass = yes }
+			else = {	
+				ai_has_semi_motorized = yes
+				ai_has_maintenance_company = yes
+				ai_has_combat_engineer = yes
+				ai_has_logistics_company = yes
+			}
+		}
+		set_temp_variable = { ai_has_added_template = 1 } 
+		set_country_flag = { flag = ai_light_armor_template value = 1 }
+		division_template = {
+			name = "Armor Division"
+			priority = @LIGHT_ARMOR_PRIO
+			regiments = {
+				semi_motorized = { x = 0 y = 0 }
+				semi_motorized = { x = 0 y = 1 }
+				semi_motorized = { x = 0 y = 2 }
+
+				semi_motorized = { x = 1 y = 0 }
+				semi_motorized = { x = 1 y = 1 }
+				semi_motorized = { x = 1 y = 2 }
+
+				trm_light_armor = { x = 2 y = 0 }
+				trm_light_armor = { x = 2 y = 1 }
+
+				artillery_brigade_mot_med = { x = 3 y = 0 }
+				artillery_brigade_mot_med = { x = 3 y = 1 }
+			}
+			support = {
+				DIV_HQ = { x = 0 y = 0 }
+				recon_cav = { x = 0 y = 1 }
+				engineer = { x = 0 y = 2 }
+				maintenance_company = { x = 0 y = 3 }
+				logistics_company = { x = 0 y = 4 }
+
+				combat_engineer = { x = 1 y = 1 }
+				anti_air = { x = 1 y = 0 }
+			}
+		}
+	}
+	else_if = {  #摩托化坦克师
+		limit = {
+			has_country_flag = { flag = ai_light_armor_template value = 1 }
+			if = { limit = { check_variable = { ai_template_skip = 1 } } template_bypass = yes }
+			else = {
+				ai_has_motorized = yes
+				ai_has_signal_company = yes
+			}
+		}
+		set_temp_variable = { ai_has_added_template = 1 } 
+		set_country_flag = { flag = ai_light_armor_template value = 2 }
+		division_template = {
+			name = "Armor Division"
+			priority = @LIGHT_ARMOR_PRIO
+			regiments = {
+				motorized = { x = 0 y = 0 }
+				motorized = { x = 0 y = 1 }
+				motorized = { x = 0 y = 2 }
+
+				motorized = { x = 1 y = 0 }
+				motorized = { x = 1 y = 1 }
+				motorized = { x = 1 y = 2 }
+
+				trm_light_armor = { x = 2 y = 0 }
+				trm_light_armor = { x = 2 y = 1 }
+
+				artillery_brigade_mot_med = { x = 3 y = 0 }
+				artillery_brigade_mot_med = { x = 3 y = 1 }
+				artillery_brigade_mot_med = { x = 3 y = 2 }
+			}
+			support = {
+				DIV_HQ_car = { x = 0 y = 0 }
+				recon_cav = { x = 0 y = 1 }
+				engineer_mot = { x = 0 y = 2 }
+				maintenance_company = { x = 0 y = 3 }
+				logistics_company_car = { x = 0 y = 4 }
+
+				combat_engineer_mot = { x = 1 y = 0 }
+				signal_company_mot = { x = 1 y = 1 }
+				anti_air_car = { x = 1 y = 2 }
+			}
+		}
+	}
+	else_if = {  #机械化坦克师
+	    limit = {
+			has_country_flag = { flag = ai_light_armor_template value = 2 }
+			if = { limit = { check_variable = { ai_template_skip = 1 } } template_bypass = yes }
+			else = {
+				ai_has_mechanized = yes
+			}
+		}
+		set_temp_variable = { ai_has_added_template = 1 } 
+		set_country_flag = { flag = ai_light_armor_template value = 3 }
+		division_template = {
+			name = "Armor Division"
+			priority = @LIGHT_ARMOR_PRIO
+			regiments = {
+				mechanized = { x = 0 y = 0 }
+				mechanized = { x = 0 y = 1 }
+				mechanized = { x = 0 y = 2 }
+				mechanized = { x = 0 y = 3 }
+	
+				mechanized = { x = 1 y = 0 }
+				mechanized = { x = 1 y = 1 }
+				mechanized = { x = 1 y = 2 }
+				mechanized = { x = 1 y = 3 }
+	
+				trm_medium_armor = { x = 2 y = 0 }
+				trm_light_armor = { x = 2 y = 1 }
+				trm_light_armor = { x = 2 y = 2 }
+				
+				trm_medium_sp_artillery = { x = 3 y = 0 }
+				trm_medium_sp_artillery = { x = 3 y = 1 }
+				trm_medium_sp_artillery = { x = 3 y = 2 }
+			}
+			support = {
+				DIV_HQ_mech = { x = 0 y = 0 }
+				recon_mech = { x = 0 y = 1 }
+				combat_engineer_mech = { x = 0 y = 2 }
+				maintenance_company_arm = { x = 0 y = 3 }
+				logistics_company_mech = { x = 0 y = 4 }
+
+				combat_engineer_mech = { x = 1 y = 0 }
+				signal_company_mot = { x = 1 y = 1 }
+				anti_air_car = { x = 1 y = 2 }
+			}
+		}
+	}
+	ai_light_armor_templates = yes
+}

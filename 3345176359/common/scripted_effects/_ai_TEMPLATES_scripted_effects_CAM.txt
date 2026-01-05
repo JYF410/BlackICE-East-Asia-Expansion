@@ -1,0 +1,74 @@
+################################################################################################################
+#################################################### CAM #######################################################
+################################################################################################################
+ai_militia_templates/CAM = {
+	ai_militia_templates = yes
+	clear_temp_array = num_valid_templates
+	add_to_temp_array = { num_valid_templates = 1 }
+	if = {  #一阶民兵师
+		limit = {
+			NOT = { has_country_flag = ai_militia_template }
+			if = { limit = { check_variable = { ai_template_skip = 1 } } template_bypass = yes }
+			else = {
+				has_war = no
+			}
+		}
+		set_temp_variable = { ai_has_added_template = 1 }
+		set_country_flag = { flag = ai_militia_template value = 1 }
+		division_template = {
+			name = "Militia Division"	
+			priority = @MILITIA_PRIO
+			regiments = {
+				militia = { x = 0 y = 0 }
+				militia = { x = 0 y = 1 }
+				militia = { x = 0 y = 2 }
+
+				militia = { x = 1 y = 0 }
+				militia = { x = 1 y = 1 }
+				militia = { x = 1 y = 2 }
+			}
+			support = {
+				DIV_HQ = { x = 0 y = 0 }
+				recon = { x = 0 y = 1 }
+			}
+		}
+	}
+	else_if = {  #二阶民兵师
+		limit = {
+			has_country_flag = { flag = ai_militia_template value = 2 }
+			if = { limit = { check_variable = { ai_template_skip = 1 } } template_bypass = yes }
+			else = {
+				ai_has_engineer = yes  #必须先解锁工兵连科技
+			}
+		}
+		set_temp_variable = { ai_has_added_template = 1 }
+		set_country_flag = { flag = ai_militia_template value = 3 }
+		division_template = {
+			name = "Militia Division"	
+			priority = @MILITIA_PRIO
+			regiments = {
+				militia = { x = 0 y = 0 }
+				militia = { x = 0 y = 1 }
+				militia = { x = 0 y = 2 }
+				militia = { x = 0 y = 3 }
+
+				militia = { x = 1 y = 0 }
+				militia = { x = 1 y = 1 }
+				militia = { x = 1 y = 2 }
+
+				militia = { x = 2 y = 0 }
+				militia = { x = 2 y = 1 }
+				militia = { x = 2 y = 2 }
+
+				mountain_artillery_brigade = { x = 3 y = 0 }
+				mountain_artillery_brigade = { x = 3 y = 1 }
+			}
+			support = {
+				DIV_HQ = { x = 0 y = 0 }
+				recon = { x = 0 y = 1 }
+				engineer  = { x = 0 y = 2 }
+			}
+		}
+	}
+	ai_militia_templates = yes
+}

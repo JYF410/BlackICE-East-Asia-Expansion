@@ -1,0 +1,34 @@
+characters={
+	LUU_Sho_Hiroshi={  #尚顺王
+		name = LUU_Sho_Hiroshi
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/LUU/Portrait_LUU_Sho_Hiroshi.dds"
+			}	
+		}
+		country_leader = {
+			desc = ""
+			ideology = despotism
+			expire = "1996.8.30"
+			id = -1
+			traits = {
+				#
+			}
+		}
+	}
+	LUU_Shoo_Jun={  #Shoo Jun
+		name = LUU_Shoo_Jun
+		portraits={
+			civilian={
+				large="gfx/leaders/LUU/Portrait_LUU_Shoo_Jun.dds"
+			}	
+		}
+		country_leader={
+			desc=""
+			ideology=fascism_ideology
+			expire="1965.1.1"
+			id=-1
+			traits={ ideological_crusader }
+		}
+	}
+}

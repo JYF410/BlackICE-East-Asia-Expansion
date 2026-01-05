@@ -1,0 +1,98 @@
+characters={
+	PAK_Mohammed_Ali_Jinnah={  #穆罕默德·阿里·真纳
+		name = PAK_Mohammed_Ali_Jinnah
+		portraits={
+			civilian={
+				large="gfx/leaders/PAK/Portrait_PAK_Mohammed_Ali_Jinnah.dds"
+			}	
+		}
+		country_leader={
+			desc="POLITICS_Mohammed_Ali_Jinnah_DESC"
+			ideology=despotism
+			expire="1960.1.1"
+			id=-1
+			traits={ ideological_crusader }
+		}
+	}
+	PAK_Qazi_Mohammad_Isa={  #卡齐·穆罕默德·伊萨
+		name = PAK_Qazi_Mohammad_Isa
+		portraits={
+			civilian={
+				large="gfx/leaders/PAK/Portrait_PAK_Qazi_Mohammad_Isa.dds"
+			}	
+		}
+		country_leader={
+			desc=""
+			ideology=social_democracy
+			expire="1960.1.1"
+			id=-1
+			traits={ dealbroker }
+		}
+	}
+	PAK_Haji_Mohammad_Danesh={  #哈吉·穆罕默德·达内什
+		name = PAK_Haji_Mohammad_Danesh
+		portraits={
+			civilian={
+				large="gfx/leaders/PAK/Portrait_PAK_Haji_Mohammad_Danesh.dds"
+			}	
+		}
+		country_leader={
+			desc=""
+			ideology=marxism
+			expire="1960.1.1"
+			id=-1
+			traits={ communist_revolutionary }
+		}
+	}
+	PAK_Muhammad_Zia_ul_Haq={  #穆罕默德·齐亚·哈克
+		name = PAK_Muhammad_Zia_ul_Haq
+		portraits={
+			army={
+				large="gfx/leaders/PAK/Portrait_PAK_Muhammad_Zia_ul_Haq.dds"
+			}	
+		}
+		field_marshal = {
+			traits = { career_officer }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			legacy_id = -1
+		}
+	}
+	PAK_Iftikhar_Khan_Janjua={  #伊夫蒂哈尔·汗·詹朱亚
+		name = PAK_Iftikhar_Khan_Janjua
+		portraits={
+			army={
+				large="gfx/leaders/PAK/Portrait_PAK_Iftikhar_Khan_Janjua.dds"
+			}	
+		}
+		corps_commander = {
+			traits = { }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			legacy_id = -1
+		}
+	}
+	PAK_Akbar_Khan={  #阿克巴·汗
+		name = PAK_Akbar_Khan
+		portraits={
+			army={
+				#large="gfx/leaders/PAK/Portrait_PAK_Akbar_Khan.dds"
+			}	
+		}
+		corps_commander = {
+			traits = { }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			legacy_id = -1
+		}
+	}
+}

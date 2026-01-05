@@ -1,0 +1,32 @@
+characters={
+	BAN_Sheikh_Mujibur_Rahman={  #谢赫·穆吉布·拉赫曼
+		name = BAN_Sheikh_Mujibur_Rahman
+		portraits={
+			civilian={
+				large="gfx/leaders/BAN/Portrait_Sheikh_Mujibur_Rahman.dds"
+			}	
+		}
+		country_leader={
+			desc=""
+			ideology=social_democracy
+			expire="1965.1.1"
+			id=-1
+			traits={ ideological_crusader }
+		}
+	}
+	BAN_Agha_Muhammad_Yahya_Khan={  #阿迦·穆罕默德·叶海亚·汗
+		name = BAN_Agha_Muhammad_Yahya_Khan
+		portraits={
+			civilian={
+				large="gfx/leaders/BAN/Portrait_Agha_Muhammad_Yahya_Khan.dds"
+			}	
+		}
+		country_leader={
+			desc=""
+			ideology=despotism
+			expire="1960.1.1"
+			id=-1
+			traits={ ideological_crusader }
+		}
+	}
+}

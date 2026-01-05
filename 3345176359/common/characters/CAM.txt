@@ -1,0 +1,47 @@
+characters={
+	CAM_Norodom_Sihanouk={  #西哈努克亲王
+		name = CAM_Norodom_Sihanouk
+		portraits={
+			civilian={
+				large="gfx/leaders/CAM/Portrait_CAM_Norodom_Sihanouk.dds"
+			}	
+		}
+		country_leader={
+			desc="POLITICS_Norodom_Sihanouk_DESC"
+			ideology=despotism
+			expire="2012.10.15"
+			id=-1
+			traits={ ideological_crusader }
+		}
+	}
+	CAM_Norodom_Suramarit={  #苏拉玛里特国王
+		name = CAM_Norodom_Suramarit
+		portraits={
+			civilian={
+				large="gfx/leaders/CAM/Portrait_CAM_Norodom_Suramarit.dds"
+			}	
+		}
+		country_leader={
+			desc="POLITICS_Norodom_Suramarit_DESC"
+			ideology=absolutism
+			expire="2012.10.15"
+			id=-1
+			traits={ monarchist_puppet }
+		}
+	}
+	CAM_Pol_Pot={  #波尔布特
+		name = CAM_Pol_Pot
+		portraits={
+			civilian={
+				large="gfx/leaders/CAM/Portrait_CAM_Pol_Pot.dds"
+			}	
+		}
+		country_leader={
+			desc="POLITICS_Pol_Pot_DESC"
+			ideology=anarchist_communism
+			expire="1998.4.15"
+			id=-1
+			traits={ extremely_paranoid }
+		}
+	}
+}

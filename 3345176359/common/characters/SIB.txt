@@ -1,0 +1,125 @@
+characters={
+	SIB_Alexei_Grishin={  #阿列克谢·格里申-阿尔马佐夫
+		name = SIB_Alexei_Grishin
+		portraits={
+			civilian={
+				large="gfx/leaders/SIB/Portrait_SIB_Alexei_Grishin.dds"
+			}	
+		}
+		country_leader={
+			desc="POLITICS_Alexei_Grishin_DESC"
+			ideology=despotism
+			expire="1965.1.1"
+			id=-1
+			traits={
+				ideological_crusader
+				anti_communist
+			}
+		}
+		field_marshal = {
+			traits = {  }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			legacy_id = -1
+		}
+	}
+	SIB_Vadim_Podbelsky={  #瓦迪姆·尼古拉耶维奇
+		name = SIB_Vadim_Podbelsky
+		portraits={
+			civilian={
+				large="gfx/leaders/SIB/Portrait_SIB_Vadim_Podbelsky.dds"
+			}	
+		}
+		country_leader={
+			desc="POLITICS_Vadim_Podbelsky_DESC"
+			ideology=marxism
+			expire="1965.1.1"
+			id=-1
+			traits={
+				communist_revolutionary
+			}
+		}
+		field_marshal = {
+			traits = {  }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			legacy_id = -1
+		}
+	}
+	SIB_Mikhaylovich_Semyonov={  #格里戈里·米哈伊洛维奇·谢苗诺夫
+		name = SIB_Mikhaylovich_Semyonov
+		portraits={
+			civilian={
+				large="gfx/leaders/SIB/Portrait_SIB_Grigory_Mikhaylovich_Semyonov.dds"
+			}	
+		}
+		country_leader={
+			desc="POLITICS_Grigory_Mikhaylovich_Semyonov_DESC"
+			ideology=fascism_ideology
+			expire="1965.1.1"
+			id=-1
+			traits={
+				fascist_sympathies
+				anti_communist
+			}
+		}
+		field_marshal = {
+			traits = {  }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			legacy_id = -1
+		}
+	}
+	SIB_Nikolai_Avksentyev={  #尼古拉·阿夫克森季耶夫
+		name = SIB_Nikolai_Avksentyev
+		portraits={
+			civilian={
+				large="gfx/leaders/SIB/Portrait_SIB_Nikolai_Avksentyev.dds"
+			}	
+		}
+		country_leader={
+			desc="POLITICS_Nikolai_Avksentyev_DESC"
+			ideology=social_democracy
+			expire="1965.1.1"
+			id=-1
+			traits={
+				popular_figurehead
+			}
+		}
+		field_marshal = {
+			traits = {  }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			legacy_id = -1
+		}
+	}
+	SIB_Aleksandr_Vasilyevich_Kolchak={  #亚历山大·瓦西里耶维奇·高尔察克
+		name = SIB_Aleksandr_Vasilyevich_Kolchak
+		portraits={
+			army={
+				large="gfx/leaders/SIB/Portrait_SIB_Aleksandr_Vasilyevich_Kolchak.dds"
+			}	
+		}
+		corps_commander = {
+			traits = { old_guard war_hero }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 1
+			legacy_id = -1
+		}
+	}
+}

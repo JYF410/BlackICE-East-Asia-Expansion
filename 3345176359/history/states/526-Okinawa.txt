@@ -1,0 +1,41 @@
+
+state={
+	resources = {
+		food = 20
+	}
+	id=526
+	name="STATE_526"
+	manpower = 578000
+	
+	local_supplies=0.0
+	state_category = small_island
+
+	history={
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+			air_base = 2
+			11932 = {
+				naval_base = 3
+
+			}
+
+		}
+
+		set_variable = { vp_value = 10 } 
+		set_variable = { highest_vp = 10 } 
+
+		set_state_flag = JAP_controls
+		owner = JAP
+		add_core_of = LUU
+		victory_points = {
+			11932 10 
+		}
+
+	}
+
+	provinces={
+		1123 7115 10124 11932 
+	}
+}

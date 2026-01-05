@@ -1,0 +1,250 @@
+﻿capital = 525 #South Korea - Seoul or Busan
+
+oob = "KOR_1936"
+
+set_convoys = 5
+if = {
+	limit = {
+		not = { has_dlc = "Man the Guns" }
+	}
+	set_technology = {
+		generic_naval_tech = 1
+		generic_naval = 1
+		early_destroyer = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_technology = {
+		early_ship_hull_light = 1
+		early_ship_hull_submarine = 1
+		early_fire_control_system = 1
+		basic_torpedo = 1
+		early_engine = 1
+	}
+}
+set_technology = {  #初始科技
+    ############# infantry ###############
+	tech_infantry_uniforms = 1
+	infantry_weapons = 1
+	tech_Garrison = 1
+	tech_Headquarters = 1
+	################## support ##################
+	tech_recon = 1
+	tech_support = 1
+	subtech_recon_cav_1 = 1
+	infantry_at = 1 #uhm ok, weird flex
+	handheld_at_equipment_infantry_group_tech = 1
+	handheld_at_equipment_mobile_group_tech = 1
+	handheld_at_equipment_special_forces_group_tech = 1
+	semi_motorised_infantry = 1
+	motorised_infantry = 1
+	################## aircraft ##############
+	generic_fighter = 1
+	generic_bomber = 1
+	generic_strategic_bomber = 1
+	early_CAS = 1
+	################# ships ################
+	generic_naval_tech = 1
+	generic_naval = 1
+	############### WW1 doctrines ############
+	ww1_infantry = 1
+	infantry_charge = 1
+	complex_trench_systems = 1
+	ww1_artillery = 1
+	foot_runners = 1
+	mobile_doctrines = 1
+	cavalry_charges = 1
+	cavalry_dismounting = 1
+	ww1_battlefield_support = 1
+	############### WW2 doctrines ############
+	mass_assault = 1
+}
+add_ideas = { 	#初始民族精神
+	export_focus
+	tax_low
+	tariffs_average
+	
+	civilian_economy
+	press_regulated
+	key_industries
+	labor_none
+	fdi_allowed
+	
+	cons_volunteer
+	foreign_volunteers
+	mob_reserve
+	train_none
+	age_19
+
+	edu_minimal
+	officer_train_none
+	security_minor_restrictions
+	foreign_isolationism
+	neutrality_idea
+	subsistence_diet
+}
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	neutrality = 45
+	communism = 30
+	fascism = 15
+	socialism = 10
+}
+#############################################################
+recruit_character = KOR_Syngman_Rhee  #李承晚
+recruit_character = KOR_Kim_Il_sung  #金日成
+recruit_character = KOR_Abe_Nobuyuki  #阿部信行
+recruit_character = KOR_Park_Heon_young  #朴宪永
+recruit_character = KOR_Choe_Yong_gon  #崔庸健
+recruit_character = KOR_O_Jin_u  #吴振宇
+recruit_character = KOR_Choi_Kwang  #崔光
+recruit_character = KOR_Ri_Ul_sol  #李乙雪
+#############################################################
+# battleship #
+create_equipment_variant = {
+	name = "汉拿山级战列巡洋舰"
+	type = nrm_ship_hull_capital_1
+	parent_version = 0
+	show_position = no
+	role_icon_index = 88 #战列巡洋舰图标
+	modules = {
+		fixed_ship_hullform_slot = nrm_ship_hullform_capital_1
+		fixed_ship_engine_slot = nrm_capital_engine_S1_065
+		fixed_ship_armor_layout_slot = nrm_armour_layout_BB_2
+		fixed_ship_armor_slot = nrm_capital_armour_13_1
+		fixed_ship_subdivision_slot = nrm_subdivision_2
+		fixed_ship_damagecontrol_slot = nrm_damagecontrol_2
+		fixed_ship_range_slot = nrm_range_capital_2h
+		fixed_ship_radar_slot = empty
+		fixed_ship_fire_control_system_slot = nrm_fire_control_4
+		fixed_ship_fire_control_system_aa_slot = empty
+		fixed_ship_battery_slot = nrm_capital_battery_15_1_2x4
+		fixed_ship_secondary_slot = nrm_capital_secondary_SB_6_1_x12
+		fixed_ship_tertiary_slot = nrm_capital_tertiary_HA_4_1_x04
+		custom_slot_1 = empty
+		custom_slot_2 = nrm_support_capital_FP_1
+		custom_slot_3 = nrm_support_capital_AA_1
+		custom_slot_4 = nrm_support_capital_HAA_2
+		custom_slot_5 = empty
+		custom_slot_6 = empty
+	}
+}
+#############################################################
+# heavy cruiser #
+create_equipment_variant = {
+	name = "长白山级重巡洋舰"
+	type = nrm_ship_hull_cruiser_1
+	parent_version = 0
+	show_position = no
+	role_icon_index = 50 #重型巡洋舰图标
+	modules = {
+		fixed_ship_hullform_slot = nrm_ship_hullform_cruiser_1
+		fixed_ship_engine_slot = nrm_cruiser_engine_S1_080
+		fixed_ship_armor_layout_slot = nrm_armour_layout_2
+		fixed_ship_armor_slot = nrm_cruiser_armour_02h_1
+		fixed_ship_subdivision_slot = nrm_subdivision_2
+		fixed_ship_damagecontrol_slot = nrm_damagecontrol_2
+		fixed_ship_range_slot = nrm_range_cruiser_2
+		fixed_ship_radar_slot = empty
+		fixed_ship_fire_control_system_slot = nrm_fire_control_3
+		fixed_ship_fire_control_system_aa_slot = empty
+		fixed_ship_battery_slot = nrm_cruiser_battery_6_1_x08
+		fixed_ship_tertiary_slot = nrm_cruiser_tertiary_HA_4_1_x04
+		custom_slot_1 = empty
+		custom_slot_2 = empty
+		custom_slot_3 = nrm_support_cruiser_TRP_21_1_x06
+		custom_slot_4 = nrm_support_cruiser_TRP_21_1_x06
+		custom_slot_5 = nrm_support_cruiser_AA_1
+		custom_slot_6 = empty
+	}
+}
+#############################################################
+# light cruiser #
+create_equipment_variant = {
+	name = "长津湖级轻巡洋舰"
+	type = nrm_ship_hull_cruiser_1
+	parent_version = 0
+	show_position = no
+	role_icon_index = 41 #轻型巡洋舰图标
+	modules = {
+		fixed_ship_hullform_slot = nrm_ship_hullform_cruiser_1
+		fixed_ship_engine_slot = nrm_cruiser_engine_S1_055
+		fixed_ship_armor_layout_slot = nrm_armour_layout_1
+		fixed_ship_armor_slot = nrm_cruiser_armour_03_1
+		fixed_ship_subdivision_slot = nrm_subdivision_1
+		fixed_ship_damagecontrol_slot = nrm_damagecontrol_1
+		fixed_ship_range_slot = nrm_range_cruiser_1
+		fixed_ship_radar_slot = empty
+		fixed_ship_fire_control_system_slot = nrm_fire_control_3
+		fixed_ship_fire_control_system_aa_slot = empty
+		fixed_ship_battery_slot = nrm_cruiser_battery_5_1_x15
+		fixed_ship_tertiary_slot = nrm_cruiser_tertiary_none
+		custom_slot_1 = nrm_support_cruiser_ML_1
+		custom_slot_2 = nrm_support_cruiser_FP_1
+		custom_slot_3 = nrm_support_cruiser_TRP_21_1_x06
+		custom_slot_4 = nrm_support_cruiser_TRP_21_1_x06
+		custom_slot_5 = nrm_support_cruiser_AA_1
+		custom_slot_6 = empty
+	}
+}
+#############################################################
+# Destroyers #
+create_equipment_variant = {
+	name = "崔贤级驱逐舰"
+	type = nrm_ship_hull_destroyer_1
+	parent_version = 0
+	show_position = no
+	role_icon_index = 39 #驱逐舰图标
+	modules = {
+		fixed_ship_hullform_slot = nrm_ship_hullform_destroyer_1 #船体外形
+		fixed_ship_engine_slot = nrm_destroyer_engine_S1_010 #发动机
+		fixed_ship_sonar_slot = empty #声纳
+		fixed_ship_battery_slot = nrm_destroyer_battery_3_1_x3 #主炮
+		fixed_ship_subdivision_slot = nrm_subdivision_1 #水密隔舱
+		fixed_ship_damagecontrol_slot = nrm_damagecontrol_1 #损害管制
+		fixed_ship_range_slot = nrm_range_destroyer_2 #巡航距离
+		fixed_ship_radar_slot = empty #雷达
+		fixed_ship_fire_control_system_slot = nrm_fire_control_3 #火控系统
+		fixed_ship_fire_control_system_aa_slot = empty #防空火控系统
+		custom_slot_1 = empty #附加设备
+		custom_slot_2 = empty #附加设备
+		custom_slot_3 = nrm_support_destroyer_TRP_21_C_1_x2 #附加设备
+		custom_slot_4 = nrm_support_destroyer_TRP_21_C_1_x2 #附加设备
+		custom_slot_5 = empty #附加设备
+		custom_slot_6 = empty #附加设备
+	}
+}
+#############################################################
+# submarine #
+create_equipment_variant = {
+	name = "633型潜艇"
+	type = nrm_ship_hull_submarine_1
+	parent_version = 0
+	show_position = no
+	role_icon_index = 122 #潜艇图标
+	modules = {
+		fixed_ship_sub_hull_slot = nrm_submarine_hull_1 #船体设计
+		fixed_ship_engine_slot = nrm_submarine_engine_D0_010 #引擎
+		fixed_ship_sonar_slot = empty #声纳
+		fixed_ship_noise_slot = nrm_submarine_noise_0 #隐蔽性
+		fixed_ship_subdivision_slot = nrm_subdivision_1 #分舱
+		fixed_ship_damagecontrol_slot = nrm_damagecontrol_1 #灭火
+		fixed_ship_range_slot = nrm_range_submarine_1 #航程
+		fixed_ship_radar_slot = empty #雷达
+		fixed_ship_battery_slot = nrm_submarine_deckgun_3 #甲板炮
+		fixed_ship_anti_air_slot = empty #防空炮
+		fixed_ship_torpedo_slot = nrm_submarine_TRP_18_1_x2 #鱼雷槽位1
+		fixed_ship_torpedo_2_slot = nrm_submarine_TRP_18_1_x2 #鱼雷槽位2
+		custom_slot_1 = empty #附加槽位1
+		custom_slot_2 = empty #附加槽位2
+	}
+}
+### EOF ###

@@ -1,0 +1,1226 @@
+#	Triggers to control if diplomatic actions are enabled:
+#		Format:
+#
+#		<diplomatic action tag>_enabled_trigger = {
+#			<trigger contents>
+#		}
+#
+#		ROOT is the country initiating the diplomatic action.
+#		FROM is the recipient or target of the diplomatic action.
+#
+#		Note:  For cleaner tooltips, it is recommended that you use
+#			if triggers within the enable triggers, and a single
+#			custom_trigger_tooltip trigger within each if trigger.
+#
+#		Example: (Germany is prevented from declaring war on the Soviet Union.)
+#
+#		DIPLOMACY_WAR_ENABLE_TRIGGER = {
+#			if = {
+#				limit = {
+#					tag = GER
+#				}
+#				custom_trigger_tooltip = {
+#					tooltip = PREVENT_GER_WAR_ON_SOV
+#					FROM = {
+#						NOT = {
+#							tag = SOV
+#						}
+#					}
+#				}
+#			}
+#		}
+
+generate_diplomacy_overlay = {
+	if = {
+		limit = {
+			NOT = { is_ally_with = ROOT }
+			NOT = { has_war_with = ROOT }
+		}
+		add_to_temp_array = { diplo = token:declare_war }
+	}
+	if = {
+		limit = {
+			NOT = { has_war_with = ROOT }
+			NOT = { is_in_faction_with = ROOT }
+		}
+		add_to_temp_array = { diplo = token:justify_war_goal }
+	}
+	if = {
+		limit = {
+			has_war_with = ROOT
+		}
+		add_to_temp_array = { diplo = token:conditional_surrender }
+	}
+	add_to_temp_array = { diplo = token:guarantee_independence }
+	if = {
+		limit = {
+			ROOT = { 
+				has_war = yes 
+				is_ally_with = PREV
+			}
+		}
+		add_to_temp_array = { diplo = token:call_to_war }
+	}
+	if = {
+		limit = {
+			has_war = yes
+			is_ally_with = ROOT
+		}
+		add_to_temp_array = { diplo = token:join_wars }
+	}
+	if = {
+		limit = {
+			NOT = { is_ally_with = ROOT }
+		}
+		add_to_temp_array = { diplo = token:ask_for_military_access }
+		add_to_temp_array = { diplo = token:offer_military_access }
+		if = {
+			limit = {
+				NOT = { gives_military_access_to = ROOT }
+			}
+			add_to_temp_array = { diplo = token:ask_for_docking_rights }
+		}
+		if = {
+			limit = {
+				NOT = { has_military_access_to = ROOT }
+			}
+			add_to_temp_array = { diplo = token:offer_docking_rights }
+		}
+	}
+	if = {
+		limit = {
+			has_war = yes
+			OR = {
+				ROOT = { is_subject = yes }
+				AND = {
+					ROOT = { is_in_faction = no }
+					FROM = { is_in_faction = no }
+				}
+			}
+			#is_in_faction = no
+			#ROOT = { is_in_faction = no }
+			NOT = { has_war_with = ROOT }
+			NOT = { is_in_array = { diplo = token:join_wars } }
+		}
+		add_to_temp_array = { diplo = token:join_wars }
+	}
+	add_to_temp_array = { diplo = token:improve_relations }
+	add_to_temp_array = { diplo = token:send_attache }
+	if = {
+		limit = {
+			NOT = { is_in_faction_with = ROOT }
+		}
+		add_to_temp_array = { diplo = token:non_agression_pact }
+	}
+	
+	if = {
+		limit = {
+			ROOT = {
+				is_in_faction_with = PREV
+				is_faction_leader = no
+			}
+		}
+		add_to_temp_array = { diplo = token:leave_faction }
+		
+		if = {
+			limit = {
+				is_faction_leader = yes
+			}
+			add_to_temp_array = { diplo = token:take_over_faction }
+		}
+	}
+	if = {
+		limit = {
+			FROM = { is_spymaster = yes }
+			is_in_faction_with = ROOT
+		}
+		add_to_temp_array = { diplo = token:take_over_spymaster }
+	}
+	if = {
+		limit = {
+			ROOT = { is_faction_leader = yes }
+			NOT = { ROOT = { has_war_with = PREV } }
+			NOT = { 
+				ROOT = {
+					any_allied_country = {
+						has_war_with = PREV.PREV 
+					}
+				}
+			}
+		}
+		add_to_temp_array = { diplo = token:invite_to_faction }
+		if = {
+			limit = {
+				ROOT = { is_in_faction_with = PREV }
+			}
+			add_to_temp_array = { diplo = token:kick_from_faction }
+		}
+	}
+	if = {
+		limit = {
+			ROOT = {
+				is_in_faction = no
+			}
+			FROM = { is_in_faction = yes }
+			NOT = { has_war_with = ROOT }
+			NOT = { 
+				any_allied_country = {
+					has_war_with = ROOT
+				}
+			}
+		}
+		add_to_temp_array = { diplo = token:join_faction }
+	}
+	if = {
+		limit = {
+			ROOT = {
+				is_in_faction = no
+			}
+			FROM = { is_in_faction = no }
+			NOT = { ROOT = { has_war_with = PREV } }
+		}
+		add_to_temp_array = { diplo = token:create_faction }
+	}
+	
+	if = {
+		limit = {
+			NOT = { has_war_with = ROOT }
+		}
+		add_to_temp_array = { diplo = token:negotiate_licenses }
+	}
+	if = {
+		limit = {
+			ROOT = { 
+				meta_trigger = {
+					text = {
+						is_licensing_any_to = [X]
+					}
+					X = "[Prev.GetTag]"
+				}
+			}
+		}
+		add_to_temp_array = { diplo = token:cancel_licenses }
+	}
+	add_to_temp_array = { diplo = token:start_lend_lease }
+	add_to_temp_array = { diplo = token:request_lend_lease }
+	add_to_temp_array = { diplo = token:issue_trade_embargo }
+	add_to_temp_array = { diplo = token:send_volunteers }
+	add_to_temp_array = { diplo = token:expeditionary_forces }
+	add_to_temp_array = { diplo = token:return_expeditions }
+	if = {
+		limit = {
+			is_subject_of = ROOT
+		}
+		add_to_temp_array = { diplo = token:request_forces }
+	}
+	if = {
+		limit = {
+			is_ally_with = ROOT
+		}
+		add_to_temp_array = { diplo = token:ask_for_state }
+		add_to_temp_array = { diplo = token:give_away_state }
+	}
+	if = {
+		limit = {
+			is_subject_of = ROOT
+		}
+		add_to_temp_array = { diplo = token:reduce_autonomy }
+	}
+	if = {
+		limit = {
+			ROOT = { is_subject_of = PREV }
+		}
+		add_to_temp_array = { diplo = token:increase_autonomy }
+	}
+
+	if = {
+		limit = {
+			has_global_flag = no_LAR
+		}
+		add_to_temp_array = { diplo = token:boost_popularity }
+		add_to_temp_array = { diplo = token:stage_coup }
+	}
+
+	if = {
+		limit = {
+			check_variable = { ROOT.occupied_countries^num > 0 }
+		}
+		add_to_temp_array = { diplo = token:request_garrison_support }
+	}
+	if = {
+		limit = {
+			NOT = { has_war_with = ROOT }
+			NOT = { is_ally_with = ROOT }
+		}
+		add_to_temp_array = { diplo = token:negotiate_market_access }
+	}
+	if = {
+		limit = {
+			is_ai = yes
+		}
+		add_to_temp_array = { diplo = token:adjust_ai_defense }
+		add_to_temp_array = { diplo = token:adjust_ai_production }
+	}
+}
+######################################
+######################################
+##### KEEP CODE VERY SIMPLE HERE #####
+######################################
+######################################
+
+DIPLOMACY_RELEASE_NATION_ENABLE_TRIGGER = { #FROM = country to release 
+    if = {
+        limit = {
+            FROM = { tag = CHI }
+            tag = JAP 
+            country_exists = RGR 
+            RGR = { is_subject_of = JAP }
+        }
+        hidden_trigger = { always = no }
+    }
+	if = {
+        limit = {
+            FROM = { tag = PRC }
+            tag = JAP 
+            country_exists = RGR 
+            RGR = { is_subject_of = JAP }
+        }
+        hidden_trigger = { always = no }
+    }
+}
+
+##############################
+# the following triggers are only applied via the UI, so they are player only
+# but since the AIs behaviour is custom it still follows the same rules
+# or it doesnt use some of these diplo actions at all
+
+# ui_can_justify_war_goal			# ai doesnt use it
+# ui_can_improve_relations			# ai doesnt use it
+# ui_can_send_attache				# ai doesnt use it
+# ui_can_negotiate_licenses			# ai doesnt use it
+# ui_can_send_lend_lease		# ai can be made to adhere to it
+# ui_can_request_lend_lease			# ai doesnt use it
+# ui_can_issue_trade_embargo		# ai doesnt use it
+# ui_can_send_volunteers		# ai adheres to it
+# ui_can_stage_coups				# ai doesnt use it
+# ui_can_boost_ideologies			# ai doesnt use it
+
+ui_can_negotiate_licenses = {
+	OR = { 
+		FROM = { 
+			has_opinion = { 
+				target = ROOT
+				value > 49 
+			} 
+		}
+		has_war_together_with = ROOT 
+	}
+}
+
+ui_can_justify_war_goal = {
+	if = {
+		limit = {
+			check_variable = { global.setting_status@diplomacy_justify_war = token:diplomacy_justify_war_focus }
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_WARGOALS_BLOCKED_TT
+			always = no
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { global.setting_status@diplomacy_justify_war = token:diplomacy_justify_war_free }
+		}
+		always = yes
+	}
+	else_if = {
+		limit = {
+			check_variable = { global.setting_status@diplomacy_justify_war = token:diplomacy_justify_war_limited }
+		}
+		always = yes
+	}
+	else_if = {
+		limit = {
+			check_variable = { global.setting_status@diplomacy_justify_war = token:diplomacy_justify_war_25 }
+		}
+		threat>0.24
+	}
+	else_if = {
+		limit = {
+			check_variable = { global.setting_status@diplomacy_justify_war = token:diplomacy_justify_war_50 }
+		}
+		threat>0.49
+	}
+	else_if = {
+		limit = {
+			check_variable = { global.setting_status@diplomacy_justify_war = token:diplomacy_justify_war_75 }
+		}
+		threat>0.74
+	}
+	else_if = {
+		limit = {
+			check_variable = { global.setting_status@diplomacy_justify_war = token:diplomacy_justify_war_100 }
+		}
+		threat>0.99
+	}
+	else_if = {
+		limit = {
+			check_variable = { global.setting_status@diplomacy_justify_war = token:diplomacy_justify_war_focus_38 }
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_WARGOALS_FOCUSES_ONLY_38_DESC
+			date > 1938.1.1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { global.setting_status@diplomacy_justify_war = token:diplomacy_justify_war_focus_39 }
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_WARGOALS_FOCUSES_ONLY_39_DESC
+			date > 1939.1.1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { global.setting_status@diplomacy_justify_war = token:diplomacy_justify_war_focus_40 }
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_WARGOALS_FOCUSES_ONLY_40_DESC
+			date > 1940.1.1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { global.setting_status@diplomacy_justify_war = token:diplomacy_justify_war_focus_41 }
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_WARGOALS_FOCUSES_ONLY_41_DESC
+			date > 1941.1.1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { global.setting_status@diplomacy_justify_war = token:diplomacy_justify_war_focus_42 }
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_WARGOALS_FOCUSES_ONLY_42_DESC
+			date > 1942.1.1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { global.setting_status@diplomacy_justify_war = token:diplomacy_justify_war_focus_43 }
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_WARGOALS_FOCUSES_ONLY_43_DESC
+			date > 1943.1.1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { global.setting_status@diplomacy_justify_war = token:diplomacy_justify_war_focus_44 }
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_WARGOALS_FOCUSES_ONLY_44_DESC
+			date > 1944.1.1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { global.setting_status@diplomacy_justify_war = token:diplomacy_justify_war_focus_45 }
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_WARGOALS_FOCUSES_ONLY_45_DESC
+			date > 1945.1.1
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { global.setting_status@diplomacy_justify_war = token:diplomacy_justify_war_focus_46 }
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_WARGOALS_FOCUSES_ONLY_46_DESC
+			date > 1946.1.1
+		}
+	}
+}
+
+ui_can_send_volunteers = {
+
+	if = {
+		limit = { #Operation Zet, allow SOV to support CHI
+			ROOT = { tag = SOV }
+			FROM = { tag = CHI NOT = { is_ally_with = JAP } }
+		}
+		set_temp_variable = { bypass_ideology_trigger = 1 }
+		ROOT = { has_completed_focus = SOV_operation_zet }
+	}
+	
+	if = {
+		limit = { #Support Mao focus
+			ROOT = { tag = SOV }
+			FROM = { tag = PRC NOT = { is_ally_with = JAP } }
+		}
+		set_temp_variable = { bypass_ideology_trigger = 1 }
+		ROOT = { has_completed_focus = SOV_support_mao }
+	}
+	
+	if = { #Flying Tigers; allow USA to support CHI
+		limit = {
+			ROOT = { tag = USA }
+			FROM = { tag = CHI NOT = { is_ally_with = JAP } }
+		}
+		set_temp_variable = { bypass_ideology_trigger = 1 }
+		FROM = { has_completed_focus = KMT_the_flying_tigers }
+	}
+	
+	if = {
+		limit = {
+			ROOT = { tag = GER }
+			FROM = { tag = CHI NOT = { is_ally_with = JAP } }
+		}
+		set_temp_variable = { bypass_ideology_trigger = 1 }
+		ROOT = { has_completed_focus = GER_china_friend }
+	}
+	
+	if = {
+		limit = {
+			ROOT = { tag = GER }
+			FROM = { OR = { tag = JAP is_subject_of = JAP } }
+		}
+		set_temp_variable = { bypass_ideology_trigger = 1 }
+		ROOT = { has_completed_focus = GER_japan_friend }
+	}
+	
+	if = {
+		limit = {
+			ROOT = { has_country_flag = bypass_volunteer_ideology@PREV }
+		}
+		set_temp_variable = { bypass_ideology_trigger = 1 }
+	}
+	
+	if = {
+		limit = {
+			FROM = { is_subject = yes }
+		}
+		FROM = { is_subject = no }
+	}
+	
+	if = {
+		limit = {
+			check_variable = { bypass_ideology_trigger = 0 }
+		}
+		ROOT = { has_same_government_as_PREV = yes }
+	}
+	
+	### Only allow volunteers to chinese faction leader
+	
+	if = {
+		limit = {
+			FROM = { has_idea = cg_warlords }
+		}
+		FROM = { NOT = { has_idea = cg_warlords } }
+	}
+}
+
+ui_can_send_attache = {
+	if = {
+		limit = {
+			check_variable = { Root.no_attache@FROM = 1 }
+		}
+		custom_trigger_tooltip = {
+			tooltip = "Attache has recovered from his injuries"
+			
+			check_variable = { Root.no_attache@FROM = 0 }
+		}
+	}
+}
+
+THIS_is_improving_relation_with_PREV = {
+	custom_trigger_tooltip = {
+		tooltip = THIS_is_improving_relation_with_PREV
+		has_country_flag = improved_relation@PREV
+	}
+}
+THIS_is_improving_relation_with_ROOT = {
+	custom_trigger_tooltip = {
+		tooltip = THIS_is_improving_relation_with_ROOT
+		has_country_flag = improved_relation@ROOT
+	}
+}
+
+cancel_improve_relation = {
+	exists = no
+}
+can_propose_favour = { #ROOT = proposer; THIS = target
+	if = {
+		limit = {
+			OR = { tag = USA ROOT = { tag = USA } }
+			OR = {
+				check_variable = { favour_v = token:diplo_law_bonus }
+				check_variable = { favour_v = token:diplo_production_bonus }
+				check_variable = { favour_v = token:diplo_naval_bonus }
+			}
+		}
+		USA = { has_completed_focus = USA_limited_intervention }
+	}
+	if = {
+		limit = {
+			tag = SOV 
+		}
+        custom_trigger_tooltip = {
+			tooltip = stalin_the_jerk_tt
+			always = no
+		}
+	}
+	if = {
+		limit = {
+			ROOT = { tag = SOV }
+		}
+		if = {
+			limit = {
+				OR = {
+					check_variable = { favour_v = token:diplo_law_bonus }
+				}
+			}
+			OR = {
+                THIS = { is_ally_with = SOV }
+                AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = mex_reciever_tt
+                        tag = MEX 
+                    }
+					SOV = {
+						has_completed_focus = SOV_americas
+					}
+				}
+				AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = spain_reciever_tt
+                        tag = SPR 
+                    }
+					SOV = {
+						has_completed_focus = SOV_spainish_lessons
+					}
+				}				
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					check_variable = { favour_v = token:diplo_research_bonus }
+					check_variable = { favour_v = token:diplo_intelligence_bonus }
+				}
+			}
+			OR = {
+				THIS = { is_ally_with = SOV }
+                AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = mex_reciever_tt
+                        tag = MEX 
+                    }
+					SOV = {
+						has_completed_focus = SOV_americas
+					}
+				}
+				AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = spain_reciever_tt
+                        tag = SPR 
+                    }
+					SOV = {
+						has_completed_focus = SOV_spainish_lessons
+					}
+				}	
+				AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = china_reciever_tt
+						OR = { 
+							tag = CHI 
+							tag = PRC
+						}
+                    }
+					SOV = {
+						has_completed_focus = SOV_technical_aid
+					}
+				}
+				AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = allied_reciever_tt
+						OR = { 
+							tag = ENG
+							THIS = { is_ally_with = ENG }
+						}
+                    }
+					SOV = {
+						has_completed_focus = SOV_allied_technical_aid
+					}
+				}	
+				AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = german_reciever_tt
+						tag = GER
+                    }
+					SOV = {
+						has_completed_focus = SOV_MR_pact
+					}
+				}				
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					check_variable = { favour_v = token:diplo_command_bonus }
+					check_variable = { favour_v = token:diplo_trade_bonus }
+				}
+			}
+			OR = {
+				THIS = { is_ally_with = SOV }
+				AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = spain_reciever_tt
+                        tag = SPR 
+                    }
+					SOV = {
+						has_completed_focus = SOV_spainish_lessons
+					}
+				}	
+				AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = china_reciever_tt
+						OR = { 
+							tag = CHI 
+							tag = PRC
+						}
+                    }
+					SOV = {
+						has_completed_focus = SOV_supply_chi
+					}
+				}
+				AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = german_reciever_tt
+						tag = GER
+                    }
+					SOV = {
+						has_completed_focus = SOV_MR_pact
+					}
+				}				
+			}
+		}
+		if = {
+			limit = {
+				check_variable = { favour_v = token:diplo_resource_bonus }
+			}
+			OR = {
+				THIS = { is_ally_with = SOV }
+				AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = spain_reciever_tt
+                        tag = SPR 
+                    }
+					SOV = {
+						has_completed_focus = SOV_spainish_lessons
+					}
+				}	
+				AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = china_reciever_tt
+						OR = { 
+							tag = CHI 
+							tag = PRC
+						}
+                    }
+					SOV = {
+						has_completed_focus = SOV_supply_chi
+					}
+				}
+				AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = german_reciever_tt
+						tag = GER
+                    }
+					SOV = {
+						has_completed_focus = SOV_fuel_germany
+					}
+				}				
+			}
+		}
+		if = {
+			limit = {
+				check_variable = { favour_v = token:diplo_license_bonus }
+			}
+			OR = {
+				THIS = { is_ally_with = SOV }
+				AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = spain_reciever_tt
+                        tag = SPR 
+                    }
+					SOV = {
+						has_completed_focus = SOV_spainish_lessons
+					}
+				}
+				AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = china_reciever_tt
+						OR = { 
+							tag = CHI 
+							tag = PRC
+						}
+                    }
+					SOV = {
+						has_completed_focus = SOV_supply_chi
+					}
+				}
+				AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = german_reciever_tt
+						tag = GER
+                    }
+					SOV = {
+						has_completed_focus = SOV_purchase_german_prototypes
+					}
+				}	
+				AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = allied_reciever_tt
+						OR = { 
+							tag = ENG
+							THIS = { is_ally_with = ENG }
+						}
+                    }
+					SOV = {
+						has_completed_focus = SOV_lend_lease
+					}
+				}			
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					check_variable = { favour_v = token:diplo_naval_bonus }
+					check_variable = { favour_v = token:diplo_production_bonus }
+				}
+			}
+			OR = {
+				THIS = { is_ally_with = SOV }
+				AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = spain_reciever_tt
+                        tag = SPR 
+                    }
+					SOV = {
+						has_completed_focus = SOV_spainish_lessons
+					}
+				}	
+				AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = china_reciever_tt
+						OR = { 
+							tag = CHI 
+							tag = PRC
+						}
+                    }
+					SOV = {
+						has_completed_focus = SOV_supply_chi
+					}
+				}
+				AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = german_reciever_tt
+						tag = GER
+                    }
+					SOV = {
+						has_completed_focus = SOV_material_for_industry
+					}
+				}	
+				AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = allied_reciever_tt
+						OR = { 
+							tag = ENG
+							THIS = { is_ally_with = ENG }
+						}
+                    }
+					SOV = {
+						has_completed_focus = SOV_lend_lease
+					}
+				}	
+			}
+		}
+		if = {
+			limit = {
+				check_variable = { favour_v = token:diplo_experience_bonus }
+
+			}
+			OR = {
+				THIS = { is_ally_with = SOV }
+				AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = spain_reciever_tt
+                        tag = SPR 
+                    }
+					SOV = {
+						has_completed_focus = SOV_spainish_lessons
+					}
+				}	
+				AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = china_reciever_tt
+						OR = { 
+							tag = CHI 
+							tag = PRC
+						}
+                    }
+					SOV = {
+						has_completed_focus = SOV_supply_chi
+					}
+				}
+				AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = german_reciever_tt
+						tag = GER
+                    }
+					SOV = {
+						has_completed_focus = SOV_military_training
+					}
+				}	
+				AND = {
+                    custom_trigger_tooltip = {
+                        tooltip = allied_reciever_tt
+						OR = { 
+							tag = ENG
+							THIS = { is_ally_with = ENG }
+						}
+                    }
+					SOV = {
+						has_completed_focus = SOV_allied_advice
+					}
+				}	
+			}
+		}
+	}
+	
+	hidden_trigger = {
+		NOT = { has_war_with = ROOT }
+	}
+}
+can_send_favour_request = {
+
+	set_temp_variable = { favour_opinion_required = constant:improve_relation.favour_intervall }
+	if = {
+		limit = {
+			check_variable = { num_favour@ROOT > 0 }
+			set_temp_variable = { num_active_favour = num_favour@ROOT }
+		}
+		set_temp_variable = { per_pact_cost = constant:improve_relation.favour_intervall_stack }
+		set_temp_variable = { factor = ROOT.modifier@pact_ramp_cost_factor }
+		add_to_temp_variable = { factor = ROOT.favour_ramp_cost@THIS }
+		add_to_temp_variable = { factor = 1 }
+		multiply_temp_variable = { per_pact_cost = factor }
+		multiply_temp_variable = { num_active_favour = per_pact_cost }
+		add_to_temp_variable = { favour_opinion_required = num_active_favour }
+	}
+	set_temp_variable = { factor = modifier@pact_cost_factor }
+	add_to_temp_variable = { factor = ROOT.favour_cost@THIS }
+	add_to_temp_variable = { factor = 1 }
+	multiply_temp_variable = { favour_opinion_required = factor }
+	
+	check_variable = { favour_opinion_required < ROOT.relation@THIS } 
+	
+}
+cancel_favour = {
+	var:THIS = {
+		OR = {
+			custom_trigger_tooltip = {
+				tooltip = FAVOUR_OPINION_CANCEL
+				has_opinion = {
+					target = ROOT
+					value < 1
+				}
+			}
+			has_war_with = ROOT
+			has_capitulated = yes
+			exists = no
+		}
+	}
+}
+
+display_relation_modifiers = {
+	ROOT = {
+		
+		if = {
+			limit = {
+				has_relation_modifier = {
+					target = PREV
+					modifier = close_cooperation
+				}
+			}
+			add_to_temp_array = { relation_modifiers = token:close_cooperation }
+		}
+		if = {
+			limit = {
+				has_relation_modifier = {
+					target = PREV
+					modifier = ROM_foreign_built_army
+				}
+			}
+			add_to_temp_array = { relation_modifiers = token:ROM_foreign_built_army }
+		}
+		if = {
+			limit = {
+				has_relation_modifier = {
+					target = PREV
+					modifier = ROM_license_german_equipment
+				}
+			}
+			add_to_temp_array = { relation_modifiers = token:ROM_license_german_equipment }
+		}
+		if = {
+			limit = {
+				has_relation_modifier = {
+					target = PREV
+					modifier = ROM_foreign_motor_company
+				}
+			}
+			add_to_temp_array = { relation_modifiers = token:ROM_foreign_motor_company }
+		}
+		if = {
+			limit = {
+				has_relation_modifier = {
+					target = PREV
+					modifier = YUG_western_license
+				}
+			}
+			add_to_temp_array = { relation_modifiers = token:YUG_western_license }
+		}
+		if = {
+			limit = {
+				has_relation_modifier = {
+					target = PREV
+					modifier = free_license
+				}
+			}
+			add_to_temp_array = { relation_modifiers = token:free_license }
+		}
+		if = {
+			limit = {
+				has_relation_modifier = {
+					target = PREV
+					modifier = license_air_equipment
+				}
+			}
+			add_to_temp_array = { relation_modifiers = token:license_air_equipment }
+		}
+	
+		#all_of = {
+		#	array = active_favour@PREV
+		#	
+		#	add_to_temp_array = { relation_modifiers = v }
+		#}
+	}
+	
+}
+
+diplomacy_overlay_entry_trigger = {
+	OR = {
+		check_variable = { v = token:justify_war_goal }
+		check_variable = { v = token:send_volunteers }
+		check_variable = { v = token:negotiate_licenses }
+		check_variable = { v = token:improve_relations }
+		check_variable = { v = token:send_attache }
+		check_variable = { v = token:improve_relations }
+	}
+	if = {
+		limit = {
+			check_variable = { v = token:justify_war_goal }
+		}
+		NOT = { ui_can_justify_war_goal = yes }
+	}
+	else_if = {
+		limit = {
+			check_variable = { v = token:send_volunteers }
+		}
+		NOT = { ui_can_send_volunteers = yes }
+	}
+	else_if = {
+		limit = {
+			check_variable = { v = token:negotiate_licenses }
+		}
+		NOT = { ui_can_negotiate_licenses = yes }
+	}
+	else_if = {
+		limit = {
+			check_variable = { v = token:send_attache }
+		}
+		NOT = { ui_can_send_attache = yes }
+	}
+}
+diplomacy_overlay_entry_visible = {
+	OR = {
+		check_variable = { v = token:justify_war_goal }
+		check_variable = { v = token:send_volunteers }
+		check_variable = { v = token:improve_relations }
+		check_variable = { v = token:send_attache }
+		check_variable = { v = token:negotiate_licenses }
+		check_variable = { v = token:adjust_ai_defense }
+		check_variable = { v = token:adjust_ai_production }
+	}
+	
+	if = {
+		limit = {
+			check_variable = { v = token:justify_war_goal }
+		}
+		NOT = { ui_can_justify_war_goal = yes }
+	}
+	else_if = {
+		limit = {
+			check_variable = { v = token:send_volunteers }
+		}
+		NOT = { ui_can_send_volunteers = yes }
+	}
+	else_if = {
+		limit = {
+			check_variable = { v = token:negotiate_licenses }
+		}
+		NOT = { ui_can_negotiate_licenses = yes }
+	}
+	else_if = {
+		limit = {
+			check_variable = { v = token:send_attache }
+		}
+		NOT = { ui_can_send_attache = yes }
+	}
+	else_if = {
+		limit = {
+			check_variable = { v = token:improve_relations }
+		}
+		ROOT = { has_country_flag = improved_relation@PREV }
+	}
+}
+diplomacy_overlay_entry_enabled = {
+
+	if = {
+		limit = {
+			check_variable = { v = token:justify_war_goal }
+		}
+		ui_can_justify_war_goal = yes
+	}
+	else_if = {
+		limit = {
+			check_variable = { v = token:send_volunteers }
+		}
+		ui_can_send_volunteers = yes
+	}
+	else_if = {
+		limit = {
+			check_variable = { v = token:negotiate_licenses }
+		}
+		ui_can_negotiate_licenses = yes
+	}
+	else_if = {
+		limit = {
+			check_variable = { v = token:send_attache }
+		}
+		ui_can_send_attache = yes
+	}
+	else_if = {
+		limit = {
+			check_variable = { v = token:improve_relations }
+		}
+		hidden_trigger = {
+			NOT = {
+				ROOT = { has_country_flag = has_cancel_improve_relation@PREV }
+			}
+			NOT = {
+				ROOT = { has_country_flag = { flag = improved_relation@PREV value = 1 days < 30 } }
+			}
+		}
+	}
+	
+}
+
+diplomacy_favour_ai_acceptance = {
+	add_to_temp_variable = { has_done_ai_score = 1 } 	
+	
+	if = {
+		limit = {
+			check_variable = { base_reluctance = 0 }
+		}
+			
+		set_temp_variable = { base_reluctance = 30 }
+
+		set_temp_variable = { opinion_of_us = THIS.opinion@ROOT }
+		add_to_temp_variable = { opinion_of_us = ROOT.relation@THIS }
+		add_to_temp_variable = { opinion_of_us = 100 }
+		
+		set_temp_variable = { opinion = THIS.opinion@ROOT }
+		multiply_temp_variable = { opinion = 0.5 }
+		round_temp_variable = opinion
+		
+		if = {
+			limit = {
+				is_in_faction_with = ROOT
+			}
+			set_temp_variable = { faction = 10 }
+		}
+		if = {
+			limit = {
+				is_subject_of = ROOT
+			}
+			set_temp_variable = { subject = 100 }
+		}
+	}
+
+	if = {
+		limit = {
+			has_variable = favour@var:favour_v
+		}
+		
+		if = {
+			limit = {
+				NOT = { check_variable = { favour@var:favour_v = ROOT } }
+			}
+			set_temp_variable = { favour_already = -25 }
+		}
+		
+		if = {
+			limit = {
+				NOT = { check_variable = { favour@var:favour_v = ROOT } }
+				
+				set_temp_variable = { opinion_of_them = THIS.opinion@var:favour@var:favour_v } 
+				var:favour@var:favour_v = { 
+					add_to_temp_variable = { opinion_of_them = THIS.relation@PREV }
+					add_to_temp_variable = { opinion_of_them = 100 }
+				}
+				check_variable = { opinion_of_us > opinion_of_them }
+			}
+			set_temp_variable = { favour_prefer = opinion_of_us }
+			subtract_from_temp_variable = { favour_prefer = opinion_of_them }
+			multiply_temp_variable = { favour_prefer = 0.2 }
+		}
+	}
+	else = {
+		set_temp_variable = { favour_prefer = 0 }
+		set_temp_variable = { favour_already = 0 }
+	}
+	
+	set_temp_variable = { positive = 0 }
+	set_temp_variable = { negative = 30 }
+
+	if = {
+		limit = {
+			check_variable = { opinion > 0 }
+		}
+		add_to_temp_variable = { positive = opinion }
+	}
+	else = {
+		subtract_from_temp_variable = { negative = opinion }
+	}
+	add_to_temp_variable = { positive = faction }
+	add_to_temp_variable = { positive = subject }
+	subtract_from_temp_variable = { negative = favour_already }
+	add_to_temp_variable = { positive = favour_prefer }
+}

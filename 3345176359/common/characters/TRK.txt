@@ -1,0 +1,80 @@
+characters={
+	TRK_Mustafa_Shokay={  #穆斯塔法·绍凯
+		name = TRK_Mustafa_Shokay
+		portraits={
+			civilian={
+				large="gfx/leaders/TRK/Portrait_TRK_Mustafa_Shokay.dds"
+			}	
+		}
+		country_leader={
+			desc=""
+			ideology=despotism
+			expire="1965.1.1"
+			id=-1
+			traits={
+				ideological_crusader
+			}
+		}
+		field_marshal = {
+			traits = {  }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			legacy_id = -1
+		}
+	}
+	TRK_Turar_Ryskulov={  #图拉尔·雷斯库洛夫
+		name = TRK_Turar_Ryskulov
+		portraits={
+			civilian={
+				large="gfx/leaders/TRK/Portrait_TRK_Turar_Ryskulov.dds"
+			}	
+		}
+		country_leader={
+			desc=""
+			ideology=leninism
+			expire="1965.1.1"
+			id=-1
+			traits={
+				communist_revolutionary
+			}
+		}
+		field_marshal = {
+			traits = {  }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			legacy_id = -1
+		}
+	}
+	TRK_Sher_Mohammad={  #希尔·穆罕默德·贝克·加齐
+		name = TRK_Sher_Mohammad
+		portraits={
+			civilian={
+				large="gfx/leaders/TRK/Portrait_TRK_Sher_Mohammad.dds"
+			}	
+		}
+		country_leader={
+			desc=""
+			ideology=imperial
+			expire="1965.1.1"
+			id=-1
+			traits={
+				royalist_reformer
+			}
+		}
+		field_marshal = {
+			traits = {  }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			legacy_id = -1
+		}
+	}
+}

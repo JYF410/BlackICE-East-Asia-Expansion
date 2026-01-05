@@ -1,0 +1,351 @@
+@garrison_prio = 0
+@light_infantry_prio = 1
+@infantry_prio = 2 
+@cavalry_prio = 3
+@assault_infantry_prio = 4
+@heavy_infantry_prio = 5
+@motorized_prio = 6
+@mountaineers_prio = 7
+@light_armor_alt_prio = 8
+@light_armor_prio = 9
+@medium_armor_alt_prio = 10
+@medium_armor_prio = 11
+@heavy_armor_alt_prio = 12
+@heavy_armor_prio = 13
+@marines_prio = 14
+@militia_prio = 15
+ 
+PAK_militia_role = {
+    available_for = { PAK }  #该规则可用国家
+    roles = { militia }  #定义此编制的类型（这里定义的是militia民兵师编制）
+    match_to_count = 0.5  #其他属于该类型的已存在编制，如果你不想让AI拉太多这种低级编制那就调低此参数（数值太低会导致前期AI没改到对应编制前一点兵也不出）
+    PAK_militia_role_1 = {
+        production_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在实际生产时的权重。
+            base = 30
+            modifier = { add = 10 has_country_flag = { flag = ai_militia_template value = 1 } }
+        }
+        upgrade_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在花费经验进行升级时的权重。
+            base = 10
+            modifier = { add = 10 has_country_flag = { flag = ai_militia_template value = 1 } }
+        }
+        reinforce_prio = @militia_prio  #指定AI在该编制上设置的装备增援优先级。默认优先级为 1，在游戏中显示为“常规”。0 为“后备”，2 为“精英”。如果未设置，默认为 1。
+        can_upgrade_in_field = {  #是一个触发块，决定AI何时尝试对已部署的部队升级编制。
+            ai_has_engineer = yes
+        }  
+        target_template = {  #指定AI应力求达到的编制。特别地，这些参数放在其中：
+            weight = 0.8  #是AI应该多大程度上去靠近这个编制。
+            match_value = 1000  #是一个值，决定了如果与目标编制匹配，该编制对AI的价值。
+            regiments = {  #目标编制内常规营的列表
+                militia = 6  #6个民兵营
+            }
+            support = {  #目标编制内支援连的列表设定
+                DIV_HQ = 1
+                recon = 1
+            }
+        }
+        allowed_types = {  #AI编制要用到的营和支援连，不写AI就捏不出来
+            militia
+            DIV_HQ
+            recon
+        }
+    }
+    PAK_militia_role_2 = {
+        production_prio = {
+            base = 0
+            modifier = { add = 10 has_country_flag = { flag = ai_militia_template value = 2 } }
+        }
+        upgrade_prio = {
+            base = 0
+            modifier = { add = 10 has_country_flag = { flag = ai_militia_template value = 2 } }
+        }
+        reinforce_prio = @militia_prio
+        #can_upgrade_in_field = { }
+        target_template = {
+            weight = 0.8
+            match_value = 1000
+            regiments = {
+                militia = 9
+                mountain_artillery_brigade = 2
+            }
+            support = {
+                DIV_HQ = 1
+                engineer = 1
+                recon = 1
+            }
+        }
+        allowed_types = {
+            militia
+            mountain_artillery_brigade
+            DIV_HQ
+            recon
+            engineer
+        }
+    }
+}
+
+PAK_infantry_role = {
+    available_for = { PAK }  #该规则可用国家
+    roles = { infantry }  #定义此编制的类型（这里定义的是infantry师编制）
+    match_to_count = 0.7  #其他属于该类型的已存在编制，如果你不想让AI拉太多这种低级编制那就调低此参数（数值太低会导致前期AI没改到对应编制前一点兵也不出）
+    PAK_militia_role_1 = {  #一阶步兵师
+        production_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在实际生产时的权重。
+            base = 10
+            modifier = { add = 10 has_country_flag = { flag = ai_infantry_template value = 1 } }
+        }
+        upgrade_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在花费经验进行升级时的权重。
+            base = 10
+            modifier = { add = 10 has_country_flag = { flag = ai_infantry_template value = 1 } }
+        }
+        reinforce_prio = @infantry_prio  #指定AI在该编制上设置的装备增援优先级。默认优先级为 1，在游戏中显示为“常规”。0 为“后备”，2 为“精英”。如果未设置，默认为 1。
+        target_template = {  #指定AI应力求达到的编制。特别地，这些参数放在其中：
+            weight = 0.8  #是AI应该多大程度上去靠近这个编制。
+            match_value = 1000  #是一个值，决定了如果与目标编制匹配，该编制对AI的价值。
+            regiments = {  #目标编制内常规营的列表
+                infantry = 7
+				mountain_artillery_brigade = 2
+            }
+            support = {  #目标编制内支援连的列表设定
+                DIV_HQ = 1
+                recon = 1
+                anti_air = 1
+            }
+        }
+        allowed_types = {  #AI编制要用到的营和支援连，不写AI就捏不出来
+            infantry
+            mountain_artillery_brigade
+            DIV_HQ
+            recon
+            anti_air
+        }
+    }
+    PAK_militia_role_2 = {  #二阶步兵师
+        production_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在实际生产时的权重。
+            base = 0
+            modifier = { add = 10 has_country_flag = { flag = ai_infantry_template value = 1 } }
+        }
+        upgrade_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在花费经验进行升级时的权重。
+            base = 0
+            modifier = { add = 10 has_country_flag = { flag = ai_infantry_template value = 1 } }
+        }
+        reinforce_prio = @infantry_prio  #指定AI在该编制上设置的装备增援优先级。默认优先级为 1，在游戏中显示为“常规”。0 为“后备”，2 为“精英”。如果未设置，默认为 1。
+        can_upgrade_in_field = {  #是一个触发块，决定AI何时尝试升级已分配此编制的部队到将要替换的编制。
+            ai_has_engineer = yes  #必须先解锁工兵连科技
+        } 
+        target_template = {  #指定AI应力求达到的编制。特别地，这些参数放在其中：
+            weight = 0.8  #是AI应该多大程度上去靠近这个编制。
+            match_value = 1000  #是一个值，决定了如果与目标编制匹配，该编制对AI的价值。
+            regiments = {  #目标编制内常规营的列表
+                infantry = 9
+                artillery_brigade_med = 1
+				mountain_artillery_brigade = 2
+            }
+            support = {  #目标编制内支援连的列表设定
+                DIV_HQ = 1
+                recon_cav = 1
+                engineer = 1
+                field_hospital_cav = 1
+                anti_air = 1
+            }
+        }
+        allowed_types = {  #AI编制要用到的营和支援连，不写AI就捏不出来
+            infantry
+            artillery_brigade_med
+            mountain_artillery_brigade
+            DIV_HQ
+            recon_cav
+            engineer
+            field_hospital_cav
+            anti_air
+        }
+    }
+    PAK_militia_role_3 = {  #三阶步兵师
+        production_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在实际生产时的权重。
+            base = 0
+            modifier = { add = 10 has_country_flag = { flag = ai_infantry_template value = 1 } }
+        }
+        upgrade_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在花费经验进行升级时的权重。
+            base = 0
+            modifier = { add = 10 has_country_flag = { flag = ai_infantry_template value = 1 } }
+        }
+        reinforce_prio = @infantry_prio  #指定AI在该编制上设置的装备增援优先级。默认优先级为 1，在游戏中显示为“常规”。0 为“后备”，2 为“精英”。如果未设置，默认为 1。
+        can_upgrade_in_field = {  #是一个触发块，决定AI何时尝试升级已分配此编制的部队到将要替换的编制。
+            ai_has_signal_company = yes
+            ai_has_combat_engineer = yes
+        }
+        target_template = {  #指定AI应力求达到的编制。特别地，这些参数放在其中：
+            weight = 0.8  #是AI应该多大程度上去靠近这个编制。
+            match_value = 1000  #是一个值，决定了如果与目标编制匹配，该编制对AI的价值。
+            regiments = {  #目标编制内常规营的列表
+                infantry = 10
+                artillery_brigade_med = 2
+				mountain_artillery_brigade = 2
+            }
+            support = {  #目标编制内支援连的列表设定
+				DIV_HQ_car = 1
+				recon_ac = 1
+				engineer_mot = 1
+				field_hospital = 1
+				combat_engineer_mot = 1
+				signal_company_mot = 1
+				artillery_heavy_mot = 1
+				anti_air_car = 1
+            }
+        }
+        allowed_types = {  #AI编制要用到的营和支援连，不写AI就捏不出来
+            infantry
+            artillery_brigade_med
+            mountain_artillery_brigade
+            DIV_HQ_car
+            recon_ac
+            engineer_mot
+            field_hospital
+            combat_engineer_mot
+            signal_company_mot
+            artillery_heavy_mot
+            anti_air_car
+        }
+    }
+}
+
+PAK_light_armor_role = {
+    available_for = { PAK }  #该规则可用国家
+    roles = { light_armor }  #定义此编制的类型（这里定义的是militia民兵师编制）
+    match_to_count = 0.5  #其他属于该类型的已存在编制，如果你不想让AI拉太多这种低级编制那就调低此参数（数值太低会导致前期AI没改到对应编制前一点兵也不出）
+    PAK_light_armor_role_1 = {
+        production_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在实际生产时的权重。
+            base = 30
+            modifier = { add = 10 has_country_flag = { flag = ai_light_armor_template value = 1 } }
+        }
+        upgrade_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在花费经验进行升级时的权重。
+            base = 10
+            modifier = { add = 10 has_country_flag = { flag = ai_light_armor_template value = 1 } }
+        }
+        reinforce_prio = @light_armor_prio  #指定AI在该编制上设置的装备增援优先级。默认优先级为 1，在游戏中显示为“常规”。0 为“后备”，2 为“精英”。如果未设置，默认为 1。
+        #can_upgrade_in_field = { }  #是一个触发块，决定AI何时尝试升级已分配此编制的部队到将要替换的编制。
+        target_template = {  #指定AI应力求达到的编制。特别地，这些参数放在其中：
+            weight = 0.7  #是AI应该多大程度上去靠近这个编制。
+            match_value = 1000  #是一个值，决定了如果与目标编制匹配，该编制对AI的价值。
+            regiments = {  #目标编制内常规营的列表
+                semi_motorized = 6
+				trm_light_armor = 2
+                artillery_brigade_mot_med = 2
+            }
+            support = {  #目标编制内支援连的列表设定
+                DIV_HQ = 1
+				recon_cav = 1
+				engineer = 1
+				maintenance_company = 1
+				logistics_company = 1
+				combat_engineer = 1
+				anti_air = 1
+            }
+        }
+        allowed_types = {  #AI编制要用到的营和支援连，不写AI就捏不出来
+            semi_motorized
+            trm_light_armor
+            artillery_brigade_mot_med
+            DIV_HQ
+            recon_cav
+            engineer
+            maintenance_company
+            logistics_company
+            combat_engineer
+            anti_air
+        }
+    }
+    PAK_light_armor_role_2 = {
+        production_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在实际生产时的权重。
+            base = 30
+            modifier = { add = 10 has_country_flag = { flag = ai_light_armor_template value = 1 } }
+        }
+        upgrade_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在花费经验进行升级时的权重。
+            base = 10
+            modifier = { add = 10 has_country_flag = { flag = ai_light_armor_template value = 1 } }
+        }
+        reinforce_prio = @light_armor_prio  #指定AI在该编制上设置的装备增援优先级。默认优先级为 1，在游戏中显示为“常规”。0 为“后备”，2 为“精英”。如果未设置，默认为 1。
+        can_upgrade_in_field = {  #是一个触发块，决定AI何时尝试升级已分配此编制的部队到将要替换的编制。
+            ai_has_motorized = yes
+            ai_has_signal_company = yes            
+        }
+        target_template = {  #指定AI应力求达到的编制。特别地，这些参数放在其中：
+            weight = 0.7  #是AI应该多大程度上去靠近这个编制。
+            match_value = 1000  #是一个值，决定了如果与目标编制匹配，该编制对AI的价值。
+            regiments = {  #目标编制内常规营的列表
+                motorized = 6
+				trm_light_armor = 2
+                artillery_brigade_mot_med = 3
+            }
+            support = {  #目标编制内支援连的列表设定
+				DIV_HQ_car = 1
+				recon_cav = 1
+				engineer_mot = 1
+				maintenance_company = 1
+				logistics_company_car = 1
+				combat_engineer_mot = 1
+				signal_company_mot = 1
+				anti_air_car = 1
+            }
+        }
+        allowed_types = {  #AI编制要用到的营和支援连，不写AI就捏不出来
+            motorized
+            trm_light_armor
+            artillery_brigade_mot_med
+            DIV_HQ_car
+            recon_cav
+            engineer_mot
+            maintenance_company
+            logistics_company_car
+            combat_engineer_mot
+            signal_company_mot
+            anti_air_car
+        }
+    }
+    PAK_light_armor_role_3 = {
+        production_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在实际生产时的权重。
+            base = 30
+            modifier = { add = 10 has_country_flag = { flag = ai_light_armor_template value = 1 } }
+        }
+        upgrade_prio = {  #是一个MTTH block，决定了该编制相对于职能编制中其他编制在花费经验进行升级时的权重。
+            base = 10
+            modifier = { add = 10 has_country_flag = { flag = ai_light_armor_template value = 1 } }
+        }
+        reinforce_prio = @light_armor_prio  #指定AI在该编制上设置的装备增援优先级。默认优先级为 1，在游戏中显示为“常规”。0 为“后备”，2 为“精英”。如果未设置，默认为 1。
+        can_upgrade_in_field = {  #是一个触发块，决定AI何时尝试升级已分配此编制的部队到将要替换的编制。
+            ai_has_mechanized = yes   
+        }
+        target_template = {  #指定AI应力求达到的编制。特别地，这些参数放在其中：
+            weight = 0.7  #是AI应该多大程度上去靠近这个编制。
+            match_value = 1000  #是一个值，决定了如果与目标编制匹配，该编制对AI的价值。
+            regiments = {  #目标编制内常规营的列表
+                mechanized = 8
+                trm_medium_armor = 1
+				trm_light_armor = 2
+                trm_medium_sp_artillery = 3
+            }
+            support = {  #目标编制内支援连的列表设定
+				DIV_HQ_mech = 1
+				recon_mech = 1
+				engineer_mech = 1
+				maintenance_company_arm = 1
+				logistics_company_mech = 1
+				combat_engineer_mech = 1
+				signal_company_mot = 1
+				anti_air_car = 1
+            }
+        }
+        allowed_types = {  #AI编制要用到的营和支援连，不写AI就捏不出来
+            mechanized
+            trm_medium_armor
+            trm_light_armor
+            trm_medium_sp_artillery
+            DIV_HQ_mech
+            recon_mech
+            engineer_mech
+            maintenance_company_arm
+            logistics_company_mech
+            combat_engineer_mech
+            signal_company_mot
+            anti_air_car
+        }
+    }
+}

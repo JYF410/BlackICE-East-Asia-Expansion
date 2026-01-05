@@ -1,0 +1,42 @@
+
+state={
+	resources = {
+		bauxite = 412
+		oil = 3
+		food = 12
+	}
+
+
+	id=155
+	name="STATE_155"
+
+	history={
+		buildings = {
+			infrastructure = 4
+			industrial_complex = 8
+			arms_factory = 2
+			air_base = 1
+            fuel_silo = 1
+            hydro_power = 1
+
+		}
+
+		set_variable = { vp_value = 3 } 
+		set_variable = { highest_vp = 1 } 
+
+		owner = HUN
+		add_core_of = HUN
+		victory_points = {6720 15}
+		victory_points = {11627 5}
+        victory_points = {701 1	}
+        
+	}
+
+	provinces={
+		686 701 3683 6703 6720 9676 11627 11663 13125 
+	}
+	manpower=2398802
+	buildings_max_level_factor=1.000
+	local_supplies=0.0
+	state_category=town
+}
