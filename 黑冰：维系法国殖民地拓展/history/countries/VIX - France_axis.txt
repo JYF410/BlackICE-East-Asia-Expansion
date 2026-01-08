@@ -300,3 +300,5 @@ set_popularities = {
 	fascism = 10
 	communism = 0
 }
+#############################################################
+recruit_character = VIX_Jean_Marie_Charles_Abrial  #让-玛丽·夏尔·阿布里亚尔

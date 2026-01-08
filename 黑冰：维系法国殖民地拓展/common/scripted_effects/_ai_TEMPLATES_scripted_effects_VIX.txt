@@ -1,7 +1,7 @@
 ################################################################################################################
-#################################################### KOR #######################################################
+#################################################### VIX #######################################################
 ################################################################################################################
-ai_militia_templates/KOR = {
+ai_militia_templates/VIX = {
 	ai_militia_templates = yes #开头和结尾都要有
 	clear_temp_array = num_valid_templates
 	#这些可选的阵列将使ai在解锁它们的技术研究完成后将单位添加到模板中
@@ -81,7 +81,7 @@ ai_militia_templates/KOR = {
 	}
 	ai_militia_templates = yes
 }
-ai_infantry_templates/KOR = {
+ai_infantry_templates/VIX = {
 	ai_infantry_templates = yes
 	clear_temp_array = num_valid_templates
 	add_to_temp_array = { num_valid_templates = 1 }
@@ -206,7 +206,7 @@ ai_infantry_templates/KOR = {
 	}
 	ai_heavy_infantry_templates = yes
 }
-ai_light_armor_templates/KOR = {
+ai_light_armor_templates/VIX = {
 	ai_light_armor_templates = yes
 	clear_temp_array = num_valid_templates
 	add_to_temp_array = { num_valid_templates = 1 }

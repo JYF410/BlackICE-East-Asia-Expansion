@@ -1,0 +1,53 @@
+characters = {
+	VIX_Jean_Marie_Charles_Abrial = {  #让-玛丽·夏尔·阿布里亚尔
+		name = VIX_Jean_Marie_Charles_Abrial
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/VIX/Portrait_VIX_Jean_Marie_Charles_Abrial.dds"
+			}
+			army = {
+				small = GFX_idea_generic_army_europe_5
+			}
+			army={
+				large = "gfx/leaders/VIX/Portrait_VIX_Jean_Marie_Charles_Abrial.dds"
+			}
+		}
+		country_leader = {
+			desc = "POLITICS_Jean_Marie_Charles_Abrial_DESC"
+			ideology = despotism
+			expire = "1956.12.5"
+			id = -1
+			traits = {
+				ideological_crusader
+				anti_communist
+			}
+		}
+		navy_leader={
+			traits={ bold spotter superior_tactician air_controller flight_deck_manager }
+			skill=5
+			attack_skill=5
+			defense_skill=2
+			maneuvering_skill=3
+			coordination_skill=6
+			legacy_id=1727
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = VIX_Jean_Marie_Charles_Abrial_navy_chief
+			on_add = {
+				set_temp_variable = { character = token:VIX_Jean_Marie_Charles_Abrial}
+				set_temp_variable = { slot = token:navy_chief}
+				navy_chief_on_add_effect = yes
+			} 
+			on_remove = {
+				set_temp_variable = { character = token:VIX_Jean_Marie_Charles_Abrial}
+				set_temp_variable = { slot = token:navy_chief}
+				navy_chief_on_remove_effect = yes
+			}
+			traits = {
+				navy_chief_maneuver_3
+				navy_chief_commerce_raiding_3
+			}
+		}
+	}
+}
