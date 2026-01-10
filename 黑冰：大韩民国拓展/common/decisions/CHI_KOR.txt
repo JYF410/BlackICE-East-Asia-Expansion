@@ -1,0 +1,32 @@
+political_actions = {
+	CHI_host_KOR_exile_government = { #组建大韩民国流亡政府
+		icon = generic
+		allowed = {
+			original_tag = CHI
+		}
+		available = {
+			original_tag = CHI
+		}
+		cost = 50
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		visible = {
+			KOR = {
+				exists = no
+			}
+			KOR = {
+				is_government_in_exile = no
+			}
+		}
+		complete_effect = {
+			KOR = {
+				become_exiled_in = {
+					target = CHI
+					legitimacy = 50
+				}
+			}
+		}
+	}
+}
