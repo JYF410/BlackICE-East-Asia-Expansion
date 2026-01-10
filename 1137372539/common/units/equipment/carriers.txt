@@ -1,1 +1,0 @@
-#Now in ship_hull_carrier.txt

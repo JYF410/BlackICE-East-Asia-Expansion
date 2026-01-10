@@ -1,1 +1,0 @@
-# The scripted triggers are removed and the flags directly checked in allowed (yes... the reason is the p word)

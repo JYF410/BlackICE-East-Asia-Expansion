@@ -1,3 +1,0 @@
-#really PDX you made a whole file for 1 stupid country???
-
-#KOS	= "countries/Kosovo.txt"

@@ -1,9 +1,0 @@
-﻿air_wings = {
-	845 = { 
-		i_185_equipment_1 = {
-			owner = "SOV" 
-			amount = 15
-		}
-		start_experience_factor = 0.2
-	}		
-}
