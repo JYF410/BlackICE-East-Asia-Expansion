@@ -57,14 +57,14 @@ d_ai_logic/KOR = {
 		set_temp_variable = { ai_target_convoys                    = 100 }
 		set_temp_variable = { RATIO@naval_capital_bc                 = 1 }
 		set_temp_variable = { RATIO@naval_cruiser_heavy              = 2 }
-		set_temp_variable = { RATIO@naval_cruiser_light              = 4 }
-		set_temp_variable = { RATIO@naval_screen                    = 10 }
-		set_temp_variable = { RATIO@naval_submarine                 = 20 }
+		set_temp_variable = { RATIO@naval_cruiser_light              = 6 }
+		set_temp_variable = { RATIO@naval_screen                    = 12 }
+		set_temp_variable = { RATIO@naval_submarine                 = 30 }
 		#战列巡洋舰生产队列
 		if = {
 			limit = { num_of_naval_factories > 12 } #船厂总数要求
 			set_temp_variable = { RATIO@naval_capital_bc             = 1 } #RATIO@生产数调整
-			set_temp_variable = { min_dockyard@nrm_ship_hull_capital < 4 } #min_dockyard@至少分配X个造船厂数量
+			set_temp_variable = { min_dockyard@nrm_ship_hull_capital < 3 } #min_dockyard@至少分配X个造船厂数量
 		}
 		#重型巡洋舰生产队列
 		if = {
@@ -81,14 +81,14 @@ d_ai_logic/KOR = {
 		#驱逐舰生产队列
 		if = {
 			limit = { num_of_naval_factories > 6 } #船厂总数要求
-			set_temp_variable = { RATIO@naval_screen                 = 3 } #RATIO@生产数调整
-			set_temp_variable = { min_dockyard@naval_screen          < 3 } #min_dockyard@至少分配X个造船厂数量
+			set_temp_variable = { RATIO@naval_screen                 = 2 } #RATIO@生产数调整
+			set_temp_variable = { min_dockyard@naval_screen          < 2 } #min_dockyard@至少分配X个造船厂数量
 		}
 		#潜艇生产队列
 		if = {
 			limit = { num_of_naval_factories > 4 } #船厂总数要求
-			set_temp_variable = { RATIO@naval_submarine              = 5 } #RATIO@生产数调整
-			set_temp_variable = { min_dockyard@naval_submarine       < 5 } #min_dockyard@至少分配X个造船厂数量
+			set_temp_variable = { RATIO@naval_submarine              = 4 } #RATIO@生产数调整
+			set_temp_variable = { min_dockyard@naval_submarine       < 4 } #min_dockyard@至少分配X个造船厂数量
 		}
 		ai_update_ship_production = yes
 	}

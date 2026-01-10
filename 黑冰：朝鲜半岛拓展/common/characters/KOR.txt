@@ -16,6 +16,24 @@ characters = {
 				anti_communist
 			}
 		}
+		advisor = {
+			slot = supreme_commander
+			idea_token = KOR_Syngman_Rhee_supreme_commander
+			on_add = {
+				set_temp_variable = { character = token:KOR_Syngman_Rhee}
+				set_temp_variable = { slot = token:supreme_commander}
+				supreme_commander_on_add_effect = yes
+			}
+			on_remove = {
+				set_temp_variable = { character = token:KOR_Syngman_Rhee}
+				set_temp_variable = { slot = token:supreme_commander}
+				supreme_commander_on_remove_effect = yes
+			}
+			traits = {
+				supreme_com_aggressive
+				supreme_com_organizer
+			}
+		}
 	}
 	KOR_Kim_Il_sung = {  #金日成
 		name = KOR_Kim_Il_sung
@@ -61,14 +79,14 @@ characters = {
 		}
 		advisor = {
 			slot = supreme_commander
-			idea_token = KOR_Syngman_Rhee_supreme_commander
+			idea_token = KOR_Abe_Nobuyuki_supreme_commander
 			on_add = {
-				set_temp_variable = { character = token:KOR_Syngman_Rhee}
+				set_temp_variable = { character = token:KOR_Abe_Nobuyuki}
 				set_temp_variable = { slot = token:supreme_commander}
 				supreme_commander_on_add_effect = yes
 			}
 			on_remove = {
-				set_temp_variable = { character = token:KOR_Syngman_Rhee}
+				set_temp_variable = { character = token:KOR_Abe_Nobuyuki}
 				set_temp_variable = { slot = token:supreme_commander}
 				supreme_commander_on_remove_effect = yes
 			}

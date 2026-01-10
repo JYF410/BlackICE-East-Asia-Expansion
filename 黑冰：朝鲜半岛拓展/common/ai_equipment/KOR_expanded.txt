@@ -18,27 +18,27 @@ KOR_naval_capital_bc = {
 	priority = {
 		factor = 1
 	}
-	generic_naval_capital_bc = {
+	KOR_naval_capital_bc = {
 		role_icon_index = 88
 		priority = {
 			factor = 1
 		}
 		target_variant = {
-			type = nrm_ship_hull_capital_1
+			type = nrm_ship_hull_capital_2
 			match_value = 1000.0
 		}
 	}
-	GEN_BC_1936 = {
+	KOR_BC_1936 = {
 		priority = {
 			factor = 2
 		}
 		role_icon_index = 88
 		enable = { 
-			has_country_flag = HSD_GEN_BC_1936
+			has_country_flag = HSD_KOR_BC_1936
 		}
 		target_variant = {
 			match_value = 1000.0
-			type = nrm_ship_hull_capital_1
+			type = nrm_ship_hull_capital_2
 			modules = {
 				fixed_ship_hullform_slot = nrm_ship_hullform_capital_1
 				fixed_ship_engine_slot = nrm_capital_engine_S1_065
@@ -84,7 +84,7 @@ KOR_naval_cruiser_heavy = {
 	priority = {
 		factor = 7
 	}
-	generic_naval_cruiser_heavy = {
+	KOR_naval_cruiser_heavy = {
 		role_icon_index = 41
 		priority = {
 			factor = 1
@@ -95,13 +95,13 @@ KOR_naval_cruiser_heavy = {
 
 		}
 	}
-	GEN_CA_1936 = {
+	KOR_CA_1936 = {
 		priority = {
 			factor = 2
 		}
 		role_icon_index = 50
 		enable = { 
-			has_country_flag = HSD_GEN_CA_1936
+			has_country_flag = HSD_KOR_CA_1936
 		}
 		target_variant = {
 			match_value = 1000.0
@@ -150,7 +150,7 @@ KOR_naval_cruiser_light = {
 	priority = {
 		factor = 8
 	}
-	generic_naval_cruiser_light = {
+	KOR_naval_cruiser_light = {
 		role_icon_index = 41
 		priority = {
 			factor = 8
@@ -161,13 +161,13 @@ KOR_naval_cruiser_light = {
 
 		}
 	}
-	GEN_CL_1936 = {
+	KOR_CL_1936 = {
 		priority = {
 			factor = 2
 		}
 		role_icon_index = 39
 		enable = { 
-			has_country_flag = HSD_GEN_CL_1936
+			has_country_flag = HSD_KOR_CL_1936
 		}
 		target_variant = {
 			match_value = 1000.0 
@@ -216,8 +216,8 @@ KOR_naval_destroyers = {
 	priority = {
 		factor = 9
 	}
-	#驱逐舰(早期)
-	naval_KOR_destroyer_1 = {
+	#驱逐舰(改良)
+	naval_KOR_destroyer_2 = {
 		priority = {
 			factor = 9
 			modifier = { 
@@ -227,29 +227,27 @@ KOR_naval_destroyers = {
 		role_icon_index = 39
 		target_variant = {
 			match_value = 1000.0
-			type = nrm_ship_hull_destroyer_1
+			type = nrm_ship_hull_destroyer_2
 			modules = {
-				fixed_ship_hullform_slot = nrm_ship_hullform_destroyer_1 #船体外形
-				fixed_ship_engine_slot = nrm_destroyer_engine_S1_010 #发动机
-				fixed_ship_sonar_slot = empty #声纳
+				fixed_ship_hullform_slot = nrm_ship_hullform_destroyer_2 #船体外形
+				fixed_ship_engine_slot = nrm_destroyer_engine_S2_050 #发动机
+				fixed_ship_sonar_slot = nrm_sonar_3 #声纳
 				fixed_ship_battery_slot = nrm_destroyer_battery_3_1_x3 #主炮
-				fixed_ship_subdivision_slot = nrm_subdivision_1 #水密隔舱
-				fixed_ship_damagecontrol_slot = nrm_damagecontrol_1 #损害管制
-				fixed_ship_range_slot = nrm_range_destroyer_2 #巡航距离
+				fixed_ship_subdivision_slot = nrm_subdivision_3 #水密隔舱
+				fixed_ship_damagecontrol_slot = nrm_damagecontrol_3 #损害管制
+				fixed_ship_range_slot = nrm_range_destroyer_3 #巡航距离
 				fixed_ship_radar_slot = empty #雷达
-				fixed_ship_fire_control_system_slot = nrm_fire_control_3 #火控系统
-				fixed_ship_fire_control_system_aa_slot = empty #防空火控系统
-				custom_slot_1 = empty #附加设备
-				custom_slot_2 = empty #附加设备
-				custom_slot_3 = nrm_support_destroyer_TRP_21_C_1_x2 #附加设备
-				custom_slot_4 = nrm_support_destroyer_TRP_21_C_1_x2 #附加设备
-				custom_slot_5 = empty #附加设备
-				custom_slot_6 = empty #附加设备
+				fixed_ship_fire_control_system_slot = nrm_fire_control_5 #火控系统
+				fixed_ship_fire_control_system_aa_slot = nrm_fire_control_aa_1 #防空火控系统
+				custom_slot_1 = nrm_support_destroyer_ASW_2 #附加设备
+				custom_slot_2 = nrm_support_destroyer_ASW_2 #附加设备
+				custom_slot_3 = nrm_support_destroyer_TRP_21_C_2_x5 #附加设备
+				custom_slot_4 = nrm_support_destroyer_TRP_21_C_2_x5 #附加设备
+				custom_slot_5 = nrm_support_destroyer_AA_2 #附加设备
+				custom_slot_6 = nrm_support_destroyer_ASWP_1 #附加设备
 			}
 		}
 	}
-	#驱逐舰(改良)
-	#naval_KOR_destroyer_2
 }
 
 KOR_naval_submarine = {
@@ -272,38 +270,8 @@ KOR_naval_submarine = {
 	priority = {
 		factor = 10
 	}
-	#潜艇(早期)
-	naval_KOR_submarine_1 = {
-		priority = {
-			factor = 10
-			modifier = {
-				#has_tech = early_ship_hull_submarine #要求解锁科技：潜艇船体(早期)
-			}
-		}
-		role_icon_index = 122
-		target_variant = {
-			match_value = 1000.0  #一个额外的权重，表示如果匹配成功，该设计的价值有多大
-			type = nrm_ship_hull_submarine_1
-			modules = {
-				fixed_ship_sub_hull_slot = nrm_submarine_hull_1 #船体设计
-				fixed_ship_engine_slot = nrm_submarine_engine_D0_010 #引擎
-				fixed_ship_sonar_slot = empty #声纳
-				fixed_ship_noise_slot = nrm_submarine_noise_0 #隐蔽性
-				fixed_ship_subdivision_slot = nrm_subdivision_1 #分舱
-				fixed_ship_damagecontrol_slot = nrm_damagecontrol_1 #灭火
-				fixed_ship_range_slot = nrm_range_submarine_1 #航程
-				fixed_ship_radar_slot = empty #雷达
-				fixed_ship_battery_slot = nrm_submarine_deckgun_3 #甲板炮
-				fixed_ship_anti_air_slot = empty #防空炮
-				fixed_ship_torpedo_slot = nrm_submarine_TRP_18_1_x2 #鱼雷槽位1
-				fixed_ship_torpedo_2_slot = nrm_submarine_TRP_18_1_x2 #鱼雷槽位2
-				custom_slot_1 = empty #附加槽位1
-				custom_slot_2 = empty #附加槽位2
-			}
-		}
-	}
 	#潜艇(改良)
-	naval_KOR_submarine_2 = {
+	naval_KOR_submarine_3 = {
 		priority = {
 			factor = 1000
 			modifier = {
@@ -314,21 +282,21 @@ KOR_naval_submarine = {
 		role_icon_index = 6
 		target_variant = {
 			match_value = 1000.0  #一个额外的权重，表示如果匹配成功，该设计的价值有多大
-			type = nrm_ship_hull_submarine_2
+			type = nrm_ship_hull_submarine_3
 			modules = {
-				fixed_ship_sub_hull_slot = nrm_submarine_hull_2 #船体设计
-				fixed_ship_engine_slot = nrm_submarine_engine_D1_050 #引擎
-				fixed_ship_sonar_slot = empty #声纳
-				fixed_ship_noise_slot = nrm_submarine_noise_0 #隐蔽性
+				fixed_ship_sub_hull_slot = nrm_submarine_hull_3 #船体设计
+				fixed_ship_engine_slot = nrm_submarine_engine_D1_025 #引擎
+				fixed_ship_sonar_slot = nrm_submarine_sonar_2 #声纳
+				fixed_ship_noise_slot = nrm_submarine_noise_2 #隐蔽性
 				fixed_ship_subdivision_slot = nrm_subdivision_2 #分舱
 				fixed_ship_damagecontrol_slot = nrm_damagecontrol_2 #灭火
 				fixed_ship_range_slot = nrm_range_submarine_2 #航程
 				fixed_ship_radar_slot = empty #雷达
-				fixed_ship_battery_slot = nrm_submarine_deckgun_4 #甲板炮
+				fixed_ship_battery_slot = nrm_submarine_deckgun_3 #甲板炮
 				fixed_ship_anti_air_slot = empty #防空炮
-				fixed_ship_torpedo_slot = nrm_submarine_TRP_18_1_x6 #鱼雷槽位1
-				fixed_ship_torpedo_2_slot = nrm_submarine_TRP_18_1_x6 #鱼雷槽位2
-				custom_slot_1 = empty #附加槽位1
+				fixed_ship_torpedo_slot = nrm_submarine_TRP_21_2_x4 #鱼雷槽位1
+				fixed_ship_torpedo_2_slot = nrm_submarine_TRP_21_2_x1 #鱼雷槽位2
+				custom_slot_1 = nrm_submarine_SNK_1 #附加槽位1
 				custom_slot_2 = empty #附加槽位2
 			}
 		}

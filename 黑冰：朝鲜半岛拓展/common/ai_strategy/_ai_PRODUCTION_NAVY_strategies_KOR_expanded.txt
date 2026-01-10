@@ -1,4 +1,4 @@
-#亚洲国家战列巡洋舰生产策略
+#战列巡洋舰生产策略
 KOR_heavy_cruisers_production = {
 	KOR = {
 		enable = { always = yes }
@@ -11,7 +11,7 @@ KOR_heavy_cruisers_production = {
 		}
 	}
 }
-#亚洲国家重巡洋舰生产策略
+#重巡洋舰生产策略
 KOR_heavy_cruisers_production = {
 	KOR = {
 		enable = { always = yes }
@@ -24,7 +24,7 @@ KOR_heavy_cruisers_production = {
 		}
 	}
 }
-#亚洲国家轻巡洋舰生产策略
+#轻巡洋舰生产策略
 KOR_light_cruisers_production = {
 	KOR = {
 		enable = { always = yes }
@@ -37,7 +37,7 @@ KOR_light_cruisers_production = {
 		}
 	}
 }
-#亚洲国家驱逐舰生产策略
+#驱逐舰生产策略
 KOR_destroyers_production = {
 	KOR = {
 		enable = { always = yes }
@@ -50,7 +50,7 @@ KOR_destroyers_production = {
 		}
 	}
 }
-#亚洲国家潜艇生产策略
+#潜艇生产策略
 KOR_submarine_production = {
 	KOR = {
 		enable = { always = yes }

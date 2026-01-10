@@ -1,0 +1,128 @@
+focus_tree = {
+	id = KOR_focus
+	country = {
+		factor = 0
+		modifier = {
+			factor = 1
+			tag = KOR
+		}
+	}
+	continuous_focus_position = { x = 50 y = 1100 }
+	default = no
+	reset_on_civilwar = no
+	#争取海外独立运动
+	focus = {
+		id = KOR_recognize_exile_movement
+		icon = GFX_goal_generic_political_pressure
+		x = 0
+		y = 0
+		cost = 10
+		available = {
+			tag = KOR
+			exists = CHI
+			NOT = { has_war = yes }
+		}
+		completion_reward = {
+			add_political_power = 50
+			set_country_flag = KOR_exile_path_started
+		}
+		ai_will_do = { factor = 3 }
+	}
+	#接触中华民国
+	focus = {
+		id = KOR_contact_kmt
+		icon = GFX_goal_generic_diplomacy
+		prerequisite = { focus = KOR_recognize_exile_movement }
+		x = 0
+		y = 1
+		cost = 10
+		available = {
+			CHI = { NOT = { has_capitulated = yes } }
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = CHI
+				modifier = friendly_relations
+			}
+			country_event = { id = KOR_kmt_exile.1 }
+		}
+		ai_will_do = { factor = 3 }
+	}
+	#获得重庆政治庇护
+	focus = {
+		id = KOR_chongqing_asylum
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = KOR_contact_kmt }
+		x = 0
+		y = 2
+		cost = 10
+		available = {
+			CHI = { is_in_faction = no }
+		}
+		completion_reward = {
+			add_political_power = 75
+			set_country_flag = KOR_exile_government_in_china
+		}
+		ai_will_do = { factor = 2 }
+	}
+	#成立韩国临时政府
+	focus = {
+		id = KOR_provisional_government
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = KOR_chongqing_asylum }
+		x = 0
+		y = 3
+		cost = 10
+		completion_reward = {
+			country_event = { id = KOR_kmt_exile.10 }
+		}
+		ai_will_do = { factor = 2 }
+	}
+	#中韩联合委员会
+	focus = {
+		id = KOR_sino_korean_joint_committee
+		icon = GFX_goal_generic_diplomacy
+		prerequisite = { focus = KOR_provisional_government }
+		x = 0
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_political_power = 100
+			set_country_flag = KOR_sino_korean_joint_committee_formed
+		}
+		ai_will_do = { factor = 2 }
+	}
+	#争取国际承认
+	focus = {
+		id = KOR_seek_international_recognition
+		icon = GFX_goal_generic_diplomacy
+		prerequisite = { focus = KOR_sino_korean_joint_committee }
+		x = 0
+		y = 5
+		cost = 10
+		completion_reward = {
+			add_political_power = 150
+			set_country_flag = KOR_exile_government_international_recognition
+		}
+		ai_will_do = { factor = 1 }
+	}
+	#等待战争结局（终点占位）
+	focus = {
+		id = KOR_wait_for_outcome
+		icon = GFX_goal_generic_neutrality
+		prerequisite = { focus = KOR_seek_international_recognition }
+		x = -1
+		y = 6
+		cost = 10
+		available = {
+			OR = {
+				JAP = { has_capitulated = yes }
+				CHI = { has_capitulated = yes }
+			}
+		}
+		completion_reward = {
+			add_stability = 0.05
+		}
+		ai_will_do = { factor = 1 }
+	}
+}
