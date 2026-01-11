@@ -10,7 +10,6 @@ set_research_slots = 2
 set_country_flag = SOV_air
 
 set_country_flag = ai_country_logic #启用AI调度，加载d_ai_logic/KOR
-set_country_flag = KOR_exile_government #流亡状态标记
 
 add_opinion_modifier = {
     target = CHI

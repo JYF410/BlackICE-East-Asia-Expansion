@@ -20,7 +20,7 @@ ai_militia_templates/KOR = {
 		set_temp_variable = { ai_has_added_template = 1 }
 		set_country_flag = { flag = ai_militia_template value = 1 }
 		division_template = {
-			name = "Militia Division"	 #所有模板都应该使用角色特定的名称，而不是国家特定的名称
+			name = "KOR Militia Division I"	 #所有模板都应该使用角色特定的名称，而不是国家特定的名称
 			priority = @MILITIA_PRIO
 			regiments = {
 				militia = { x = 0 y = 0 }
@@ -53,7 +53,7 @@ ai_militia_templates/KOR = {
 		set_temp_variable = { ai_has_added_template = 1 }
 		set_country_flag = { flag = ai_militia_template value = 3 }
 		division_template = {
-			name = "Militia Division"	
+			name = "KOR Militia Division II"	
 			priority = @MILITIA_PRIO
 			regiments = {
 				militia = { x = 0 y = 0 }
@@ -93,7 +93,7 @@ ai_infantry_templates/KOR = {
 		set_temp_variable = { ai_has_added_template = 1 }
 		set_country_flag = { flag = ai_infantry_template value = 1 }
 		division_template = {
-			name = "Infantry Division"	
+			name = "KOR Infantry Division I"	
 			priority = @INFANTRY_PRIO
 			regiments = {
 				infantry = { x = 0 y = 0 }
@@ -128,7 +128,7 @@ ai_infantry_templates/KOR = {
 		set_temp_variable = { ai_has_added_template = 1 }
 		modify_country_flag = { flag = ai_infantry_template value = 2 }	
 		division_template = {
-			name = "Infantry Division"	
+			name = "KOR Infantry Division II"	
 			priority = @INFANTRY_PRIO
 			regiments = {
 				infantry = { x = 0 y = 0 }
@@ -170,7 +170,7 @@ ai_infantry_templates/KOR = {
 		set_temp_variable = { ai_has_added_template = 1 }
 		set_country_flag = { flag = ai_infantry_template value = 3 }
 		division_template = {
-			name = "Infantry Division"	
+			name = "KOR Infantry Division III"	
 			priority = @INFANTRY_PRIO
 			regiments = {
 				infantry = { x = 0 y = 0 }
@@ -223,7 +223,7 @@ ai_light_armor_templates/KOR = {
 		set_temp_variable = { ai_has_added_template = 1 } 
 		set_country_flag = { flag = ai_light_armor_template value = 1 }
 		division_template = {
-			name = "Armor Division"
+			name = "KOR Semi-Motorized Armor Division"
 			priority = @LIGHT_ARMOR_PRIO
 			regiments = {
 				semi_motorized = { x = 0 y = 0 }
@@ -264,7 +264,7 @@ ai_light_armor_templates/KOR = {
 		set_temp_variable = { ai_has_added_template = 1 } 
 		set_country_flag = { flag = ai_light_armor_template value = 2 }
 		division_template = {
-			name = "Armor Division"
+			name = "KOR Motorized Armor Division"
 			priority = @LIGHT_ARMOR_PRIO
 			regiments = {
 				motorized = { x = 0 y = 0 }
@@ -306,7 +306,7 @@ ai_light_armor_templates/KOR = {
 		set_temp_variable = { ai_has_added_template = 1 } 
 		set_country_flag = { flag = ai_light_armor_template value = 3 }
 		division_template = {
-			name = "Armor Division"
+			name = "KOR Mechanized Armor Division"
 			priority = @LIGHT_ARMOR_PRIO
 			regiments = {
 				mechanized = { x = 0 y = 0 }

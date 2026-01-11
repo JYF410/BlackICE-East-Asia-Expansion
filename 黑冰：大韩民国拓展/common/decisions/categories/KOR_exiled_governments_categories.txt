@@ -1,0 +1,9 @@
+KOR_exiled_governments = {
+	icon = generic_independence
+	allowed = {
+		tag = CHI
+	}
+	visible = {
+		tag = CHI
+	}
+}

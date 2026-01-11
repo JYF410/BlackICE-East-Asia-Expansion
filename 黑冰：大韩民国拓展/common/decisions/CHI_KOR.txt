@@ -1,31 +1,83 @@
-political_actions = {
-	CHI_host_KOR_exile_government = { #组建大韩民国流亡政府
+KOR_exiled_governments = {
+	#组建大韩民国流亡政府
+	CHI_host_KOR_exile_government = { 
 		icon = generic
-		allowed = {
-			original_tag = CHI
-		}
 		available = {
-			original_tag = CHI
-		}
-		cost = 50
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 100
+			tag = CHI
+			KOR = {
+				exists = no #韩国不存在
+				is_government_in_exile = no #韩国不是流亡政府
+			}
 		}
 		visible = {
+			tag = CHI
 			KOR = {
 				exists = no
-			}
-			KOR = {
 				is_government_in_exile = no
 			}
 		}
-		complete_effect = {
+		cost = 50
+		days_remove = 7 #需要7天
+		modifier = {
+			civilian_factory_use = 1 #工厂运作数：1
+		}
+		remove_effect = {
 			KOR = {
 				become_exiled_in = {
 					target = CHI
-					legitimacy = 50
+					legitimacy = 10 #正统性10
 				}
+				division_template = {
+					name = "Korean Liberation Army"
+					division_names_group = KOR_INF_01
+					regiments = {
+						light_infantry = { x = 0 y = 0 }
+						light_infantry = { x = 0 y = 1 }
+					}
+					support = {
+						DIV_HQ = { x = 0 y = 0 }
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	#为流亡政府争取议会支持
+	lobby_for_parliamentary_support = {
+		icon = generic
+		modifier = {
+			political_power_cost = 0.25 #政治力量消耗-25%
+			legitimacy_daily = 0.2 #正统性每日增加0.2
+		}
+		days_remove = 7
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_political_power < 150
+			}
+		}
+	}
+	#流亡政府征兵活动
+	exile_recruitment_campaign = {
+		icon = generic
+		days_remove = 7
+		available = {
+		    has_legitimacy > 10 #正统性大于10
+		}
+		modifier = {
+			political_power_cost = 1.0 #政治力量消耗1.0
+		}
+		eval_effect = {
+			add_exile_manpower = { country = KOR amount = 100 } #增加流亡政府征兵人数
+			}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_political_power < 200
 			}
 		}
 	}
