@@ -1,0 +1,10 @@
+#中朝贸易决议栏
+KOR_PRC_trade_effort = {
+	icon = generic_trade
+	allowed = {
+		original_tag = KOR
+	}
+	visible = {
+	    has_completed_focus = KOR_PRC_trade_effort
+	}
+}

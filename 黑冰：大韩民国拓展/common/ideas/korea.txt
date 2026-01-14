@@ -42,6 +42,7 @@ ideas = {
 				stability_weekly = 0.005 #每周稳定度+0.5%
 			}	
 		}
+########################################################################################################################
 		#大韩民国临时政府驻华代表团
 		KOR_CHI_political_reform = {
 			picture = BEL_traditional_family_values
@@ -56,6 +57,7 @@ ideas = {
 				neutrality_drift = 0.05
 			}	
 		}
+########################################################################################################################
 		#中共中央东北局平壤办事处
 		KOR_PRC_political_reform = {
 			picture = BEL_traditional_family_values
@@ -70,6 +72,7 @@ ideas = {
 				communism_drift = 0.05
 			}	
 		}
+########################################################################################################################
 		#韩国光复军
 		Korean_Liberation_Army = {
 			picture = BEL_traditional_family_values
