@@ -1,10 +1,16 @@
 #中朝贸易决议栏
 KOR_PRC_trade_effort = {
 	icon = generic_trade
+	picture = GFX_decision_cat_picture_concessions_to_the_trade_unions 
 	allowed = {
 		original_tag = KOR
+		has_government = communism
 	}
 	visible = {
 	    has_completed_focus = KOR_PRC_trade_effort
+		PRC = {
+			exists = yes
+			has_capitulated = no
+		}
 	}
 }

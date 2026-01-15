@@ -216,7 +216,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			unlock_decision_tooltip = {
-				decision = KOR_PRC_trade_effort
+				decision = KOR_PRC_food_support
 				show_effect_tooltip = yes
 			}
 		}

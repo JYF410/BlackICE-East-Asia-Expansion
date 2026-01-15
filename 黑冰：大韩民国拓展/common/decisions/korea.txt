@@ -1,41 +1,38 @@
-economy_decisions = {
+KOR_PRC_trade_effort = {
 	#中朝贸易援助
-	KOR_PRC_trade_effort = {
+	KOR_PRC_food_support = {
 		icon = RAJ_famine
 		allowed = {
 			tag = KOR
 		}
 		visible = {
 			tag = KOR
+			check_variable = { food > 0 }
 		}
 		available = {
 			KOR = {
 				has_government = communism
+				set_temp_variable = { food_fraction = food }
+				divide_temp_variable = { food_fraction = food_max }
 				custom_trigger_tooltip = {
-					tooltip = food_atleast_100_trigger #提示文字
-					check_variable = { food > 100 } #需要库存中有超过100K食物
+					tooltip = food_over_25_TT
+					check_variable = { food_fraction > 0.25 }
 				}
-				custom_cost_trigger = {
-					check_variable = { food > 100 } #需要库存中有超过100K食物
-				}
-				custom_cost_text = food_atleast_100 #提示文字
 			}
 			PRC = {
 				exists = yes
 				has_capitulated = no
-				OR = {
-					owns_state = 811 #东边
-					owns_state = 745 #大连
-				}
+				has_government = communism
 			}
 		}
-		ai_will_do = { factor = 100 }
+		ai_will_do = { factor = 1000 }
 		fire_only_once = no #决议可多次使用
-		days_remove = 30 #决议持续30天
-		days_re_enable = 45 #决议45天后可重新使用
-		complete_effect = {
+		days_remove = 14 #决议持续14天
+		days_re_enable = 14 #决议14天后可重新使用
+		remove_effect = {
 			KOR = {
 				add_stability = 0.05 #稳定度+5%
+				add_war_support = 0.05 #战争支持度+5%
 				add_political_power = 50 #政治点数+50
 				set_temp_variable = { food_sent = 20 } #设置临时变量food_sent为20
 				custom_effect_tooltip = x_food_subtracted #提示文字:从库存中移除X食物
