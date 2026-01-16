@@ -68,7 +68,7 @@ focus_tree = {
 			add_political_power = 50
 			add_ideas = Korean_Liberation_Army
 			division_template = {
-				name = "Korean Liberation Army"
+				name = "韩国光复军"
 				is_locked = yes
 				template_counter = 222
 				regiments = {
@@ -91,7 +91,7 @@ focus_tree = {
 				}
 			}	
 			random_owned_controlled_state = {
-				KOR_create_free_legion_div = yes
+				KOR_create_free_legion_div = yes #黑冰：大韩民国拓展\common\scripted_effects\KOR_scripted_effects.txt
 			}
 		}
 	}
@@ -148,7 +148,45 @@ focus_tree = {
 				add_equipment_to_stockpile = { type = infantry_equipment amount = 10000 producer = JAP }
 				add_equipment_to_stockpile = { type = HMG_equipment amount = 1000 producer = JAP }
 				add_equipment_to_stockpile = { type = artillery_equipment amount = 200 producer = JAP }
-				custom_effect_tooltip = KMT_more_if_in_defensive_war_tt
+			}
+		}
+	}
+	#东北抗日联军教导旅
+	focus = {
+		id = KOR_SOV_northeast_anti_japanese_guerrillas
+		icon = GFX_focus_GER_support_the_proletarian_uprising
+		prerequisite = { focus = KOR_PRC_political_reform }
+		x = 20
+		y = 2
+		search_filters = { FOCUS_FILTER_ARMY }
+		cost = 30
+		available = {
+			#
+		}
+		completion_reward = {
+			add_war_support = 0.1
+			add_equipment_to_stockpile = { type = infantry_equipment amount = 10000 producer = JAP }
+			division_template = {
+				name = "苏联远东军步兵独立第88特别旅"
+				is_locked = yes
+				template_counter = 3008	# Mountaineer Division
+				regiments = {
+					mountaineers = { x = 0 y = 0 }
+					mountaineers = { x = 0 y = 1 }
+					mountaineers = { x = 1 y = 0 }
+					mountaineers = { x = 1 y = 1 }
+					mountain_artillery_brigade = { x = 2 y = 0 }
+				}
+				support = {
+					DIV_HQ = { x = 0 y = 0 }
+					recon = { x = 0 y = 1}
+					engineer = { x = 0 y = 2 }
+					signal_company = { x = 0 y = 3 }
+					mount_support = { x = 1 y = 0 }		
+				}
+			}	
+			random_owned_controlled_state = {
+				KOR_create_northeast_anti_japanese_guerrillas_div = yes #黑冰：大韩民国拓展\common\scripted_effects\KOR_scripted_effects.txt
 			}
 		}
 	}
@@ -188,6 +226,38 @@ focus_tree = {
 			}				
 		}
 	}
+	#平壤苏军总医院
+	focus = {
+		id = KOR_SOV_expand_pyeongchang_military_hospital
+		icon = GFX_focus_generic_military_medical
+		prerequisite = { focus = KOR_PRC_political_reform }
+		x = 26
+		y = 3
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		cost = 30
+		available = {
+			#
+		}
+		completion_reward = {
+			#
+		}
+	}
+	#鸭绿江水丰水力发电公司
+	focus = {
+		id = KOR_SOV_Yalu_River_water_power_station
+		icon = GFX_focus_generic_electrification
+		prerequisite = { focus = KOR_SOV_expand_pyeongchang_military_hospital }
+		x = 26
+		y = 4
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		cost = 30
+		available = {
+			#
+		}
+		completion_reward = {
+			#
+		}
+	}
 ########################################################################################################################
 	#朝鲜华侨总联合会
 	focus = {
@@ -222,7 +292,3 @@ focus_tree = {
 		}
 	}
 ########################################################################################################################
-########################################################################################################################
-########################################################################################################################
-	#其他国策...
-}
