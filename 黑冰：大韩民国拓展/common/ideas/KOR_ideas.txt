@@ -3,13 +3,13 @@ ideas = {
 		#
 	}
 	country = {		
-		#反抗压迫，联合抗日
+		#朝鲜半岛独立运动
 		kor_quit_jap_movement = {
-			picture = trotskyite_plot
+			picture = hol_expand_the_colonial_army
 			allowed = {
 				always = no
 			}
-			allowed_civil_war = {
+			allowed_civil_war = { #允许保留buff的政体
 				OR = {
 					has_government = communism
 					has_government = neutrality
@@ -17,8 +17,11 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
-				autonomy_gain = 0.4 #每日自治度增长+0.5
-				political_power_factor = 0.05 #政治点数获取+5%
+				weekly_manpower = 800
+				autonomy_gain = 0.5
+				communism_drift = 0.3
+				neutrality_drift = 0.3
+				fascism_drift = -0.2
 			}
 		}
 ##############################################################
@@ -50,6 +53,21 @@ ideas = {
 				foreign_minister_cost_factor = -0.5 #外交部长行动力消耗-50%
 			}	
 		}
+		#朝鲜民族战线联盟
+		KOR_front_against_Japan = {
+			picture = hol_expand_the_colonial_army
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				army_core_attack_factor = 0.5 #核心领土进攻+50%
+				army_core_defence_factor = 0.5 #核心领土防御+50%
+				army_speed_factor = 0.3 #移动速度+30%
+				war_support_factor = 0.50 #战争支持度+50%
+				surrender_limit = 0.90 #投降界限+90%
+			}	
+		}
 		#朝鲜华侨总联合会
 		KOR_PRC_General_Federation_of_Korean_Chinese = {
 			picture = prc_permit_opium_trade
@@ -71,8 +89,9 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
-				war_support_factor = 0.15
-				surrender_limit = 0.05
+				supply_consumption_factor = -0.10
+				army_org_factor = 0.05
+				experience_gain_army_factor = 0.05
 			}		
 		}
 	}

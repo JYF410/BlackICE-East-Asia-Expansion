@@ -1,5 +1,5 @@
 KOR_Japan_Korea_Annexation_Treaty = {
-	#朝鲜共产党起义！
+	#朝鲜共产党起义了！
 	KOR_communist_civil_war = {
 		icon = generic_ignite_civil_war
 		allowed = {
@@ -8,6 +8,7 @@ KOR_Japan_Korea_Annexation_Treaty = {
 		on_map_mode = decision_view_only
 		state_target = yes
 		available = {
+			has_government = communism
 			has_stability < 0.5
 			is_puppet_of = JAP
 			JAP = {
@@ -20,34 +21,14 @@ KOR_Japan_Korea_Annexation_Treaty = {
 		}
 		visible = {
 			NOT = { has_government = communism }
-			NOT = { has_government = neutrality }
 		}
 		fire_only_once = yes
 		days_remove = 360
-		cost = 300
+		cost = 200
 		complete_effect = {
-			limit = {
-				has_government = fascism
-			}
-			set_variable = {
-				var = civil_war_size_var
-				value = party_popularity@fascism
-			}
-			subtract_from_variable = {
-				var = civil_war_size_var
-				value = army_support_var
-			}
 			if = {
 				limit = {
-					check_variable = {
-						var = civil_war_size_var
-						value = 0.3
-						compare = less_than
-					}
-				}
-				set_variable = {
-					var = civil_war_size_var
-					value = 0.3
+					has_government = communism
 				}
 			}
 			start_civil_war = {
@@ -58,9 +39,6 @@ KOR_Japan_Korea_Annexation_Treaty = {
 					has_trait = hidden_sympathies
 				}
 			}
-			clr_country_flag = preparation_for_communist_civil_war
-			clr_country_flag = military_support_for_communist_civil_war
-			clr_country_flag = civil_support_for_communist_civil_war
 		}
 		remove_effect = {
 			KOR = {
@@ -68,7 +46,57 @@ KOR_Japan_Korea_Annexation_Treaty = {
 			}
 		}
 		ai_will_do = {
-			factor = 0
+			factor = 90
+		}
+	}
+	#韩国光复军起义了！
+	KOR_neutrality_civil_war = {
+		icon = generic_ignite_civil_war
+		allowed = {
+			tag = KOR
+		}
+		on_map_mode = decision_view_only
+		state_target = yes
+		available = {
+			has_government = neutrality
+			has_stability < 0.5
+			is_puppet_of = JAP
+			JAP = {
+				OR = {
+					has_war_with = CHI
+					has_war_with = PRC
+					has_war_with = SOV
+				}
+			}
+		}
+		visible = {
+			NOT = { has_government = neutrality }
+		}
+		fire_only_once = yes
+		days_remove = 360
+		cost = 200
+		complete_effect = {
+			if = {
+				limit = {
+					has_government = neutrality
+				}
+			}
+			start_civil_war = {
+				ruling_party = neutrality
+				ideology = ROOT
+				size = civil_war_size_var
+				keep_unit_leaders_trigger = {
+					has_trait = hidden_sympathies
+				}
+			}
+		}
+		remove_effect = {
+			KOR = {
+				remove_ideas = neutrality_idea
+			}
+		}
+		ai_will_do = {
+			factor = 90
 		}
 	}
 }

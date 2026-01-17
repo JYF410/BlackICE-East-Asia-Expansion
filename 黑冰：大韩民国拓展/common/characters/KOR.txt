@@ -1,6 +1,9 @@
 characters = {
 	KOR_Syngman_Rhee = {  #李承晚
 		name = KOR_Syngman_Rhee
+		allowed_civil_war = {
+			has_government = neutrality
+		}
 		portraits = {
 			civilian = {
 				large = "gfx/leaders/KOR/Portrait_KOR_Syngman_Rhee.dds"
@@ -34,6 +37,9 @@ characters = {
 	}
 	KOR_Kim_Il_sung = {  #金日成
 		name = KOR_Kim_Il_sung
+		allowed_civil_war = {
+			has_government = communism
+		}
 		portraits = {
 			civilian = {
 				large = "gfx/leaders/KOR/Portrait_KOR_Kim_Il_sung.dds"
@@ -43,8 +49,8 @@ characters = {
 			desc = "POLITICS_Kim_Il_sung_DESC"
 			ideology = stalinism
 			expire = "1994.7.8"
-			id = -1
-			traits = { communist_revolutionary }
+			id = 20260117
+			traits = { communist_revolutionary administrative_genius }
 		}
 		advisor = {
 			idea_token = KOR_Kim_Il_sung_supreme_commander
@@ -63,10 +69,10 @@ characters = {
 			traits = { supreme_com_aggressive }
 		}
 		field_marshal = {
-			traits = { war_hero }
+			traits = { Order_of_Red_Banner war_hero ranger winter_specialist }
 			skill = 2
-			attack_skill = 2
-			defense_skill = 2
+			attack_skill = 3
+			defense_skill = 1
 			planning_skill = 1
 			logistics_skill = 1
 			legacy_id = -1
@@ -74,6 +80,9 @@ characters = {
 	}
 	KOR_Abe_Nobuyuki={  #阿部信行
 		name = KOR_Abe_Nobuyuki
+		allowed_civil_war = {
+			has_government = fascism
+		}
 		portraits = {
 			civilian = {
 				large = "gfx/leaders/KOR/Portrait_KOR_Abe_Nobuyuki.dds"
@@ -146,6 +155,9 @@ characters = {
 	}
 	KOR_Choe_Yong_gon={  #崔庸健
 		name = KOR_Choe_Yong_gon
+		allowed_civil_war = {
+			has_government = communism
+		}
 		portraits={
 			army = {
 				small = GFX_idea_generic_political_advisor_asia_13
@@ -181,6 +193,9 @@ characters = {
 	}
 	KOR_O_Jin_u={  #吴振宇
 		name = KOR_O_Jin_u
+		allowed_civil_war = {
+			has_government = communism
+		}
 		portraits={
 			army = {
 				small = GFX_idea_generic_political_advisor_asia_14
@@ -216,6 +231,9 @@ characters = {
 	}
 	KOR_Choi_Kwang={  #崔光
 		name = KOR_Choi_Kwang
+		allowed_civil_war = {
+			has_government = communism
+		}
 		portraits={
 			army = {
 				small = GFX_idea_generic_political_advisor_asia_6
@@ -252,6 +270,9 @@ characters = {
 	}
 	KOR_Ri_Ul_sol={  #李乙雪
 		name = KOR_Ri_Ul_sol
+		allowed_civil_war = {
+			has_government = communism
+		}
 		portraits={
 			army = {
 				small = gfx/interface/ideas/idea_generic_army_asia_1.dds
