@@ -1,0 +1,80 @@
+ideas = {
+	hidden_ideas = {
+		#
+	}
+	country = {		
+		#反抗压迫，联合抗日
+		kor_quit_jap_movement = {
+			picture = trotskyite_plot
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				OR = {
+					has_government = communism
+					has_government = neutrality
+				}
+			}
+			removal_cost = -1
+			modifier = {
+				autonomy_gain = 0.4 #每日自治度增长+0.5
+				political_power_factor = 0.05 #政治点数获取+5%
+			}
+		}
+##############################################################
+		#大韩民国临时政府驻华代表团
+		KOR_CHI_political_reform = {
+			picture = BEL_traditional_family_values
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				stability_weekly = 0.001
+				political_power_factor = 0.05
+				foreign_minister_cost_factor = -0.5
+				neutrality_drift = 0.05
+			}	
+		}
+##############################################################
+		#中共中央东北局平壤办事处
+		KOR_PRC_political_reform = {
+			picture = BEL_traditional_family_values
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_factor = 0.05 #政治点数获取+5%
+				communism_drift = 0.02 #共产主义理念每日新增+2%
+				foreign_minister_cost_factor = -0.5 #外交部长行动力消耗-50%
+			}	
+		}
+		#朝鲜华侨总联合会
+		KOR_PRC_General_Federation_of_Korean_Chinese = {
+			picture = prc_permit_opium_trade
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_expected_value = -0.02 #生活消费品工厂-2%
+				stability_weekly = 0.002 #每周稳定度+0.2%
+			}	
+		}		
+##############################################################
+		#韩国光复军
+		Korean_Liberation_Army = {
+			picture = BEL_traditional_family_values
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.15
+				surrender_limit = 0.05
+			}		
+		}
+	}
+}
+### EOF ###

@@ -11,6 +11,12 @@ set_research_slots = 2
 
 set_country_flag = ai_country_logic #启用AI调度，加载d_ai_logic/KOR
 
+set_country_flag = JAP_armor
+set_country_flag = JAP_air
+JAP = {
+	puppet = KOR
+}
+
 set_convoys = 20
 if = {
 	limit = {
@@ -96,16 +102,16 @@ add_ideas = { 	#初始民族精神
 	subsistence_diet
 }
 set_politics = {
-	ruling_party = neutrality
+	ruling_party = fascism
 	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
-	neutrality = 45
-	communism = 30
-	fascism = 15
-	socialism = 10
+	neutrality = 5
+	communism = 5
+	fascism = 89
+	socialism = 1
 }
 #############################################################
 recruit_character = KOR_Syngman_Rhee  #李承晚

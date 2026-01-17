@@ -1,7 +1,7 @@
 #扩编韩国光复军
 KOR_create_free_legion_div = {
 	create_unit = {
-		division = "division_template = \"Korean Liberation Army\" start_experience_factor = 0.65 start_equipment_factor = 0.7"
+		division = "division_template = \"韩国光复军\" start_experience_factor = 0.65 start_equipment_factor = 0.7"
 		owner = KOR
 		count = 2
 	}
@@ -9,7 +9,7 @@ KOR_create_free_legion_div = {
 #东北抗日联军教导旅
 KOR_create_northeast_anti_japanese_guerrillas_div = {
 	create_unit = {
-		division = "division_template = \"Northeast Anti-Japanese Guerrillas\" start_experience_factor = 0.85 start_equipment_factor = 1"
+		division = "division_template = \"苏联远东军步兵独立第88特别旅\" start_experience_factor = 0.85 start_equipment_factor = 1"
 		owner = KOR
 		count = 1
 	}
