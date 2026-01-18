@@ -17,6 +17,24 @@ characters = {
 			traits = { ideological_crusader }
 		}
 		advisor = {
+			slot = head_of_state
+			idea_token = KOR_Syngman_Rhee_head_of_state
+			on_add = {
+				set_temp_variable = { character = token:KOR_Syngman_Rhee}
+				set_temp_variable = { slot = token:head_of_state}
+				head_of_state_on_add_effect = yes
+			} 
+			on_remove = {
+				set_temp_variable = { character = token:KOR_Syngman_Rhee}
+				set_temp_variable = { slot = token:head_of_state}
+				head_of_state_on_remove_effect = yes
+			} 
+			available = {
+				has_government = neutrality
+			}
+			traits = { popular_figurehead }
+		}
+		advisor = {
 			idea_token = KOR_Syngman_Rhee_supreme_commander
 			slot = supreme_commander
 			on_add = {
@@ -68,6 +86,24 @@ characters = {
 			available = { has_government = communism }
 			traits = { supreme_com_aggressive }
 		}
+		advisor = {
+			slot = head_of_state
+			idea_token = KOR_Kim_Il_sung_head_of_state
+			on_add = {
+				set_temp_variable = { character = token:KOR_Kim_Il_sung}
+				set_temp_variable = { slot = token:head_of_state}
+				head_of_state_on_add_effect = yes
+			} 
+			on_remove = {
+				set_temp_variable = { character = token:KOR_Kim_Il_sung}
+				set_temp_variable = { slot = token:head_of_state}
+				head_of_state_on_remove_effect = yes
+			} 
+			available = {
+				has_government = communism
+			}
+			traits = { administrative_genius }
+		}
 		field_marshal = {
 			traits = { Order_of_Red_Banner war_hero ranger winter_specialist }
 			skill = 2
@@ -93,7 +129,25 @@ characters = {
 			ideology = fascism_ideology
 			expire = "1953.9.7"
 			id = -1
-			traits = { fascist_demagogue }
+			traits = { fascist_demagogue warrior_code }
+		}
+		advisor = {
+			slot = head_of_state
+			idea_token = KOR_Abe_Nobuyuki_head_of_state
+			on_add = {
+				set_temp_variable = { character = token:KOR_Abe_Nobuyuki}
+				set_temp_variable = { slot = token:head_of_state}
+				head_of_state_on_add_effect = yes
+			} 
+			on_remove = {
+				set_temp_variable = { character = token:KOR_Abe_Nobuyuki}
+				set_temp_variable = { slot = token:head_of_state}
+				head_of_state_on_remove_effect = yes
+			} 
+			available = {
+				has_government = fascism
+			}
+			traits = { schemer }
 		}
 		advisor = {
 			idea_token = KOR_Abe_Nobuyuki_supreme_commander
@@ -209,6 +263,21 @@ characters = {
 			planning_skill = 1
 			logistics_skill = 1
 			legacy_id = -1
+		}
+		advisor={
+			idea_token = KOR_O_Jin_u_influence_minister
+			slot = influence_minister
+			on_add = {
+				set_temp_variable = { character = token:KOR_O_Jin_u}
+				set_temp_variable = { slot = token:influence_minister}
+				influence_minister_on_add_effect = yes
+			} 
+			on_remove = {
+				set_temp_variable = { character = token:KOR_O_Jin_u}
+				set_temp_variable = { slot = token:influence_minister}
+				influence_minister_on_remove_effect = yes
+			}
+			traits = { communist_revolutionary }
 		}
 		advisor = {
 			slot = navy_chief

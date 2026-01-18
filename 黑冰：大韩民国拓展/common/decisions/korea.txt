@@ -2,18 +2,24 @@ KOR_Japan_Korea_Annexation_Treaty = {
 	#朝鲜共产党起义了！
 	KOR_communist_civil_war = {
 		icon = generic_ignite_civil_war
+		on_map_mode = decision_view_only #决议不会在地图模式下显示任何特殊标记或按钮，只会在决议界面（决议栏）中显示
+		#state_target = yes #决议会对所有满足条件的 state（省份/地区）生成一个实例，state_target必须删除
 		allowed = {
 			tag = KOR
 		}
-		on_map_mode = decision_view_only
-		state_target = yes
 		available = {
-			has_government = communism
-			has_stability < 0.5
-			is_puppet_of = JAP
+			KOR = {
+				or = {
+					is_puppet_of = JAP
+					is_in_faction_with = JAP
+				}
+				or = {
+					communism > 0.7
+					has_stability < 0.5
+				}
+			}
 			JAP = {
 				OR = {
-					has_war_with = CHI
 					has_war_with = PRC
 					has_war_with = SOV
 				}
@@ -21,11 +27,15 @@ KOR_Japan_Korea_Annexation_Treaty = {
 		}
 		visible = {
 			NOT = { has_government = communism }
+			has_completed_focus = KOR_front_against_Japan
 		}
 		fire_only_once = yes
 		days_remove = 360
 		cost = 200
 		complete_effect = {
+			#
+		}
+		remove_effect = {
 			if = {
 				limit = {
 					has_government = communism
@@ -39,8 +49,6 @@ KOR_Japan_Korea_Annexation_Treaty = {
 					has_trait = hidden_sympathies
 				}
 			}
-		}
-		remove_effect = {
 			KOR = {
 				remove_ideas = neutrality_idea
 			}
@@ -52,30 +60,40 @@ KOR_Japan_Korea_Annexation_Treaty = {
 	#韩国光复军起义了！
 	KOR_neutrality_civil_war = {
 		icon = generic_ignite_civil_war
+		on_map_mode = decision_view_only
 		allowed = {
 			tag = KOR
 		}
-		on_map_mode = decision_view_only
-		state_target = yes
 		available = {
-			has_government = neutrality
-			has_stability < 0.5
-			is_puppet_of = JAP
+			KOR = {
+				or = {
+					is_puppet_of = JAP
+					is_in_faction_with = JAP
+				}
+				or = {
+					communism > 0.7
+					has_stability < 0.5
+				}
+			}
 			JAP = {
 				OR = {
 					has_war_with = CHI
-					has_war_with = PRC
-					has_war_with = SOV
+					has_war_with = USA
+					has_war_with = ENG
 				}
 			}
 		}
 		visible = {
 			NOT = { has_government = neutrality }
+			has_completed_focus = KOR_CHI_restoration_movement
 		}
 		fire_only_once = yes
 		days_remove = 360
 		cost = 200
 		complete_effect = {
+			#
+		}
+		remove_effect = {
 			if = {
 				limit = {
 					has_government = neutrality
@@ -89,8 +107,6 @@ KOR_Japan_Korea_Annexation_Treaty = {
 					has_trait = hidden_sympathies
 				}
 			}
-		}
-		remove_effect = {
 			KOR = {
 				remove_ideas = neutrality_idea
 			}
