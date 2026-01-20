@@ -1,24 +1,96 @@
-#扩编韩国光复军
-KOR_create_free_legion_div = {
-	create_unit = {
-		division = "division_template = \"韩国光复军\" start_experience_factor = 0.65 start_equipment_factor = 0.7"
-		owner = KOR
-		count = 2
+#朝鲜起义军
+KOR_create_Chosen_Army_div = {
+	division_template = {
+		name = "朝鲜起义军"
+		is_locked = yes
+		template_counter = @C_INFANTRY
+		division_names_group = KOR_INF_01
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 0 y = 2 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+			infantry = { x = 1 y = 2 }
+		}
+		support = {
+			military_police = { x = 0 y = 0 }
+		}
+	}
+	random_owned_controlled_state = {
+		prioritize = { 527 }
+		create_unit = {
+			division = "name = \"朝鲜起义军1旅\" division_template = \"朝鲜起义军\" start_experience_factor = 0.3 start_equipment_factor = 0.5"
+			#owner = new_occupied_country
+			owner = KOR
+		}
+		create_unit = {
+			division = "name = \"朝鲜起义军2旅\" division_template = \"朝鲜起义军\" start_experience_factor = 0.3 start_equipment_factor = 0.5"
+			owner = KOR
+		}
 	}
 }
+
 #东北抗日联军教导旅
-KOR_create_northeast_anti_japanese_guerrillas_div = {
-	create_unit = {
-		division = "division_template = \"苏联远东军步兵独立第88特别旅\" start_experience_factor = 0.85 start_equipment_factor = 1"
-		owner = KOR
-		count = 1
+KOR_create_Northeast_Anti_Japanese_Army_div = {
+	division_template = {
+		name = "东北抗日联军教导旅"
+		is_locked = yes
+		template_counter = 3008	# Mountaineer Division
+		division_names_group = KOR_INF_01
+		regiments = {
+			mountaineers = { x = 0 y = 0 }
+			mountaineers = { x = 0 y = 1 }
+			mountaineers = { x = 1 y = 0 }
+			mountaineers = { x = 1 y = 1 }
+			mountain_artillery_brigade = { x = 2 y = 0 }
+		}
+		support = {
+			DIV_HQ = { x = 0 y = 0 }
+			recon = { x = 0 y = 1}
+			engineer = { x = 0 y = 2 }
+			signal_company = { x = 0 y = 3 }
+			mount_support = { x = 1 y = 0 }		
+		}
+	}	
+	random_owned_controlled_state = {
+		prioritize = { 408 }
+		create_unit = {
+			division = "name = \"苏联远东军步兵独立第88特别旅\" division_template = \"东北抗日联军教导旅\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
+			owner = KOR
+		}
 	}
 }
-#创建民兵编制的火星部队
-KOR_create_Militia_div = {
-	create_unit = {
-		division = "division_template = \"KOR Militia Division I\" start_experience_factor = 0.3 start_equipment_factor = 0.5"
-		owner = new_occupied_country
-		count = 2
+
+#韩国光复军
+KOR_create_Korean_Liberation_Army_div = {
+	division_template = {
+		name = "韩国光复军"
+		is_locked = yes
+		template_counter = 44
+		division_names_group = KOR_INF_01
+		regiments = {
+			light_infantry = { x = 0 y = 0 }
+			light_infantry = { x = 0 y = 1 }
+			light_infantry = { x = 0 y = 2 }
+			light_infantry = { x = 1 y = 0 }
+			light_infantry = { x = 1 y = 1 }
+			light_infantry = { x = 1 y = 2 }
+		}
+		support = {
+			DIV_HQ_car = { x = 0 y = 0 }
+			recon_ac = { x = 0 y = 1}
+			engineer = { x = 0 y = 2 }			
+		}
+	}	
+	random_owned_controlled_state = {
+		create_unit = {
+			division = "name = \"韩国光复军第1军\" division_template = \"韩国光复军\" start_experience_factor = 0.2 start_equipment_factor = 0.5"
+			owner = KOR
+		}
+		create_unit = {
+			division = "name = \"韩国光复军第2军\" division_template = \"韩国光复军\" start_experience_factor = 0.2 start_equipment_factor = 0.5"
+			owner = KOR
+		}
 	}
 }

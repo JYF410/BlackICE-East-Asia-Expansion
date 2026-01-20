@@ -106,32 +106,7 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 150
 			add_ideas = Korean_Liberation_Army
-			division_template = {
-				name = "韩国光复军"
-				is_locked = yes
-				template_counter = 222
-				regiments = {
-					semi_motorized = { x = 0 y = 0 }
-					semi_motorized = { x = 0 y = 1 }
-					semi_motorized = { x = 0 y = 2 }
-					semi_motorized = { x = 1 y = 0 }
-					semi_motorized = { x = 1 y = 1 }
-					semi_motorized = { x = 1 y = 2 }
-					trm_light_armor = { x = 2 y = 0 }
-					artillery_brigade_mot_med = { x = 3 y = 0 }
-					artillery_brigade_mot = { x = 3 y = 1 }
-					artillery_brigade_mot = { x = 3 y = 2 }
-				}
-				support = {
-					DIV_HQ_car = { x = 0 y = 0 }
-					trm_light_armor_recon = { x = 0 y = 1}
-					engineer_mot = { x = 0 y = 2 }
-					anti_air_car = { x = 1 y = 0 }			
-				}
-			}	
-			random_owned_controlled_state = {
-				KOR_create_free_legion_div = yes #黑冰：大韩民国拓展\common\scripted_effects\KOR_scripted_effects.txt
-			}
+			KOR_create_Korean_Liberation_Army_div = yes
 		}
 	}
 ################################################################################################################
@@ -297,28 +272,7 @@ focus_tree = {
 				type = mountain_artillery_equipment_0 amount = 50
 				producer = SOV
 			}
-			division_template = {
-				name = "苏联远东军步兵独立第88特别旅"
-				is_locked = yes
-				template_counter = 3008	# Mountaineer Division
-				regiments = {
-					mountaineers = { x = 0 y = 0 }
-					mountaineers = { x = 0 y = 1 }
-					mountaineers = { x = 1 y = 0 }
-					mountaineers = { x = 1 y = 1 }
-					mountain_artillery_brigade = { x = 2 y = 0 }
-				}
-				support = {
-					DIV_HQ = { x = 0 y = 0 }
-					recon = { x = 0 y = 1}
-					engineer = { x = 0 y = 2 }
-					signal_company = { x = 0 y = 3 }
-					mount_support = { x = 1 y = 0 }		
-				}
-			}	
-			random_owned_controlled_state = {
-				KOR_create_northeast_anti_japanese_guerrillas_div = yes #黑冰：大韩民国拓展\common\scripted_effects\KOR_scripted_effects.txt
-			}
+			KOR_create_Northeast_Anti_Japanese_Army_div = yes
 		}
 		ai_will_do = {
 			factor = 95

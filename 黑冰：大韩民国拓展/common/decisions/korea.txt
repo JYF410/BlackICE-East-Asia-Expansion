@@ -21,31 +21,23 @@ KOR_Japan_Korea_Annexation_Treaty = {
 			has_completed_focus = KOR_front_against_Japan
 		}
 		fire_only_once = yes
-		days_remove = 7 #测试数据（待修改）
+		days_remove = 5 #测试数据（待修改）
 		cost = 200
 		complete_effect = {
-			#
+			country_event = {
+				id = KOR_communism.1
+				days = 5 #测试数据（待修改）
+			}
 		}
 		remove_effect = {
-			start_civil_war = {
-				ruling_party = communism #设定进攻方（起义方）政体
-				ideology = ROOT
-				size = civil_war_size_var
-				states = { 527 751 815 816 } #设定防御方拥有的地块
-				keep_unit_leaders = {  }
-			}
+			remove_ideas = neutrality_idea #AI修正：移除外交中立
 			hidden_effect = {
 				add_ideas = ai_dont_call_ally #AI修正：请求盟友加入战争的意愿-1000
 				add_ideas = ai_dont_join_ally #AI修正：参战意愿-1000
 			}
-			KOR_create_Militia_div = yes #测试数据（待修改）
-			KOR = {
-				KOR_create_Militia_div = yes #测试数据（待修改）
-				remove_ideas = neutrality_idea
-			}
-			ai_will_do = {
-				factor = 90
-			}
+		}
+		ai_will_do = {
+			factor = 90
 		}
 	}
 	#韩国光复军起义了！

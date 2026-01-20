@@ -111,7 +111,7 @@ characters = {
 			defense_skill = 1
 			planning_skill = 1
 			logistics_skill = 1
-			legacy_id = -1
+			legacy_id = 202619940708
 		}
 	}
 	KOR_Abe_Nobuyuki={  #阿部信行
