@@ -24,7 +24,6 @@ ideas = {
 				fascism_drift = -0.02
 			}
 		}
-##############################################################
 		#大韩民国临时政府驻华代表团
 		KOR_CHI_political_reform = {
 			picture = BEL_traditional_family_values
@@ -40,7 +39,6 @@ ideas = {
 				neutrality_drift = 0.05
 			}	
 		}
-##############################################################
 		#中共中央东北局平壤办事处
 		KOR_PRC_political_reform = {
 			picture = BEL_traditional_family_values
@@ -49,7 +47,7 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
-				communism_drift = 0.05 #共产主义理念每日新增+5%
+				communism_drift = 0.07 #共产主义理念每日新增+7%
 				political_power_factor = 0.05 #政治点数获取+5%
 				foreign_minister_cost_factor = -0.5 #外交部长行动力消耗-50%
 			}	
@@ -62,14 +60,14 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
-				army_core_attack_factor = 0.5 #核心领土进攻+50%
-				army_core_defence_factor = 0.5 #核心领土防御+50%
-				army_org_factor = 0.8 #陆军组织度+80%
-				army_org_factor = 0.5 #陆军组织度恢复+50%
+				army_core_attack_factor = 0.9 #核心领土进攻+90%
+				army_core_defence_factor = 0.9 #核心领土防御+90%
+				army_org_factor = 0.9 #陆军组织度+90%
+				army_morale_factor = 0.5 #陆军组织度恢复+50%
 				army_speed_factor = 0.5 #移动速度+50%
-				supply_consumption_factor = -0.80 #补给使用-80%
-				war_support_factor = 0.50 #战争支持度+50%
-				surrender_limit = 0.90 #投降界限+90%
+				supply_consumption_factor = -0.9 #补给使用-9%
+				war_support_factor = 0.9 #战争支持度+90%
+				surrender_limit = 0.9 #投降界限+90%
 			}
 			allowed_civil_war = {
 				NOT ={
@@ -77,13 +75,7 @@ ideas = {
 				}
 			}
 			cancel = { 
-				KOR = {
-					has_civil_war = no
-					OR = {
-						has_war_with = CHI
-						has_war_with = PRC
-					}
-				}
+				#has_civil_war = no
 			}
 		}
 		#朝鲜华侨总联合会
@@ -98,7 +90,6 @@ ideas = {
 				stability_weekly = 0.002 #每周稳定度+0.2%
 			}	
 		}		
-##############################################################
 		#韩国光复军
 		Korean_Liberation_Army = {
 			picture = BEL_traditional_family_values
@@ -112,6 +103,18 @@ ideas = {
 				supply_consumption_factor = -0.10 #补给使用
 				experience_gain_army_factor = 0.05 #陆军经验增长
 			}		
+		}
+		#平壤苏军总医院
+		KOR_sov_hospital = {
+			picture = generic_local_self_management
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				monthly_population = 0.15 #月度人力+15%
+				stability_weekly = 0.003 #每周稳定度+0.3%
+			}	
 		}
 	}
 }

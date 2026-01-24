@@ -1,0 +1,11 @@
+spriteTypes = {
+	##############################################################################
+	####  COUNTRY EVENTS need to be report_event_[name]gfxaddon.tga  #############
+	##############################################################################
+	spriteType = {
+		name = "GFX_KOR_communism_event_001"
+		texturefile = "gfx/event_pictures/KOR_communism_event_001.tga"
+	}
+
+}
+#EOF#

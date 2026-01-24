@@ -8,12 +8,9 @@ KOR_Japan_Korea_Annexation_Treaty = {
 			tag = KOR
 		}
 		available = {
-			KOR = {
-				communism > 0.7
-				or = {
-					is_puppet_of = JAP
-					is_in_faction_with = JAP
-				}
+			OR = {
+				is_puppet_of = JAP
+				is_in_faction_with = JAP
 			}
 		}
 		visible = {
@@ -21,23 +18,15 @@ KOR_Japan_Korea_Annexation_Treaty = {
 			has_completed_focus = KOR_front_against_Japan
 		}
 		fire_only_once = yes
-		days_remove = 5 #测试数据（待修改）
-		cost = 200
+		cost = 50
 		complete_effect = {
 			country_event = {
-				id = KOR_communism.1 #弹出事件：朝鲜共产党起义了！
-				days = 5 #测试数据（待修改）
-			}
-		}
-		remove_effect = {
-			remove_ideas = neutrality_idea #AI修正：移除外交中立
-			hidden_effect = {
-				add_ideas = ai_dont_call_ally #AI修正：请求盟友加入战争的意愿-1000
-				add_ideas = ai_dont_join_ally #AI修正：参战意愿-1000
+				id = KOR_communism.2 #弹窗事件：朝鲜共产党起义了！
+				days = 1 #测试数据（待修改）
 			}
 		}
 		ai_will_do = {
-			factor = 90
+			factor = 95
 		}
 	}
 	#韩国光复军起义了！

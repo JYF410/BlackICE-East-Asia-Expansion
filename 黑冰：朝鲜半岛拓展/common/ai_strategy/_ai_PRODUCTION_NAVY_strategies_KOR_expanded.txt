@@ -1,5 +1,5 @@
 #韩国航母生产策略
-KOR_BC_naval_production = {
+KOR_CV_naval_production = {
 	allowed = { tag = KOR }
 	enable = {
 		num_of_naval_factories > 15
