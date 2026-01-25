@@ -1,0 +1,70 @@
+﻿#instant_effect = {
+#	set_country_flag = placed_research_centre
+#	add_research_slot = 1
+#	620 = { state_add_research_centre = yes }
+#	SLOT:infantry_folder = yes
+#	SLOT:support_folder = yes
+#	SLOT:artillery_folder = yes
+#}
+
+division_template = {
+	name = "Qibing Shi"
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+	support = {
+		DIV_HQ = { x = 0 y = 0 } 
+		recon_cav = { x = 0 y = 1 }	
+	}
+}
+division_template = {
+	name = "Bao An Dui"			
+	regiments = {
+		light_infantry = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+	}
+	support = {
+		DIV_HQ = { x = 0 y = 0 }
+		military_police = { x = 0 y = 1 }
+	}
+	priority = 0
+}
+### OOB ###
+units = {
+	division = {
+		name = "Bao An Dui 1"
+		location = 7125
+		division_template = "Bao An Dui"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+		force_equipment_variants = { infantry_equipment_1 = { owner = "JAP" } }
+		force_equipment_variants = { infantry_uniforms_1 = { owner = "JAP" } }
+		force_equipment_variants = { garrison_equipment_1 = { owner = "JAP" } }
+		force_equipment_variants = { support_equipment_1 = { owner = "JAP" } }
+	}
+	division = {
+		name = "Bao An Dui 2"
+		location = 4052
+		division_template = "Bao An Dui"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+		force_equipment_variants = { infantry_equipment_1 = { owner = "JAP" } }
+		force_equipment_variants = { infantry_uniforms_1 = { owner = "JAP" } }
+		force_equipment_variants = { garrison_equipment_1 = { owner = "JAP" } }
+		force_equipment_variants = { support_equipment_1 = { owner = "JAP" } }
+	}
+	division = {
+		name = "Bao An Dui 3"
+		location = 4056
+		division_template = "Bao An Dui"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+		force_equipment_variants = { infantry_equipment_1 = { owner = "JAP" } }
+		force_equipment_variants = { infantry_uniforms_1 = { owner = "JAP" } }
+		force_equipment_variants = { garrison_equipment_1 = { owner = "JAP" } }
+		force_equipment_variants = { support_equipment_1 = { owner = "JAP" } }
+	}
+}
