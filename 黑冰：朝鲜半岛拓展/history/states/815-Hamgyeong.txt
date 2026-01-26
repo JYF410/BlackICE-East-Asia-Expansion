@@ -1,6 +1,9 @@
 
 state={
-
+	resources = {
+		food = 14
+		coal = 6
+	}
 
 	id=815
 	name="STATE_815"

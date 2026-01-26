@@ -6,6 +6,9 @@ spriteTypes = {
 		name = "GFX_KOR_communism_event_001"
 		texturefile = "gfx/event_pictures/KOR_communism_event_001.tga"
 	}
-
+	spriteType = {
+		name = "GFX_KOR_communism_event_002"
+		texturefile = "gfx/event_pictures/KOR_communism_event_002.tga"
+	}
 }
 #EOF#

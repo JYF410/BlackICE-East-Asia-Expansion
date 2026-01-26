@@ -78,12 +78,12 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
-				army_core_attack_factor = 0.9 #核心领土进攻+90%
-				army_core_defence_factor = 0.9 #核心领土防御+90%
-				army_org_factor = 0.9 #陆军组织度+90%
+				army_core_attack_factor = 0.5 #核心领土进攻+50%
+				army_core_defence_factor = 2.0 #核心领土防御+200%
+				army_org_factor = 0.8 #陆军组织度+80%
 				army_morale_factor = 0.5 #陆军组织度恢复+50%
 				army_speed_factor = 0.5 #移动速度+50%
-				supply_consumption_factor = -0.9 #补给使用-9%
+				supply_consumption_factor = -0.9 #补给使用-90%
 				war_support_factor = 0.9 #战争支持度+90%
 				surrender_limit = 0.9 #投降界限+90%
 			}

@@ -1,5 +1,6 @@
 add_namespace = KOR_communism
-country_event = {
+
+news_event = {
 	#祖国光复会
 	id = KOR_communism.1
 	title = KOR_communism.1.t
@@ -18,12 +19,13 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
-	#朝鲜共产党起义了！
+	#对日本殖民据点发动突袭！
 	id = KOR_communism.2
 	title = KOR_communism.2.t
 	desc = KOR_communism.2.d
-	picture = GFX_report_event_chinese_soldiers_02_gfxaddon
+	picture = GFX_KOR_communism_event_002
 	is_triggered_only = yes
 	option = {
 		name = KOR_communism.2.a
@@ -34,9 +36,9 @@ country_event = {
 			ruling_party = communism #原国家保留的执政党（内战后原政府的执政党）
 			ideology = ROOT #发动叛乱的意识形态（ROOT即当前政府的意识形态）
 			size = civil_war_size_var #叛乱规模修正（0–1 的比例值），影响装备库存（stockpile）、陆军、空军、海军
-			#army_ratio = 0–1 #覆盖size对陆军的影响比例
-			#navy_ratio = 0–1 #覆盖size对海军的影响比例
-			#air_ratio = 0–1 #覆盖size对空军的影响比例
+			army_ratio = 1 #叛军能够保留的陆军size
+			navy_ratio = 1 #叛军能够保留的海军size
+			air_ratio = 1 #叛军能够保留的空军size
 			states = { 525 527 816 819 820 } #划归给叛军的州
 			keep_unit_leaders = { 202619940708 } #指定指挥官ID，这些指挥官将留在原国家，不会加入叛军
 			keep_unit_leaders_trigger = {  } #用触发器来判定 哪些指挥官留在原国家
@@ -44,6 +46,16 @@ country_event = {
 			#load_focus_tree = civilwar_focus #导入国策树
 		}
 		KOR_create_militia_army_div = yes #这些effect会对内战中新生成的国家执行，而不是原国家
-		KOR_create_partisan_army_div = yes 
+		KOR_create_partisan_army_div = yes
+		set_capital = { state = 815 }
+		set_victory_points = { province = 6944 value = 500 }
+		ai_chance = { factor = 99 }
+	}
+	option = {
+		name = KOR_communism.2.b
+		trigger = {
+			tag = KOR
+		}
+		ai_chance = { factor = 1 }
 	}
 }

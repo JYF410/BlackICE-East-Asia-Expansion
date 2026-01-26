@@ -1,7 +1,7 @@
-#朝鲜反抗军
+#朝鲜抗日起义军
 KOR_create_partisan_army_div = {
 	division_template = {
-		name = "朝鲜反抗军"
+		name = "朝鲜抗日起义军"
 		is_locked = yes
 		regiments = {
 			partisan = { x = 0 y = 0 }
@@ -17,7 +17,7 @@ KOR_create_partisan_army_div = {
 	}
 	815 = {
 		create_unit = {
-			division = "name = \"朝鲜反抗军\" division_template = \"朝鲜反抗军\" start_experience_factor = 0.1 start_equipment_factor = 0.4"
+			division = "name = \"朝鲜抗日起义军\" division_template = \"朝鲜抗日起义军\" start_experience_factor = 0.1 start_equipment_factor = 0.4"
 			#owner = new_occupied_country
 			count = 8
 			owner = KOR
@@ -48,20 +48,9 @@ KOR_create_militia_army_div = {
 	}
 	815 = {
 		create_unit = {
-			division = "name = \"朝鲜民兵旅第1旅\" division_template = \"朝鲜民兵旅\" start_experience_factor = 0.3 start_equipment_factor = 0.6"
+			division = "name = \"朝鲜民兵旅\" division_template = \"朝鲜民兵旅\" start_experience_factor = 0.3 start_equipment_factor = 0.6"
 			#owner = new_occupied_country
-			owner = KOR
-		}
-		create_unit = {
-			division = "name = \"朝鲜民兵旅第2旅\" division_template = \"朝鲜民兵旅\" start_experience_factor = 0.3 start_equipment_factor = 0.6"
-			owner = KOR
-		}
-		create_unit = {
-			division = "name = \"朝鲜民兵旅第3旅\" division_template = \"朝鲜民兵旅\" start_experience_factor = 0.3 start_equipment_factor = 0.6"
-			owner = KOR
-		}
-		create_unit = {
-			division = "name = \"朝鲜民兵旅第4旅\" division_template = \"朝鲜民兵旅\" start_experience_factor = 0.3 start_equipment_factor = 0.6"
+			count = 3
 			owner = KOR
 		}
 	}
@@ -89,9 +78,9 @@ KOR_create_Northeast_Anti_Japanese_Army_div = {
 			mount_support = { x = 1 y = 0 }		
 		}
 	}	
-	random_owned_controlled_state = {
+	815 = {
 		create_unit = {
-			division = "name = \"苏联远东军步兵独立第88特别旅\" division_template = \"东北抗日联军教导旅\" start_experience_factor = 0.6 start_equipment_factor = 0.8"
+			division = "name = \"苏联远东军步兵独立第88特别旅\" division_template = \"东北抗日联军教导旅\" start_experience_factor = 0.6 start_equipment_factor = 0.9"
 			owner = KOR
 		}
 	}

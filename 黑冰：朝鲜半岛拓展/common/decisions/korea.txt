@@ -1,5 +1,5 @@
 KOR_Japan_Korea_Annexation_Treaty = {
-	#朝鲜共产党起义了！
+	#对日本殖民据点发动的突袭战役
 	KOR_communist_civil_war = {
 		icon = generic_ignite_civil_war
 		on_map_mode = decision_view_only #决议不会在地图模式下显示任何特殊标记或按钮，只会在决议界面（决议栏）中显示
@@ -8,6 +8,7 @@ KOR_Japan_Korea_Annexation_Treaty = {
 			tag = KOR
 		}
 		available = {
+			date > 1937.6.4
 			OR = {
 				is_puppet_of = JAP
 				is_in_faction_with = JAP
@@ -21,7 +22,7 @@ KOR_Japan_Korea_Annexation_Treaty = {
 		cost = 50
 		complete_effect = {
 			country_event = {
-				id = KOR_communism.2 #弹窗事件：朝鲜共产党起义了！
+				id = KOR_communism.2 #弹窗事件
 				days = 1 #测试数据（待修改）
 			}
 		}
