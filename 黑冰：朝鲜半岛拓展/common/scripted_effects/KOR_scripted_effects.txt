@@ -1,3 +1,54 @@
+#朝鲜地方警备队
+KOR_create_JAP_partisan_army_div = {
+	division_template = {
+		name = "朝鲜地方警备队"
+		division_names_group = KOR_GAR_01
+		template_counter = 89
+		is_locked = yes
+		regiments = {
+			garrison = { x = 0 y = 0 }
+			garrison = { x = 0 y = 1 }
+		}
+		support = {
+			DIV_HQ = { x = 0 y = 0 }
+			military_police = { x = 1 y = 0 }
+		}
+	}
+	random_owned_controlled_state = {
+		prioritize = { 525 527 816 819 820 }
+		create_unit = {
+			division = "division_name = { is_name_ordered = yes } division_template = \"朝鲜地方警备队\" start_experience_factor = 0.1 start_equipment_factor = 0.5 force_equipment_variants = { garrison_equipment_0 = { owner = JAP } }"
+			OWNER = KOR
+		}
+	}
+}
+#平壤地方宪兵队
+KOR_create_JAP_MP_army_div = {
+	division_template = {
+		name = "朝鲜地方宪兵队"
+		is_locked = yes
+		template_counter = 232
+		regiments = {
+			cavalry = { x = 0 y = 0 }
+			cavalry = { x = 0 y = 1 }
+			armored_car = { x = 1 y = 0 }
+		}
+		support = {
+			DIV_HQ_car = { x = 0 y = 0 }
+			recon_ac = { x = 0 y = 1}
+			engineer_mot = { x = 0 y = 2 }
+			military_police = { x = 1 y = 0 }
+		}
+	}	
+	527 = {
+		create_unit = {
+			division = "name = \"平壤地方宪兵队\" division_template = \"朝鲜地方宪兵队\" start_experience_factor = 0.3 start_equipment_factor = 0.8 force_equipment_variants = { motorized_AC_equipment_06 = { owner = JAP } }"
+			prioritize_location = 4052 #平壤
+			owner = KOR
+		}
+	}
+}
+
 #朝鲜抗日起义军
 KOR_create_partisan_army_div = {
 	division_template = {
@@ -17,21 +68,18 @@ KOR_create_partisan_army_div = {
 	}
 	815 = {
 		create_unit = {
-			division = "name = \"朝鲜抗日起义军\" division_template = \"朝鲜抗日起义军\" start_experience_factor = 0.1 start_equipment_factor = 0.4"
-			#owner = new_occupied_country
+			division = "name = \"朝鲜抗日起义军\" division_template = \"朝鲜抗日起义军\" start_experience_factor = 0.1 start_equipment_factor = 0.5"
 			count = 8
 			owner = KOR
 		}
 	}
 }
-
 #朝鲜民兵旅
 KOR_create_militia_army_div = {
 	division_template = {
 		name = "朝鲜民兵旅"
 		is_locked = yes
-		priority = @MILITIA_PRIO
-		division_names_group = KOR_INF_01
+		#division_names_group = KOR_INF_01
 		regiments = {
 			militia = { x = 0 y = 0 }
 			militia = { x = 0 y = 1 }
@@ -42,14 +90,12 @@ KOR_create_militia_army_div = {
 		support = {
 			DIV_HQ = { x = 0 y = 0 }
 			recon = { x = 0 y = 1 }
-			engineer = { x = 1 y = 2 }
-			military_police = { x = 1 y = 0 }
+			engineer = { x = 0 y = 2 }
 		}
 	}
 	815 = {
 		create_unit = {
-			division = "name = \"朝鲜民兵旅\" division_template = \"朝鲜民兵旅\" start_experience_factor = 0.3 start_equipment_factor = 0.6"
-			#owner = new_occupied_country
+			division = "name = \"朝鲜民兵旅\" division_template = \"朝鲜民兵旅\" start_experience_factor = 0.3 start_equipment_factor = 0.7"
 			count = 3
 			owner = KOR
 		}
@@ -62,7 +108,6 @@ KOR_create_Northeast_Anti_Japanese_Army_div = {
 		name = "东北抗日联军教导旅"
 		is_locked = yes
 		template_counter = 3008	# Mountaineer Division
-		division_names_group = KOR_INF_01
 		regiments = {
 			mountaineers = { x = 0 y = 0 }
 			mountaineers = { x = 0 y = 1 }
@@ -72,27 +117,28 @@ KOR_create_Northeast_Anti_Japanese_Army_div = {
 		}
 		support = {
 			DIV_HQ = { x = 0 y = 0 }
-			recon = { x = 0 y = 1}
+			recon_cav = { x = 0 y = 1}
 			engineer = { x = 0 y = 2 }
-			signal_company = { x = 0 y = 3 }
-			mount_support = { x = 1 y = 0 }		
+			combat_engineer = { x = 0 y = 3 }
+			field_hospital_cav = { x = 0 y = 4 }
+			mount_support = { x = 1 y = 0 }
 		}
 	}	
 	815 = {
 		create_unit = {
-			division = "name = \"苏联远东军步兵独立第88特别旅\" division_template = \"东北抗日联军教导旅\" start_experience_factor = 0.6 start_equipment_factor = 0.9"
+			division = "name = \"苏联远东军步兵独立第88特别旅\" division_template = \"东北抗日联军教导旅\" start_experience_factor = 1.0 start_equipment_factor = 1.0 force_equipment_variants = { mount_equipment_0 = { owner = \"SOV\" } }"
+			prioritize_location = 6944
 			owner = KOR
 		}
 	}
 }
-
 #中国人民解放军朝鲜族师
 KOR_ethnic_korean_division_div = {
 	division_template = {
 		name = "中国人民解放军朝鲜族师"
 		is_locked = no
 		template_counter = 114
-		division_names_group = KOR_INF_01
+		#division_names_group = KOR_INF_01
 		regiments = {
 			infantry = { x = 0 y = 0 }
 			infantry = { x = 0 y = 1 }
@@ -113,19 +159,18 @@ KOR_ethnic_korean_division_div = {
 			engineer = { x = 0 y = 2 }
 			logistics_company = { x = 0 y = 3 }
 			signal_company = { x = 0 y = 4 }
-			field_hospital = { x = 0 y = 5 }
 			mount_support = { x = 1 y = 0 }
 			anti_air = { x = 1 y = 1 }
 			anti_tank = { x = 1 y = 2 }
 		}
 	}	
-	716 = {
+	random_owned_controlled_state = {
 		create_unit = {
 			division = "name = \"朝鲜人民军第2军团第5步兵师（原164师）\" division_template = \"中国人民解放军朝鲜族师\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
 			owner = KOR
 		}
 	}
-	328 = {
+	random_owned_controlled_state = {
 		create_unit = {
 			division = "name = \"朝鲜人民军第6步兵师（原166师）\" division_template = \"中国人民解放军朝鲜族师\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
 			owner = KOR
@@ -145,7 +190,7 @@ KOR_create_Korean_Liberation_Army_div = {
 		name = "韩国光复军"
 		is_locked = yes
 		template_counter = 44
-		division_names_group = KOR_INF_01
+		#division_names_group = KOR_INF_01
 		regiments = {
 			light_infantry = { x = 0 y = 0 }
 			light_infantry = { x = 0 y = 1 }

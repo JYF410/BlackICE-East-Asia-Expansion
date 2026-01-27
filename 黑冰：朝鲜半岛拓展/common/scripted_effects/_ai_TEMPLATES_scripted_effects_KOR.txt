@@ -1,19 +1,4 @@
 #一旦在该文件夹中编写了模板，并且该国家处于“ai_update_country_logic”状态，进入游戏后加载30天，就可以访问AI外交界面UI。
-ai_templates_startup/KOR = {
-	country_lock_all_division_template = yes
-	add_units_to_division_template = {
-		template_name = "朝鲜地方宪兵队"
-		support = { ai_cavalry = 1 }
-	}
-	add_units_to_division_template = {
-		template_name = "朝鲜地方警备队"
-		support = { ai_heavy_infantry = 1 }
-	}
-	ai_templates_change_starting_units = yes
-	## clear
-	delete_unit_template_and_units = { division_template = "朝鲜地方宪兵队" disband = yes }
-	delete_unit_template_and_units = { division_template = "朝鲜地方警备队" disband = yes }
-}
 
 ai_militia_templates/KOR = {
 	ai_militia_templates = yes #开头和结尾都要有

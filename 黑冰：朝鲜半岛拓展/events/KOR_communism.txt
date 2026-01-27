@@ -47,8 +47,8 @@ country_event = {
 		}
 		KOR_create_militia_army_div = yes #这些effect会对内战中新生成的国家执行，而不是原国家
 		KOR_create_partisan_army_div = yes
-		set_capital = { state = 815 }
-		set_victory_points = { province = 6944 value = 500 }
+		set_capital = { state = 815 } #咸镜
+		set_victory_points = { province = 6944 value = 100 } #恩德：胜利点100
 		ai_chance = { factor = 99 }
 	}
 	option = {

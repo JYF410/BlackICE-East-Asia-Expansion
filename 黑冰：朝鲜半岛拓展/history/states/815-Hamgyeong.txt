@@ -1,8 +1,9 @@
 
 state={
 	resources = {
-		food = 14
-		coal = 6
+		food = 22
+		coal = 10
+		iron = 4
 	}
 
 	id=815

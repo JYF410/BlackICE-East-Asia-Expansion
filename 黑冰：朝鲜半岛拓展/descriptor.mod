@@ -1,4 +1,4 @@
-version="0.26"
+version="0.44"
 tags={
 	"Historical"
 	"Gameplay"
@@ -6,6 +6,7 @@ tags={
 dependencies={
 	"BlackICE Historical Immersion Mod"
 	"BlackICE CN"
+	"Designation of troops"
 }
 name="黑冰：朝鲜半岛拓展"
 picture="thumbnail.png"
