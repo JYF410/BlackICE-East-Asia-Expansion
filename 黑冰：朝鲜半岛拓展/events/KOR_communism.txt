@@ -36,19 +36,26 @@ country_event = {
 			ruling_party = communism #原国家保留的执政党（内战后原政府的执政党）
 			ideology = ROOT #发动叛乱的意识形态（ROOT即当前政府的意识形态）
 			size = civil_war_size_var #叛乱规模修正（0–1 的比例值），影响装备库存（stockpile）、陆军、空军、海军
-			army_ratio = 1 #叛军能够保留的陆军size
-			navy_ratio = 1 #叛军能够保留的海军size
-			air_ratio = 1 #叛军能够保留的空军size
-			states = { 525 527 816 819 820 } #划归给叛军的州
+			army_ratio = 1 #叛军能够保留的陆军规模
+			navy_ratio = 0.9 #叛军能够保留的海军规模
+			air_ratio = 0.9 #叛军能够保留的空军规模
+			states = { 751 525 527 816 819 820 } #划归给叛军的州
 			keep_unit_leaders = { 202619940708 } #指定指挥官ID，这些指挥官将留在原国家，不会加入叛军
-			keep_unit_leaders_trigger = {  } #用触发器来判定 哪些指挥官留在原国家
+			#keep_unit_leaders_trigger = {  } #用触发器来判定 哪些指挥官留在原国家
 			#set_cosmetic_tag = SPRCIV #当意识形态引发国内内战时，keep_unit_leaders指定保持效忠于原国家的单位领导者的ID
 			#load_focus_tree = civilwar_focus #导入国策树
+			set_country_flag = JAP_armor
+			set_country_flag = JAP_air
+			KOR = {
+				set_capital = { state = 815 } #咸镜：设置首都
+				set_victory_points = { province = 6944 value = 80 } #恩德：胜利点80
+				set_victory_points = { province = 3981 value = 20 } #咸兴：胜利点20
+				set_country_flag = SOV_armor
+				set_country_flag = SOV_air
+				KOR_create_militia_army_div = yes #这些effect会对内战中新生成的国家执行，而不是原国家
+				KOR_create_partisan_army_div = yes #这些effect会对内战中新生成的国家执行，而不是原国家
+			}
 		}
-		KOR_create_militia_army_div = yes #这些effect会对内战中新生成的国家执行，而不是原国家
-		KOR_create_partisan_army_div = yes
-		set_capital = { state = 815 } #咸镜
-		set_victory_points = { province = 6944 value = 100 } #恩德：胜利点100
 		ai_chance = { factor = 99 }
 	}
 	option = {
