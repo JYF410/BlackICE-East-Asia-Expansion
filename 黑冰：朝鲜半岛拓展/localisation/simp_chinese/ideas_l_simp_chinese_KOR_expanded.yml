@@ -7,3 +7,4 @@
  Korean_Liberation_Army_desc:5 "大韩民国临时政府在中国境内组建的军事力量，旨在抗击日本帝国主义，争取朝鲜的独立和解放。"
  KOR_sov_hospital:5 "平壤苏军总医院"
  KOR_sov_hospital_desc:5 "平壤苏军总医院"
+ KOR_bank: "[KOR.GetNameDefCap]国家银行"

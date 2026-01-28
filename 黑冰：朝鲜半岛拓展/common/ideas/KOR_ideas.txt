@@ -135,5 +135,29 @@ ideas = {
 			}	
 		}
 	}
+	industrial_concern = {
+		#朝鲜银行
+		KOR_bank = { 
+			picture = ARG_banco_central_de_la_republica_argentina
+			allowed = {
+				original_tag = KOR
+			}
+			available = {
+				has_completed_focus = KOR_national_bank
+			}
+			cost = 50
+			research_bonus = {
+				civilian_tech = 0.05
+			}
+			traits = {  } 
+			modifier = {
+				global_building_slots_factor = 0.15
+				consumer_goods_expected_value = -0.03
+			}
+			ai_will_do = {
+				factor = 65
+			}
+		}
+	}
 }
 ### EOF ###

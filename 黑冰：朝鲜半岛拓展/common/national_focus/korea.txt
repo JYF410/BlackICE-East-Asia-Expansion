@@ -252,7 +252,7 @@ focus_tree = {
 		relative_position_id = KOR_SOV_northeast_anti_japanese_guerrillas
 		x = 0
 		y = 1
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 		cost = 7
 		available = {
 			#
@@ -331,7 +331,7 @@ focus_tree = {
 		relative_position_id = KOR_plan_strike_jap
 		x = 0
 		y = 1
-		search_filters = { FOCUS_FILTER_INFRASTRUCTURE }
+		search_filters = { FOCUS_FILTER_FORTIFICATION }
 		available_if_capitulated = yes #投降后不能点该国策
 		cost = 14
 		available = {
@@ -679,7 +679,7 @@ focus_tree = {
 			KOR_ethnic_korean_division_div = yes
 		}
 	}
-####################################################中苏if线##################################################
+####################################################苏联if线##################################################
 	#莫斯科派
 	focus = {
 		id = KOR_communism_army_to_sov
@@ -750,7 +750,7 @@ focus_tree = {
 		relative_position_id = KOR_communism_army_to_sov
 		x = 0
 		y = 1
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_FOREIGN_DIPLOMACY FOCUS_FILTER_INFRASTRUCTURE }
 		cost = 30
 		available = {
 			KOR = {
@@ -795,13 +795,170 @@ focus_tree = {
 			factor = 95
 		}
 	}
+	#扩大远东双边贸易
+	focus = {
+		id = KOR_sov_expand_bilateral_trade
+		icon = GFX_focus_CHL_domestic_production_of_the_willys_mb
+		prerequisite = { focus = KOR_sov_korean_corridor }
+		relative_position_id = KOR_sov_korean_corridor
+		x = 0
+		y = 1
+		search_filters = { FOCUS_FILTER_FOREIGN_DIPLOMACY }
+		available_if_capitulated = no #投降后不能点该国策
+		cost = 30
+		available = {
+			#
+		}
+		completion_reward = {
+			add_equipment_subsidy = {
+				cic = 5000
+				equipment_type = infantry_equipment
+				seller_tags = { SOV }
+			}
+			add_equipment_subsidy = {
+				cic = 5000
+				equipment_type = infantry_uniforms
+				seller_tags = { SOV }
+			}
+		}
+	}	
+	#苏联军事援助计划
+	focus = {
+		id = KOR_sov_military_aid_program
+		icon = GFX_focus_CHL_domestic_production_of_the_willys_mb
+		prerequisite = { focus = KOR_sov_expand_bilateral_trade }
+		relative_position_id = KOR_sov_expand_bilateral_trade
+		x = 0
+		y = 1
+		search_filters = { FOCUS_FILTER_FOREIGN_DIPLOMACY }
+		available_if_capitulated = no #投降后不能点该国策
+		cost = 30
+		available = {
+			#
+		}
+		completion_reward = {
+			#
+		}
+	}
+	#快速坦克部队
+	focus = {
+		id = KOR_sov_cavalry_tank_division
+		icon = GFX_focus_CHL_domestic_production_of_the_willys_mb
+		prerequisite = { focus = KOR_sov_military_aid_program }
+		prerequisite = { focus = KOR_sov_deep_operations_theory }
+		relative_position_id = KOR_sov_military_aid_program
+		x = 0
+		y = 1
+		search_filters = { FOCUS_FILTER_FOREIGN_DIPLOMACY }
+		available_if_capitulated = no #投降后不能点该国策
+		cost = 30
+		available = {
+			#
+		}
+		completion_reward = {
+			#
+		}
+	}	
+	#派遣航空志愿队
+	focus = {
+		id = KOR_sov_air_force_volunteer
+		icon = GFX_focus_CHL_domestic_production_of_the_willys_mb
+		prerequisite = { focus = KOR_sov_military_aid_program }
+		relative_position_id = KOR_sov_military_aid_program
+		x = -2
+		y = 1
+		search_filters = { FOCUS_FILTER_FOREIGN_DIPLOMACY }
+		available_if_capitulated = no #投降后不能点该国策
+		cost = 30
+		available = {
+			#
+		}
+		completion_reward = {
+			#
+		}
+	}
+	#苏联驻朝军事顾问团
+	focus = {
+		id = KOR_sov_army_adviser
+		icon = GFX_focus_CHL_domestic_production_of_the_willys_mb
+		prerequisite = { focus = KOR_sov_korean_corridor }
+		relative_position_id = KOR_sov_korean_corridor
+		x = 2
+		y = 1
+		search_filters = { FOCUS_FILTER_FOREIGN_DIPLOMACY }
+		available_if_capitulated = no #投降后不能点该国策
+		cost = 30
+		available = {
+			#
+		}
+		completion_reward = {
+			#
+		}
+	}	
+	#平壤军事学院
+	focus = {
+		id = KOR_sov_pyongyang_military_academy
+		icon = GFX_focus_CHL_domestic_production_of_the_willys_mb
+		prerequisite = { focus = KOR_sov_army_adviser }
+		relative_position_id = KOR_sov_army_adviser
+		x = 2
+		y = 1
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		available_if_capitulated = no #投降后不能点该国策
+		cost = 30
+		available = {
+			#
+		}
+		completion_reward = {
+			add_research_slot = 1
+			add_research_centre = yes
+			SLOT:ww1_land_doctrine_folder = yes
+			SLOT:land_doctrine_folder = yes
+		}
+	}
+	#纵深作战理论
+	focus = {
+		id = KOR_sov_deep_operations_theory
+		icon = GFX_focus_CHL_domestic_production_of_the_willys_mb
+		prerequisite = { focus = KOR_sov_army_adviser }
+		relative_position_id = KOR_sov_army_adviser
+		x = 0
+		y = 1
+		search_filters = { FOCUS_FILTER_FOREIGN_DIPLOMACY }
+		available_if_capitulated = no #投降后不能点该国策
+		cost = 30
+		available = {
+			#
+		}
+		completion_reward = {
+			#
+		}
+	}
+	#特种作战训练
+	focus = {
+		id = KOR_sov_special_operations_training
+		icon = GFX_focus_CHL_domestic_production_of_the_willys_mb
+		prerequisite = { focus = KOR_sov_deep_operations_theory }
+		relative_position_id = KOR_sov_deep_operations_theory
+		x = 0
+		y = 1
+		search_filters = { FOCUS_FILTER_FOREIGN_DIPLOMACY }
+		available_if_capitulated = no #投降后不能点该国策
+		cost = 30
+		available = {
+			#
+		}
+		completion_reward = {
+			#
+		}
+	}
 	#平壤苏军总医院
 	focus = {
 		id = KOR_expand_pyeongchang_military_hospital
 		icon = GFX_focus_generic_low_cost_housing
-		prerequisite = { focus = KOR_sov_korean_corridor }
-		relative_position_id = KOR_sov_korean_corridor
-		x = 2
+		prerequisite = { focus = KOR_sov_pyongyang_military_academy }
+		relative_position_id = KOR_sov_pyongyang_military_academy
+		x = 0
 		y = 1
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER }
 		available_if_capitulated = no #投降后不能点该国策
@@ -821,27 +978,7 @@ focus_tree = {
 			add_ideas = KOR_sov_hospital
 		}
 	}
-	#平壤军事学院
-	focus = {
-		id = KOR_sov_pyongyang_military_academy
-		icon = GFX_focus_CHL_domestic_production_of_the_willys_mb
-		prerequisite = { focus = KOR_sov_korean_corridor }
-		relative_position_id = KOR_sov_korean_corridor
-		x = 0
-		y = 1
-		search_filters = { FOCUS_FILTER_RESEARCH }
-		available_if_capitulated = no #投降后不能点该国策
-		cost = 30
-		available = {
-			#
-		}
-		completion_reward = {
-			add_research_slot = 1
-			add_research_centre = yes
-			SLOT:ww1_land_doctrine_folder = yes
-			SLOT:land_doctrine_folder = yes
-		}
-	}
+
 ##################################################通用军事线####################################################
 	#国民精神总动员
 	focus = {
@@ -864,7 +1001,7 @@ focus_tree = {
 			factor = 85
 		}
 	}
-	#部署惠山地方警备队
+	#在惠山地方征召部队
 	focus = {
 		id = KOR_jap_garrison_army_01
 		icon = GFX_goal_infantry_tactics
@@ -875,13 +1012,16 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_ARMY}	
 		cost = 7
 		completion_reward = {
+			add_manpower = -3000
+			add_stability = -0.01 #稳定度-1%
+			add_war_support = -0.02 #战争支持度-2%
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
 			factor = 65
 		}
 	}
-	#部署普天堡地方警备队
+	#在普天堡地方征召部队
 	focus = {
 		id = KOR_jap_garrison_army_02
 		icon = GFX_goal_infantry_tactics
@@ -892,13 +1032,16 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_ARMY}	
 		cost = 7
 		completion_reward = {
+			add_manpower = -3000
+			add_stability = -0.01 #稳定度-1%
+			add_war_support = -0.02 #战争支持度-2%
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
 			factor = 64
 		}
 	}
-	#部署元山地方警备队
+	#在元山地方征召部队
 	focus = {
 		id = KOR_jap_garrison_army_03
 		icon = GFX_goal_infantry_tactics
@@ -909,13 +1052,16 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_ARMY}	
 		cost = 7
 		completion_reward = {
+			add_manpower = -3000
+			add_stability = -0.01 #稳定度-1%
+			add_war_support = -0.02 #战争支持度-2%
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
 			factor = 63
 		}
 	}
-	#部署兴南地方警备队
+	#在兴南地方征召部队
 	focus = {
 		id = KOR_jap_garrison_army_04
 		icon = GFX_goal_infantry_tactics
@@ -926,13 +1072,16 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_ARMY}	
 		cost = 7
 		completion_reward = {
+			add_manpower = -3000
+			add_stability = -0.01 #稳定度-1%
+			add_war_support = -0.02 #战争支持度-2%
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
 			factor = 62
 		}
 	}
-	#部署南浦地方警备队
+	#在南浦地方征召部队
 	focus = {
 		id = KOR_jap_garrison_army_05
 		icon = GFX_goal_infantry_tactics
@@ -943,13 +1092,16 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_ARMY}	
 		cost = 7
 		completion_reward = {
+			add_manpower = -3000
+			add_stability = -0.01 #稳定度-1%
+			add_war_support = -0.02 #战争支持度-2%
 			KOR_create_JAP_partisan_army_div = yes
 		}
 		ai_will_do = {
 			factor = 61
 		}
 	}
-	#派遣平壤地方宪兵队
+	#组建平壤地方宪兵部队
 	focus = {
 		id = KOR_jap_military_police_army
 		icon = GFX_goal_infantry_tactics
@@ -960,10 +1112,12 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_ARMY}	
 		cost = 14
 		completion_reward = {
+			add_stability = 0.02 #稳定度+2%
+			add_war_support = -0.05 #战争支持度-5%
 			KOR_create_JAP_MP_army_div = yes
 		}
 		ai_will_do = {
-			factor = 65
+			factor = 70
 		}
 	}
 ##################################################通用建设线####################################################
@@ -973,7 +1127,7 @@ focus_tree = {
 		icon = GFX_focus_ARG_strengthening_the_concordancia
 		x = 26
 		y = 0
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INFRASTRUCTURE }
 		cost = 30
 		completion_reward = {
 			capital_scope = {
@@ -992,7 +1146,7 @@ focus_tree = {
 			depression_improves = yes
 		}
 		ai_will_do = {
-			factor = 65
+			factor = 60
 		}
 	}
 	#朝鲜银行
@@ -1003,10 +1157,11 @@ focus_tree = {
 		relative_position_id = KOR_JAP_office_governor
 		x = -2
 		y = 1
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 		cost = 30
 		completion_reward = {
 			custom_effect_tooltip = available_industrial_concern
-			show_ideas_tooltip = SIA_bank
+			show_ideas_tooltip = KOR_bank
 		}
 		ai_will_do = {
 			factor = 65
@@ -1020,22 +1175,18 @@ focus_tree = {
 		relative_position_id = KOR_national_bank
 		x = 0
 		y = 1
+		search_filters = { FOCUS_FILTER_FOREIGN_DIPLOMACY }
 		cost = 14
 		completion_reward = {
-			if = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-				add_equipment_subsidy = {
-					cic = 2000
-					equipment_type = infantry_equipment
-					seller_tags = { JAP }
-				}
-				add_equipment_subsidy = {
-					cic = 2000
-					equipment_type = infantry_uniforms
-					seller_tags = { JAP }
-				}
+			add_equipment_subsidy = {
+				cic = 2000
+				equipment_type = infantry_equipment
+				seller_tags = { JAP }
+			}
+			add_equipment_subsidy = {
+				cic = 2000
+				equipment_type = infantry_uniforms
+				seller_tags = { JAP }
 			}
 		}
 		ai_will_do = {
@@ -1177,13 +1328,13 @@ focus_tree = {
 			factor = 5
 		}
 	}
-#################################################################################################################
+###############################################################################################################
 	#重视军备I
 	focus = {
 		id = KOR_production_effort
 		icon = GFX_goal_generic_construct_mil_factory
 		search_filters = {FOCUS_FILTER_INDUSTRY}
-		x = 26
+		x = 30
 		y = 8
 		cost = 70 # Previously was: 70.0 
 		available_if_capitulated = no
@@ -1576,7 +1727,7 @@ focus_tree = {
 		id = KOR_equipment_effort
 		icon = GFX_goal_generic_small_arms
 		search_filters = {FOCUS_FILTER_ARMY}
-		x = 24
+		x = 28
 		y = 8
 		cost = 70 # Previously was: 70.0 
 		available_if_capitulated = no
